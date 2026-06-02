@@ -6,9 +6,27 @@ function getGap(block) {
   return Number.isFinite(value) && value >= 0 ? `${value}px` : '';
 }
 
+const utilityAreaNames = [
+  'Florida City Gas',
+  'Central Florida Gas',
+  'TECO Peoples Gas',
+  'Florida Public Utilities',
+];
+
+function hasUtilityAreaList(block) {
+  const items = [...block.querySelectorAll('li')]
+    .map((li) => li.textContent.trim().replace(/\s+/g, ' '));
+
+  return utilityAreaNames.every((name) => items.includes(name));
+}
+
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
+
+  if (!block.classList.contains('rainbow-sandwich-links') && hasUtilityAreaList(block)) {
+    block.classList.add('rainbow-sandwich-links');
+  }
 
   const gap = getGap(block);
   if (gap) block.style.setProperty('--columns-gap', gap);

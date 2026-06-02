@@ -55,6 +55,10 @@
             {
               "name": "Spaced Evenly",
               "value": "spaced-evenly"
+            },
+            {
+              "name": "Rainbow Sandwich Links",
+              "value": "rainbow-sandwich-links"
             }
           ]
         },
