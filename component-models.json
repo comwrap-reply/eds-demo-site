@@ -313,16 +313,12 @@
         "value": ""
       },
       {
-        "component": "select",
-        "name": "classes_alignment",
-        "label": "Alignment",
-        "value": "",
-        "valueType": "string",
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Teaser options",
+        "value": [],
+        "valueType": "array",
         "options": [
-          {
-            "name": "Default",
-            "value": ""
-          },
           {
             "name": "Left",
             "value": "text-align-left"
@@ -338,19 +334,6 @@
           {
             "name": "Justify",
             "value": "text-align-justify"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "classes_color",
-        "label": "Color Picker",
-        "value": "",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Default",
-            "value": ""
           },
           {
             "name": "Black",
