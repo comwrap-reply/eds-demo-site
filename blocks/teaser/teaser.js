@@ -6,7 +6,7 @@ function getLink(cell) {
   const text = cell?.textContent?.trim();
   return link?.getAttribute('href') || text || '';
 }
-
+// Build Cta
 function buildCta(cell) {
   const href = getLink(cell);
   if (!href) return null;
