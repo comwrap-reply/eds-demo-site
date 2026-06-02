@@ -5,11 +5,18 @@ function getCell(row) {
 function getLink(cell) {
   const link = cell?.querySelector?.('a[href]');
   const text = cell?.textContent?.trim();
-  return link?.getAttribute('href') || text || '';
+  if (link) return link.getAttribute('href');
+
+  return /^(\/|#|https?:|mailto:|tel:)/i.test(text) ? text : '';
 }
 
 function hasContent(cell) {
   return !!(cell?.textContent?.trim() || cell?.children.length);
+}
+
+function hasRichTextContent(row) {
+  const cell = getCell(row);
+  return !!cell?.querySelector?.('h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote');
 }
 
 function appendContent(cell, content) {
@@ -19,24 +26,36 @@ function appendContent(cell, content) {
   content.append(cell);
 }
 
-function getRows(rows, hasAuthoredAltRow) {
+function getRows(rows) {
   if (rows.length > 4) {
     return {
+      altRow: rows[1],
       contentRow: rows[2],
       ctaTextRow: rows[3],
       ctaLinkRow: rows[4],
     };
   }
 
-  if (hasAuthoredAltRow) {
+  if (rows.length > 3 && !hasRichTextContent(rows[1])) {
     return {
+      altRow: rows[1],
       contentRow: rows[2],
       ctaTextRow: null,
       ctaLinkRow: rows[3],
     };
   }
 
+  if (rows.length > 3) {
+    return {
+      altRow: null,
+      contentRow: rows[1],
+      ctaTextRow: rows[2],
+      ctaLinkRow: rows[3],
+    };
+  }
+
   return {
+    altRow: null,
     contentRow: rows[1],
     ctaTextRow: null,
     ctaLinkRow: rows[2],
@@ -50,13 +69,12 @@ function getRows(rows, hasAuthoredAltRow) {
 export default function decorate(block) {
   const rows = [...block.children];
   const [imageRow] = rows;
-  const hasAuthoredAltRow = rows.length > 3;
-  const altRow = hasAuthoredAltRow ? rows[1] : null;
   const {
+    altRow,
     contentRow,
     ctaTextRow,
     ctaLinkRow,
-  } = getRows(rows, hasAuthoredAltRow);
+  } = getRows(rows);
   const imageCell = getCell(imageRow);
   const altCell = getCell(altRow);
   const contentCell = getCell(contentRow);
