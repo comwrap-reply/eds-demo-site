@@ -20,7 +20,7 @@
   display: block;
 }
 
-.columns h3 {
+.columns h2,h3 {
   margin: 0 0 18px;
   font-size: 28px;
   font-weight: 400;
@@ -50,7 +50,7 @@
   margin: 0;
 }
 
-.columns.rainbow-sandwich-links h3 {
+.columns.rainbow-sandwich-links h2,h3 {
   font-size: 24px;
 }
 
