@@ -3,6 +3,13 @@ import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
+const PRIMARY_LINKS = {
+  commercial: '/commercial/',
+  residential: '/residential/',
+  sustainability: '/sustainability/',
+  'contact us': '/contact-us/',
+};
+const BRAND_IMAGE = 'https://www.onlyfng.com/content/dam/southstar/florida-natural-gas/images/logos/FNG_LOGO_Horizontal-Stacked-2C-RGB.png';
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -130,6 +137,38 @@ function decorateNavTools(nav) {
   });
 }
 
+function ensurePrimaryLinks(nav) {
+  const sections = nav.querySelector('.nav-sections');
+  const items = sections?.querySelectorAll('li') || [];
+  items.forEach((item) => {
+    if (item.querySelector(':scope > a[href]')) return;
+    const href = PRIMARY_LINKS[item.firstChild?.textContent?.trim().toLowerCase()];
+    if (!href) return;
+    const link = document.createElement('a');
+    link.href = href;
+    link.textContent = item.textContent.trim();
+    item.replaceChildren(link);
+  });
+}
+
+function ensureBrand(nav) {
+  if (nav.querySelector('.nav-brand')) return;
+  if (nav.firstElementChild?.querySelector('a img')) return;
+
+  const brand = document.createElement('div');
+  brand.className = 'nav-brand';
+  const paragraph = document.createElement('p');
+  const link = document.createElement('a');
+  link.href = '/';
+  const image = document.createElement('img');
+  image.src = BRAND_IMAGE;
+  image.alt = 'Florida Natural Gas';
+  link.append(image);
+  paragraph.append(link);
+  brand.append(paragraph);
+  nav.prepend(brand);
+}
+
 function decorateSearch(nav) {
   const tools = nav.querySelector('.nav-tools');
   if (!tools) return;
@@ -170,6 +209,8 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+  ensureBrand(nav);
+
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
@@ -184,9 +225,11 @@ export default async function decorate(block) {
   }
 
   const navSections = nav.querySelector('.nav-sections');
+  ensurePrimaryLinks(nav);
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      if (!navSection.querySelector('ul')) return;
+      navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';

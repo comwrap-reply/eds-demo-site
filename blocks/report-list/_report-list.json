@@ -1,0 +1,47 @@
+{
+  "definitions": [
+    {
+      "title": "Report List",
+      "id": "report-list",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Report List",
+              "filter": "report-list"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Report",
+      "id": "report",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Report",
+              "model": "report"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "report",
+      "fields": [
+        {"component": "text", "valueType": "string", "name": "date", "label": "Report date", "value": ""},
+        {"component": "richtext", "valueType": "string", "name": "content", "label": "Title and description", "value": ""},
+        {"component": "reference", "valueType": "string", "name": "document", "label": "PDF document", "multi": false}
+      ]
+    }
+  ],
+  "filters": [
+    {"id": "report-list", "components": ["report"]}
+  ]
+}

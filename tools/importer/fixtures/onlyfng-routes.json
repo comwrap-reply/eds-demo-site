@@ -1,0 +1,17 @@
+[
+  {"path": "/", "blocks": ["hero-carousel"]},
+  {"path": "/residential/", "blocks": ["hero", "columns"]},
+  {"path": "/commercial/", "blocks": ["hero-carousel"]},
+  {"path": "/commercial/get-a-quote/", "blocks": ["hero", "form.quote"]},
+  {"path": "/sustainability/", "blocks": ["hero", "cards"]},
+  {"path": "/sustainability/greener-life/", "blocks": ["hero", "media"]},
+  {"path": "/sustainability/about-cng/", "blocks": ["hero"]},
+  {"path": "/contact-us/", "blocks": ["hero", "cards.profile"]},
+  {"path": "/pay-online/", "blocks": ["hero", "cards.icon"]},
+  {"path": "/paperless/", "blocks": ["hero", "form.paperless"]},
+  {"path": "/about-choice/", "blocks": ["hero"]},
+  {"path": "/about-us/", "blocks": ["hero"]},
+  {"path": "/privacy-policy/", "blocks": []},
+  {"path": "/terms-of-use/", "blocks": ["hero"]},
+  {"path": "/market-reports/", "blocks": ["hero", "report-list", "form.market-reports"]}
+]

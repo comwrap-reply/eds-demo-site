@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "path": "/residential/",
+      "title": "Residential Natural Gas Service",
+      "description": "Reliable natural gas service for Florida homes."
+    },
+    {
+      "path": "/commercial/",
+      "title": "Commercial Natural Gas",
+      "description": "Flexible natural gas solutions for Florida businesses."
+    },
+    {
+      "path": "/about-us/",
+      "title": "About Florida Natural Gas",
+      "description": "Learn about Florida Natural Gas and our team."
+    }
+  ]
+}

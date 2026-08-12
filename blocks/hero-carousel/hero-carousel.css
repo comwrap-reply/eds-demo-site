@@ -1,0 +1,112 @@
+main .hero-carousel {
+  position: relative;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  background: var(--fng-blue);
+  color: var(--background-color);
+}
+
+main .hero-carousel-slide {
+  min-height: 30rem;
+}
+
+main .hero-carousel-slide[hidden] {
+  display: none;
+}
+
+main .hero-carousel-media,
+main .hero-carousel-media picture,
+main .hero-carousel-media img {
+  height: 100%;
+}
+
+main .hero-carousel-media picture {
+  display: block;
+}
+
+main .hero-carousel-media img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+main .hero-carousel-content {
+  position: absolute;
+  z-index: 1;
+  inset: auto 0 0;
+  padding: 1.5rem 1.25rem 4.5rem;
+  background: linear-gradient(0deg, rgb(0 44 128 / 95%), rgb(0 44 128 / 15%));
+}
+
+main .hero-carousel-content :is(h1, h2, p) {
+  max-width: 38rem;
+  color: var(--background-color);
+}
+
+main .hero-carousel-content h1,
+main .hero-carousel-content h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+main .hero-carousel-controls {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+main .hero-carousel-controls button {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  border: 1px solid var(--background-color);
+  border-radius: 0;
+  background: var(--fng-blue);
+  color: var(--background-color);
+  font: inherit;
+}
+
+main .hero-carousel-indicators {
+  display: flex;
+  gap: 0.25rem;
+}
+
+main .hero-carousel-indicators .hero-carousel-indicator {
+  min-width: 1.6rem;
+  min-height: 1.6rem;
+  padding: 0;
+  font-size: 0.75rem;
+}
+
+main .hero-carousel-indicator[aria-selected="true"] {
+  background: var(--fng-orange);
+}
+
+main .hero-carousel-controls button:hover,
+main .hero-carousel-controls button:focus-visible {
+  outline: 2px solid var(--fng-orange);
+  outline-offset: 2px;
+}
+
+@media (width >= 900px) {
+  main .hero-carousel-slide {
+    min-height: 31rem;
+  }
+
+  main .hero-carousel-content {
+    inset: 0 auto 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: min(42%, 34rem);
+    padding: 4rem max(3rem, calc((100vw - 1200px) / 2));
+    background: rgb(0 44 128 / 87%);
+  }
+
+  main .hero-carousel-content h1,
+  main .hero-carousel-content h2 {
+    font-size: var(--heading-font-size-xxl);
+  }
+}

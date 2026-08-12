@@ -1,0 +1,89 @@
+main .form {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: var(--fng-input-gray);
+}
+
+main .form form {
+  display: grid;
+  gap: 1rem;
+}
+
+main .form-field,
+main .form-fieldset {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+main .form-fieldset > label {
+  display: block;
+}
+
+main .form label,
+main .form legend {
+  font-weight: 700;
+}
+
+main .form :is(input, select, textarea) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid var(--fng-gray-blue);
+  border-radius: 0;
+  padding: 0.65rem;
+  background: var(--background-color);
+  color: var(--text-color);
+  font: inherit;
+}
+
+main .form :is(input[type="checkbox"], input[type="radio"]) {
+  width: auto;
+  min-height: auto;
+}
+
+main .form .form-consent {
+  font-weight: 400;
+}
+
+main .form .form-honeypot {
+  position: absolute;
+  left: -10000px;
+}
+
+main .form button {
+  justify-self: start;
+  min-width: 12rem;
+  min-height: 2.75rem;
+  border: 1px solid var(--fng-orange);
+  border-radius: 0;
+  background: var(--fng-orange);
+  color: var(--background-color);
+  font: inherit;
+  font-weight: 700;
+}
+
+main .form-status {
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border-left: 4px solid #039a67;
+  background: #eaf7f0;
+}
+
+main .form-status.form-status-error {
+  border-color: #cc2027;
+  background: #fff0f0;
+}
+
+@media (width >= 600px) {
+  main .form form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  main .form form > :is(h1, h2, h3, p, fieldset, .form-conditional, .form-consent, button, input[type="hidden"]) {
+    grid-column: 1 / -1;
+  }
+}
