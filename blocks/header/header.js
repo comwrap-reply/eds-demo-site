@@ -169,6 +169,37 @@ function ensureBrand(nav) {
   nav.prepend(brand);
 }
 
+function getSectionItems(section) {
+  return [...section.querySelectorAll(':scope > .default-content-wrapper > ul > li, :scope > ul > li')];
+}
+
+function isPrimarySection(section) {
+  const items = getSectionItems(section);
+  return items.some((item) => PRIMARY_LINKS[item.textContent.trim().toLowerCase()]);
+}
+
+function isToolsSection(section) {
+  return !!section.querySelector('a[href^="tel:"]') || section.textContent.includes('Monday - Friday');
+}
+
+function organizeNavRegions(nav) {
+  const children = [...nav.children];
+  const navBrand = children.find((section) => section.classList.contains('nav-brand')
+    || section.querySelector('a img'));
+  const navSections = children.find(isPrimarySection);
+  const navTools = children.find(isToolsSection);
+
+  children
+    .filter((section) => ![navBrand, navSections, navTools].includes(section)
+      && !section.textContent.trim() && section.querySelector('picture, img'))
+    .forEach((section) => section.remove());
+
+  navBrand?.classList.add('nav-brand');
+  navSections?.classList.add('nav-sections');
+  navTools?.classList.add('nav-tools');
+  return { navBrand, navSections, navTools };
+}
+
 function decorateSearch(nav) {
   const tools = nav.querySelector('.nav-tools');
   if (!tools) return;
@@ -210,21 +241,13 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   ensureBrand(nav);
-
-  const classes = ['brand', 'sections', 'tools'];
-  classes.forEach((c, i) => {
-    const section = nav.children[i];
-    if (section) section.classList.add(`nav-${c}`);
-  });
-
-  const navBrand = nav.querySelector('.nav-brand');
+  const { navBrand, navSections } = organizeNavRegions(nav);
   const brandLink = navBrand?.querySelector('.button');
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
   }
 
-  const navSections = nav.querySelector('.nav-sections');
   ensurePrimaryLinks(nav);
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
