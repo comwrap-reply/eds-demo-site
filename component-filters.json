@@ -42,5 +42,17 @@
       "columns",
       "teaser"
     ]
+  },
+  {
+    "id": "hero-carousel",
+    "components": [
+      "hero-carousel-slide"
+    ]
+  },
+  {
+    "id": "report-list",
+    "components": [
+      "report"
+    ]
   }
 ]

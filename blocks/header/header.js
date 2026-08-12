@@ -130,6 +130,29 @@ function decorateNavTools(nav) {
   });
 }
 
+function decorateSearch(nav) {
+  const tools = nav.querySelector('.nav-tools');
+  if (!tools) return;
+
+  const form = document.createElement('form');
+  form.className = 'nav-search';
+  form.action = getMetadata('search-path') || '/search-results/';
+  form.method = 'get';
+  const label = document.createElement('label');
+  label.htmlFor = 'nav-search-query';
+  label.textContent = 'Search this site';
+  const input = document.createElement('input');
+  input.id = 'nav-search-query';
+  input.name = 'q';
+  input.type = 'search';
+  input.placeholder = 'Search';
+  const submit = document.createElement('button');
+  submit.type = 'submit';
+  submit.textContent = 'Search';
+  form.append(label, input, submit);
+  tools.append(form);
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -175,6 +198,7 @@ export default async function decorate(block) {
   }
 
   decorateNavTools(nav);
+  decorateSearch(nav);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

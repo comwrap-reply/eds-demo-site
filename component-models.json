@@ -248,12 +248,78 @@
     ]
   },
   {
+    "id": "form",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes_type",
+        "label": "Form type",
+        "value": "quote",
+        "options": [
+          {
+            "name": "Quote",
+            "value": "quote"
+          },
+          {
+            "name": "Paperless billing",
+            "value": "paperless"
+          },
+          {
+            "name": "Market reports",
+            "value": "market-reports"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content",
+        "label": "Heading and introduction",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "submitLabel",
+        "label": "Submit label",
+        "value": "Submit"
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
         "component": "aem-content",
         "name": "reference",
         "label": "Reference"
+      }
+    ]
+  },
+  {
+    "id": "hero-carousel-slide",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt text",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content",
+        "label": "Content",
+        "value": ""
       }
     ]
   },
@@ -299,6 +365,77 @@
   {
     "id": "horizontal-rule",
     "fields": []
+  },
+  {
+    "id": "media",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "video",
+        "label": "MP4 video",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "poster",
+        "label": "Poster image",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "captions",
+        "label": "Captions VTT",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "caption",
+        "label": "Caption",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "report",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "date",
+        "label": "Report date",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content",
+        "label": "Title and description",
+        "value": ""
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "document",
+        "label": "PDF document",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "search-results",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Heading",
+        "value": "Search results"
+      }
+    ]
   },
   {
     "id": "teaser",

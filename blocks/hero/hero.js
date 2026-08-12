@@ -93,7 +93,7 @@ export default function decorate(block) {
   content.querySelectorAll('h1').forEach((heading) => heading.classList.add('adaptive-carousel--title'));
 
   const existingCta = content.querySelector('a.button, a[href].hero-cta');
-  if (!existingCta) {
+  if (!existingCta && !block.classList.contains('no-cta')) {
     const ctaText = ctaTextRow?.textContent?.trim()
       || ctaLinkRow?.querySelector?.('a[href]')?.textContent?.trim()
       || 'GET A FREE QUOTE';

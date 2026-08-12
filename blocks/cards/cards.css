@@ -125,6 +125,35 @@
   text-decoration: none;
 }
 
+.cards.icon > ul > li {
+  background: var(--fng-input-gray);
+}
+
+.cards.profile > ul {
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+}
+
+.cards.profile > ul > li {
+  min-height: 18rem;
+  border: 0;
+  padding: 1rem;
+  background: var(--fng-input-gray);
+}
+
+.cards.profile .cards-card-icon {
+  grid-column: 1 / -1;
+  grid-row: auto;
+  justify-self: start;
+  width: 7rem;
+  height: 7rem;
+}
+
+.cards.profile .cards-card-icon img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+}
+
 @media (width >= 900px) {
   .cards > ul {
     grid-template-columns: repeat(4, minmax(0, 1fr));

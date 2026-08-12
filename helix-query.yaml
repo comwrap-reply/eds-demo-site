@@ -14,3 +14,17 @@ indices:
       robots:
         select: head > meta[name="robots"]
         value: attribute(el, "content")
+  sitemap:
+    include:
+      - '/**'
+    exclude:
+      - '/**.json'
+      - '/search-results/**'
+    target: /sitemap-index.json
+    properties:
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")

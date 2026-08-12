@@ -211,6 +211,37 @@ header nav .nav-tools .default-content-wrapper {
   gap: 12px;
 }
 
+header nav .nav-search {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+header nav .nav-search label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+header nav .nav-search input {
+  width: 7rem;
+  min-height: 2rem;
+  border: 1px solid var(--fng-gray-blue);
+  padding: 0.2rem 0.4rem;
+  font: inherit;
+}
+
+header nav .nav-search button {
+  min-height: 2rem;
+  border: 1px solid var(--fng-blue);
+  background: var(--fng-blue);
+  color: var(--background-color);
+  font: inherit;
+}
+
 header nav .nav-tools p {
   display: none;
 }
@@ -261,6 +292,10 @@ header nav .nav-tools a {
 
   header nav .nav-tools p {
     display: block;
+  }
+
+  header nav .nav-search {
+    margin-left: auto;
   }
 
   header nav .nav-tools .nav-tools-list {
