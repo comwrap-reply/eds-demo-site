@@ -83,6 +83,47 @@
         },
         {
           "component": "select",
+          "name": "classes_background",
+          "label": "Background color",
+          "value": "",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Light gray",
+              "value": "background-light"
+            },
+            {
+              "name": "Dark gray",
+              "value": "background-dark-gray"
+            },
+            {
+              "name": "FNG blue",
+              "value": "background-blue"
+            },
+            {
+              "name": "FNG light blue",
+              "value": "background-light-blue"
+            },
+            {
+              "name": "FNG cyan",
+              "value": "background-cyan"
+            },
+            {
+              "name": "FNG orange",
+              "value": "background-orange"
+            },
+            {
+              "name": "White",
+              "value": "background-white"
+            }
+          ]
+        },
+        {
+          "component": "select",
           "name": "classes_layout",
           "label": "Layout",
           "value": "",

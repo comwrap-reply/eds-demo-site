@@ -4,6 +4,41 @@
   gap: var(--columns-gap, 24px);
 }
 
+.columns.background-light {
+  background-color: var(--light-color);
+}
+
+.columns.background-dark-gray {
+  background-color: var(--fng-dark-gray);
+  color: var(--background-color);
+}
+
+.columns.background-blue {
+  background-color: var(--fng-blue);
+  color: var(--background-color);
+}
+
+.columns.background-light-blue {
+  background-color: var(--fng-strong-blue);
+  color: var(--background-color);
+}
+
+.columns:is(.background-dark-gray, .background-blue, .background-light-blue) a:any-link {
+  color: inherit;
+}
+
+.columns.background-cyan {
+  background-color: var(--fng-cyan);
+}
+
+.columns.background-orange {
+  background-color: var(--fng-orange);
+}
+
+.columns.background-white {
+  background-color: var(--background-color);
+}
+
 .columns img {
   width: 100%;
 }
