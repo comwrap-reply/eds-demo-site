@@ -187,25 +187,65 @@
     "id": "columns",
     "fields": [
       {
-        "component": "text",
-        "valueType": "number",
+        "component": "select",
+        "valueType": "string",
         "name": "columns",
-        "value": "",
-        "label": "Columns"
+        "value": "2",
+        "label": "Columns",
+        "options": [
+          {
+            "name": "1",
+            "value": "1"
+          },
+          {
+            "name": "2",
+            "value": "2"
+          },
+          {
+            "name": "3",
+            "value": "3"
+          },
+          {
+            "name": "4",
+            "value": "4"
+          }
+        ]
       },
       {
-        "component": "text",
-        "valueType": "number",
+        "component": "select",
+        "valueType": "string",
         "name": "rows",
-        "value": "",
-        "label": "Rows"
+        "value": "1",
+        "label": "Rows",
+        "options": [
+          {
+            "name": "1",
+            "value": "1"
+          },
+          {
+            "name": "2",
+            "value": "2"
+          },
+          {
+            "name": "3",
+            "value": "3"
+          },
+          {
+            "name": "4",
+            "value": "4"
+          }
+        ]
       },
       {
-        "component": "text",
+        "component": "number",
         "valueType": "number",
         "name": "gap",
-        "value": "24",
-        "label": "Gap"
+        "value": 24,
+        "label": "Gap",
+        "validation": {
+          "numberMin": 0,
+          "customErrorMsg": "Gap must be zero or greater."
+        }
       },
       {
         "component": "select",
