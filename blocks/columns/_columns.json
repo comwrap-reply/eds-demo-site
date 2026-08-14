@@ -134,6 +134,10 @@
               "value": ""
             },
             {
+              "name": "Panelled",
+              "value": "panelled"
+            },
+            {
               "name": "Spaced Evenly",
               "value": "spaced-evenly"
             },

@@ -125,6 +125,20 @@
   color: #e78d24;
 }
 
+.columns.panelled {
+  padding: 24px 16px 32px;
+}
+
+.columns.panelled > div {
+  gap: var(--columns-gap, 48px);
+}
+
+.columns.panelled > div > div {
+  box-sizing: border-box;
+  padding: 24px 32px;
+  background-color: var(--background-color);
+}
+
 @media (width >= 600px) {
   .columns.rainbow-sandwich-links ul {
     grid-auto-flow: column;
@@ -158,5 +172,9 @@
 
   .columns.spaced-evenly > div > div {
     flex: unset;
+  }
+
+  .columns.panelled {
+    padding: 32px 48px 48px;
   }
 }
