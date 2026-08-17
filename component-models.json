@@ -371,6 +371,92 @@
     "fields": [
       {
         "component": "select",
+        "name": "classes_alignment",
+        "label": "Alignment",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Left",
+            "value": "text-align-left"
+          },
+          {
+            "name": "Center",
+            "value": "text-align-center"
+          },
+          {
+            "name": "Right",
+            "value": "text-align-right"
+          },
+          {
+            "name": "Justify",
+            "value": "text-align-justify"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_color",
+        "label": "Color Picker",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Black",
+            "value": "text-color-black"
+          },
+          {
+            "name": "Dark Gray",
+            "value": "text-color-dark-gray"
+          },
+          {
+            "name": "FNG Blue",
+            "value": "text-color-blue"
+          },
+          {
+            "name": "FNG Light Blue",
+            "value": "text-color-light-blue"
+          },
+          {
+            "name": "FNG Cyan",
+            "value": "text-color-cyan"
+          },
+          {
+            "name": "FNG Orange",
+            "value": "text-color-orange"
+          },
+          {
+            "name": "Green",
+            "value": "text-color-green"
+          },
+          {
+            "name": "Red",
+            "value": "text-color-red"
+          },
+          {
+            "name": "Grey Blue",
+            "value": "text-color-grey-blue"
+          },
+          {
+            "name": "Muted Orange",
+            "value": "text-color-muted-orange"
+          },
+          {
+            "name": "White",
+            "value": "text-color-white"
+          }
+        ]
+      },
+      {
+        "component": "select",
         "name": "classes_gridspan",
         "label": "Grid span",
         "value": "",
