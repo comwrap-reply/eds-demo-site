@@ -27,6 +27,62 @@
           "component": "text",
           "name": "imageAlt",
           "label": "Alt Text"
+        },
+        {
+          "component": "select",
+          "name": "classes_gridspan",
+          "label": "Grid span",
+          "value": "",
+          "valueType": "string",
+          "options": [
+            { "name": "Auto", "value": "" },
+            { "name": "1 space", "value": "grid-span-1" },
+            { "name": "2 spaces", "value": "grid-span-2" },
+            { "name": "3 spaces", "value": "grid-span-3" },
+            { "name": "4 spaces", "value": "grid-span-4" },
+            { "name": "5 spaces", "value": "grid-span-5" },
+            { "name": "6 spaces", "value": "grid-span-6" },
+            { "name": "7 spaces", "value": "grid-span-7" },
+            { "name": "8 spaces", "value": "grid-span-8" },
+            { "name": "9 spaces", "value": "grid-span-9" },
+            { "name": "10 spaces", "value": "grid-span-10" },
+            { "name": "11 spaces", "value": "grid-span-11" },
+            { "name": "12 spaces", "value": "grid-span-12" }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "classes_gridoffset",
+          "label": "Grid offset",
+          "value": "",
+          "valueType": "string",
+          "options": [
+            { "name": "Auto", "value": "" },
+            { "name": "1 space", "value": "grid-offset-1" },
+            { "name": "2 spaces", "value": "grid-offset-2" },
+            { "name": "3 spaces", "value": "grid-offset-3" },
+            { "name": "4 spaces", "value": "grid-offset-4" },
+            { "name": "5 spaces", "value": "grid-offset-5" },
+            { "name": "6 spaces", "value": "grid-offset-6" },
+            { "name": "7 spaces", "value": "grid-offset-7" },
+            { "name": "8 spaces", "value": "grid-offset-8" },
+            { "name": "9 spaces", "value": "grid-offset-9" },
+            { "name": "10 spaces", "value": "grid-offset-10" },
+            { "name": "11 spaces", "value": "grid-offset-11" }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "classes_gridfloat",
+          "label": "Floating position",
+          "value": "",
+          "valueType": "string",
+          "options": [
+            { "name": "Stretch", "value": "" },
+            { "name": "Left", "value": "grid-float-left" },
+            { "name": "Center", "value": "grid-float-center" },
+            { "name": "Right", "value": "grid-float-right" }
+          ]
         }
       ]
     }

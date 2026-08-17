@@ -129,6 +129,38 @@
           }
         },
         {
+          "title": "Content Grid",
+          "id": "content-grid",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Content Grid",
+                  "filter": "content-grid"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Grid Item",
+          "id": "content-grid-item",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Grid Item",
+                  "model": "content-grid-item",
+                  "titleType": "h3",
+                  "classes_width": "grid-width-100"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Form",
           "id": "form",
           "plugins": {

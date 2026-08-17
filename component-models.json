@@ -36,6 +36,149 @@
         "component": "text",
         "name": "imageAlt",
         "label": "Alt Text"
+      },
+      {
+        "component": "select",
+        "name": "classes_gridspan",
+        "label": "Grid span",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "1 space",
+            "value": "grid-span-1"
+          },
+          {
+            "name": "2 spaces",
+            "value": "grid-span-2"
+          },
+          {
+            "name": "3 spaces",
+            "value": "grid-span-3"
+          },
+          {
+            "name": "4 spaces",
+            "value": "grid-span-4"
+          },
+          {
+            "name": "5 spaces",
+            "value": "grid-span-5"
+          },
+          {
+            "name": "6 spaces",
+            "value": "grid-span-6"
+          },
+          {
+            "name": "7 spaces",
+            "value": "grid-span-7"
+          },
+          {
+            "name": "8 spaces",
+            "value": "grid-span-8"
+          },
+          {
+            "name": "9 spaces",
+            "value": "grid-span-9"
+          },
+          {
+            "name": "10 spaces",
+            "value": "grid-span-10"
+          },
+          {
+            "name": "11 spaces",
+            "value": "grid-span-11"
+          },
+          {
+            "name": "12 spaces",
+            "value": "grid-span-12"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridoffset",
+        "label": "Grid offset",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "1 space",
+            "value": "grid-offset-1"
+          },
+          {
+            "name": "2 spaces",
+            "value": "grid-offset-2"
+          },
+          {
+            "name": "3 spaces",
+            "value": "grid-offset-3"
+          },
+          {
+            "name": "4 spaces",
+            "value": "grid-offset-4"
+          },
+          {
+            "name": "5 spaces",
+            "value": "grid-offset-5"
+          },
+          {
+            "name": "6 spaces",
+            "value": "grid-offset-6"
+          },
+          {
+            "name": "7 spaces",
+            "value": "grid-offset-7"
+          },
+          {
+            "name": "8 spaces",
+            "value": "grid-offset-8"
+          },
+          {
+            "name": "9 spaces",
+            "value": "grid-offset-9"
+          },
+          {
+            "name": "10 spaces",
+            "value": "grid-offset-10"
+          },
+          {
+            "name": "11 spaces",
+            "value": "grid-offset-11"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridfloat",
+        "label": "Floating position",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Stretch",
+            "value": ""
+          },
+          {
+            "name": "Left",
+            "value": "grid-float-left"
+          },
+          {
+            "name": "Center",
+            "value": "grid-float-center"
+          },
+          {
+            "name": "Right",
+            "value": "grid-float-right"
+          }
+        ]
       }
     ]
   },
@@ -75,6 +218,297 @@
           {
             "name": "h6",
             "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridspan",
+        "label": "Grid span",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "1 space",
+            "value": "grid-span-1"
+          },
+          {
+            "name": "2 spaces",
+            "value": "grid-span-2"
+          },
+          {
+            "name": "3 spaces",
+            "value": "grid-span-3"
+          },
+          {
+            "name": "4 spaces",
+            "value": "grid-span-4"
+          },
+          {
+            "name": "5 spaces",
+            "value": "grid-span-5"
+          },
+          {
+            "name": "6 spaces",
+            "value": "grid-span-6"
+          },
+          {
+            "name": "7 spaces",
+            "value": "grid-span-7"
+          },
+          {
+            "name": "8 spaces",
+            "value": "grid-span-8"
+          },
+          {
+            "name": "9 spaces",
+            "value": "grid-span-9"
+          },
+          {
+            "name": "10 spaces",
+            "value": "grid-span-10"
+          },
+          {
+            "name": "11 spaces",
+            "value": "grid-span-11"
+          },
+          {
+            "name": "12 spaces",
+            "value": "grid-span-12"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridoffset",
+        "label": "Grid offset",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "1 space",
+            "value": "grid-offset-1"
+          },
+          {
+            "name": "2 spaces",
+            "value": "grid-offset-2"
+          },
+          {
+            "name": "3 spaces",
+            "value": "grid-offset-3"
+          },
+          {
+            "name": "4 spaces",
+            "value": "grid-offset-4"
+          },
+          {
+            "name": "5 spaces",
+            "value": "grid-offset-5"
+          },
+          {
+            "name": "6 spaces",
+            "value": "grid-offset-6"
+          },
+          {
+            "name": "7 spaces",
+            "value": "grid-offset-7"
+          },
+          {
+            "name": "8 spaces",
+            "value": "grid-offset-8"
+          },
+          {
+            "name": "9 spaces",
+            "value": "grid-offset-9"
+          },
+          {
+            "name": "10 spaces",
+            "value": "grid-offset-10"
+          },
+          {
+            "name": "11 spaces",
+            "value": "grid-offset-11"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridfloat",
+        "label": "Floating position",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Stretch",
+            "value": ""
+          },
+          {
+            "name": "Left",
+            "value": "grid-float-left"
+          },
+          {
+            "name": "Center",
+            "value": "grid-float-center"
+          },
+          {
+            "name": "Right",
+            "value": "grid-float-right"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "text",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes_gridspan",
+        "label": "Grid span",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "1 space",
+            "value": "grid-span-1"
+          },
+          {
+            "name": "2 spaces",
+            "value": "grid-span-2"
+          },
+          {
+            "name": "3 spaces",
+            "value": "grid-span-3"
+          },
+          {
+            "name": "4 spaces",
+            "value": "grid-span-4"
+          },
+          {
+            "name": "5 spaces",
+            "value": "grid-span-5"
+          },
+          {
+            "name": "6 spaces",
+            "value": "grid-span-6"
+          },
+          {
+            "name": "7 spaces",
+            "value": "grid-span-7"
+          },
+          {
+            "name": "8 spaces",
+            "value": "grid-span-8"
+          },
+          {
+            "name": "9 spaces",
+            "value": "grid-span-9"
+          },
+          {
+            "name": "10 spaces",
+            "value": "grid-span-10"
+          },
+          {
+            "name": "11 spaces",
+            "value": "grid-span-11"
+          },
+          {
+            "name": "12 spaces",
+            "value": "grid-span-12"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridoffset",
+        "label": "Grid offset",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "1 space",
+            "value": "grid-offset-1"
+          },
+          {
+            "name": "2 spaces",
+            "value": "grid-offset-2"
+          },
+          {
+            "name": "3 spaces",
+            "value": "grid-offset-3"
+          },
+          {
+            "name": "4 spaces",
+            "value": "grid-offset-4"
+          },
+          {
+            "name": "5 spaces",
+            "value": "grid-offset-5"
+          },
+          {
+            "name": "6 spaces",
+            "value": "grid-offset-6"
+          },
+          {
+            "name": "7 spaces",
+            "value": "grid-offset-7"
+          },
+          {
+            "name": "8 spaces",
+            "value": "grid-offset-8"
+          },
+          {
+            "name": "9 spaces",
+            "value": "grid-offset-9"
+          },
+          {
+            "name": "10 spaces",
+            "value": "grid-offset-10"
+          },
+          {
+            "name": "11 spaces",
+            "value": "grid-offset-11"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridfloat",
+        "label": "Floating position",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Stretch",
+            "value": ""
+          },
+          {
+            "name": "Left",
+            "value": "grid-float-left"
+          },
+          {
+            "name": "Center",
+            "value": "grid-float-center"
+          },
+          {
+            "name": "Right",
+            "value": "grid-float-right"
           }
         ]
       }
@@ -327,6 +761,212 @@
           {
             "name": "Top",
             "value": "align-top"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "content-grid-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Heading level",
+        "value": "h3",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "valueType": "string",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Image alt text",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Text",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "text_ctaLink",
+        "label": "CTA destination",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "text_ctaLabel",
+        "label": "CTA label",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes_width",
+        "label": "Desktop width",
+        "value": "grid-width-100",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "10%",
+            "value": "grid-width-10"
+          },
+          {
+            "name": "20%",
+            "value": "grid-width-20"
+          },
+          {
+            "name": "25%",
+            "value": "grid-width-25"
+          },
+          {
+            "name": "33%",
+            "value": "grid-width-33"
+          },
+          {
+            "name": "35%",
+            "value": "grid-width-35"
+          },
+          {
+            "name": "40%",
+            "value": "grid-width-40"
+          },
+          {
+            "name": "50%",
+            "value": "grid-width-50"
+          },
+          {
+            "name": "60%",
+            "value": "grid-width-60"
+          },
+          {
+            "name": "65%",
+            "value": "grid-width-65"
+          },
+          {
+            "name": "66%",
+            "value": "grid-width-66"
+          },
+          {
+            "name": "75%",
+            "value": "grid-width-75"
+          },
+          {
+            "name": "80%",
+            "value": "grid-width-80"
+          },
+          {
+            "name": "90%",
+            "value": "grid-width-90"
+          },
+          {
+            "name": "100%",
+            "value": "grid-width-100"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_start",
+        "label": "Desktop start position",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "10%",
+            "value": "grid-start-10"
+          },
+          {
+            "name": "20%",
+            "value": "grid-start-20"
+          },
+          {
+            "name": "25%",
+            "value": "grid-start-25"
+          },
+          {
+            "name": "33%",
+            "value": "grid-start-33"
+          },
+          {
+            "name": "35%",
+            "value": "grid-start-35"
+          },
+          {
+            "name": "40%",
+            "value": "grid-start-40"
+          },
+          {
+            "name": "50%",
+            "value": "grid-start-50"
+          },
+          {
+            "name": "60%",
+            "value": "grid-start-60"
+          },
+          {
+            "name": "65%",
+            "value": "grid-start-65"
+          },
+          {
+            "name": "66%",
+            "value": "grid-start-66"
+          },
+          {
+            "name": "75%",
+            "value": "grid-start-75"
+          },
+          {
+            "name": "80%",
+            "value": "grid-start-80"
+          },
+          {
+            "name": "90%",
+            "value": "grid-start-90"
           }
         ]
       }

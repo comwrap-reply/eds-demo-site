@@ -44,6 +44,12 @@
     ]
   },
   {
+    "id": "content-grid",
+    "components": [
+      "content-grid-item"
+    ]
+  },
+  {
     "id": "hero-carousel",
     "components": [
       "hero-carousel-slide"
