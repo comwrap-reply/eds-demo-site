@@ -27,7 +27,7 @@ function removeGridOffsets(element) {
 
 function getColumnItems(column) {
   return [...column.children].flatMap((child) => (
-    child.tagName === 'P' ? [...child.children] : [child]
+    child.tagName === 'P' && !hasGridPlacement(child) ? [...child.children] : [child]
   ));
 }
 
