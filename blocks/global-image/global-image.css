@@ -1,0 +1,17 @@
+main .global-image {
+  min-width: 0;
+}
+
+main .global-image-figure {
+  margin: 0;
+}
+
+main .global-image-figure picture,
+main .global-image-figure img {
+  display: block;
+  width: 100%;
+}
+
+main .global-image-figure img {
+  height: auto;
+}

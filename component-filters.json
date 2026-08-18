@@ -12,6 +12,9 @@
       "image",
       "button",
       "title",
+      "global-title",
+      "global-text",
+      "global-image",
       "hero",
       "cards",
       "columns",
@@ -41,6 +44,7 @@
       "title",
       "global-title",
       "global-text",
+      "global-image",
       "columns",
       "teaser"
     ]

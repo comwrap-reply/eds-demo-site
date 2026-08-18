@@ -1,1 +1,116 @@
 /* add global styles that can be loaded post LCP here */
+
+main > .section:is(.grid-section, .paneled-grid) {
+  --grid-section-gap: 24px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--grid-section-gap);
+  align-items: start;
+}
+
+main > .section:is(.grid-section, .paneled-grid) > div {
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0 24px;
+}
+
+main > .section[data-gap="none"] { --grid-section-gap: 0px; }
+main > .section[data-gap="small"] { --grid-section-gap: 12px; }
+main > .section[data-gap="large"] { --grid-section-gap: 48px; }
+
+main > .section[data-vertical-alignment="center"] { align-items: center; }
+main > .section[data-vertical-alignment="bottom"] { align-items: end; }
+main > .section[data-vertical-alignment="stretch"] { align-items: stretch; }
+
+main > .section:is(.grid-section, .paneled-grid) > div > .panel {
+  padding: 24px;
+  background-color: var(--background-color);
+}
+
+main > .section:is(.grid-section, .paneled-grid) > div > .panel-border {
+  padding: 24px;
+  border: 1px solid var(--fng-gray-blue);
+}
+
+main > .section:is(.grid-section, .paneled-grid) > div > .panel-shadow {
+  padding: 24px;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 16px rgb(19 19 19 / 12%);
+}
+
+main > .section:is(.grid-section, .paneled-grid) > div > .panel-gray {
+  padding: 24px;
+  background-color: var(--light-color);
+}
+
+main > .section.dark-gray {
+  background-color: var(--fng-dark-gray);
+  color: var(--background-color);
+}
+
+main > .section.blue {
+  background-color: var(--fng-blue);
+  color: var(--background-color);
+}
+
+main > .section.light-blue {
+  background-color: var(--fng-strong-blue);
+  color: var(--background-color);
+}
+
+main > .section.cyan { background-color: var(--fng-cyan); }
+main > .section.orange { background-color: var(--fng-orange); }
+main > .section.white { background-color: var(--background-color); }
+
+@media (width >= 900px) {
+  main > .section:is(.grid-section, .paneled-grid) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  main > .section:is(.grid-section, .paneled-grid) > div {
+    padding: 0 32px;
+    grid-column: var(--grid-start, auto) / span var(--grid-span, 12);
+  }
+
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-1) { --grid-span: 1; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-2) { --grid-span: 2; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-5) { --grid-span: 5; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-7) { --grid-span: 7; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-10) { --grid-span: 10; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-11) { --grid-span: 11; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-12) { --grid-span: 12; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-9) { --grid-span: 9; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-8) { --grid-span: 8; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-6) { --grid-span: 6; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-4) { --grid-span: 4; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-span-3) { --grid-span: 3; }
+
+  /* Keep existing grid-offset content working while new authors use grid-start. */
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-1) { --grid-start: 2; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-2) { --grid-start: 3; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-3) { --grid-start: 4; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-4) { --grid-start: 5; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-5) { --grid-start: 6; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-6) { --grid-start: 7; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-7) { --grid-start: 8; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-8) { --grid-start: 9; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-9) { --grid-start: 10; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-10) { --grid-start: 11; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-offset-11) { --grid-start: 12; }
+
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-1) { --grid-start: 1; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-2) { --grid-start: 2; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-3) { --grid-start: 3; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-4) { --grid-start: 4; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-5) { --grid-start: 5; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-6) { --grid-start: 6; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-7) { --grid-start: 7; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-8) { --grid-start: 8; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-9) { --grid-start: 9; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-10) { --grid-start: 10; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-11) { --grid-start: 11; }
+  main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-12) { --grid-start: 12; }
+
+}

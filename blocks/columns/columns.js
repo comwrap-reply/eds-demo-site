@@ -1,4 +1,5 @@
 import { loadCSS } from '../../scripts/aem.js';
+import decorateGlobalImage from '../global-image/global-image.js';
 import decorateGlobalText from '../global-text/global-text.js';
 import decorateGlobalTitle from '../global-title/global-title.js';
 
@@ -10,9 +11,10 @@ function getGap(block) {
   return Number.isFinite(value) && value >= 0 ? `${value}px` : '';
 }
 
-const gridClassPrefixes = ['grid-span-', 'grid-offset-', 'grid-float-'];
+const gridClassPrefixes = ['grid-span-', 'grid-start-', 'grid-offset-', 'grid-float-'];
 const gridFloatPositions = { left: 'start', center: 'center', right: 'end' };
 const nestedGlobalBlockDecorators = {
+  'global-image': decorateGlobalImage,
   'global-text': decorateGlobalText,
   'global-title': decorateGlobalTitle,
 };
@@ -27,9 +29,9 @@ function getGridValue(element, prefix, fallback) {
   return Number.parseInt(className?.replace(prefix, ''), 10) || fallback;
 }
 
-function removeGridOffsets(element) {
+function removeGridPositions(element) {
   [...element.classList]
-    .filter((className) => className.startsWith('grid-offset-'))
+    .filter((className) => className.startsWith('grid-start-') || className.startsWith('grid-offset-'))
     .forEach((className) => element.classList.remove(className));
 }
 
@@ -79,15 +81,18 @@ function setupGrid(block) {
 
     gridItems.forEach((item) => {
       const span = getGridValue(item, 'grid-span-', 12);
+      const startClass = [...item.classList].find((className) => className.startsWith('grid-start-'));
       const offset = getGridValue(item, 'grid-offset-', 0);
+      let start = getGridValue(item, 'grid-start-', 0);
+      if (!startClass && offset) start = offset + 1;
       const floatClass = [...item.classList].find((className) => className.startsWith('grid-float-'));
       const floatPosition = floatClass?.replace('grid-float-', '');
 
       item.style.setProperty('--grid-span', span);
-      if (offset && offset + span <= 12) item.style.setProperty('--grid-start', offset + 1);
+      if (start && start + span - 1 <= 12) item.style.setProperty('--grid-start', start);
       else {
         item.style.removeProperty('--grid-start');
-        if (offset) removeGridOffsets(item);
+        if (start) removeGridPositions(item);
       }
 
       if (floatPosition && gridFloatPositions[floatPosition]) {

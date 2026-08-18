@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Paneled Grid Section Test</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script type="module" src="/scripts/scripts.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <div class="section-metadata">
+          <div><div>style</div><div>grid-section,paneled-grid</div></div>
+          <div><div>gap</div><div>medium</div></div>
+          <div><div>vertical-alignment</div><div>top</div></div>
+        </div>
+        <div class="global-title grid-span-8 grid-start-1">
+          <div><h1>Paneled Grid Section</h1></div>
+        </div>
+        <div class="global-image grid-span-4 grid-start-9">
+          <div>
+            <picture>
+              <img src="https://placehold.co/720x480/png?text=Image+at+Column+9" alt="Example image positioned at column 9">
+            </picture>
+          </div>
+        </div>
+        <div class="global-text grid-span-12 grid-start-1">
+          <div><p>All of these components are direct children of the section. Their grid classes remain on their own component wrappers.</p></div>
+        </div>
+        <div class="teaser grid-span-4 panel">
+          <div><p><strong>Step one</strong></p><p>First panel content.</p></div>
+        </div>
+        <div class="teaser grid-span-4 panel">
+          <div><p><strong>Step two</strong></p><p>Second panel content.</p></div>
+        </div>
+        <div class="teaser grid-span-4 panel">
+          <div><p><strong>Step three</strong></p><p>Third panel content.</p></div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

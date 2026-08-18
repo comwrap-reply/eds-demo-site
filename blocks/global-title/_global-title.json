@@ -94,23 +94,24 @@
         },
         {
           "component": "select",
-          "name": "classes_gridoffset",
-          "label": "Grid offset",
+          "name": "classes_gridstart",
+          "label": "Grid start",
           "value": "",
           "valueType": "string",
           "options": [
             {"name": "Auto", "value": ""},
-            {"name": "1 space", "value": "grid-offset-1"},
-            {"name": "2 spaces", "value": "grid-offset-2"},
-            {"name": "3 spaces", "value": "grid-offset-3"},
-            {"name": "4 spaces", "value": "grid-offset-4"},
-            {"name": "5 spaces", "value": "grid-offset-5"},
-            {"name": "6 spaces", "value": "grid-offset-6"},
-            {"name": "7 spaces", "value": "grid-offset-7"},
-            {"name": "8 spaces", "value": "grid-offset-8"},
-            {"name": "9 spaces", "value": "grid-offset-9"},
-            {"name": "10 spaces", "value": "grid-offset-10"},
-            {"name": "11 spaces", "value": "grid-offset-11"}
+            {"name": "Column 1", "value": "grid-start-1"},
+            {"name": "Column 2", "value": "grid-start-2"},
+            {"name": "Column 3", "value": "grid-start-3"},
+            {"name": "Column 4", "value": "grid-start-4"},
+            {"name": "Column 5", "value": "grid-start-5"},
+            {"name": "Column 6", "value": "grid-start-6"},
+            {"name": "Column 7", "value": "grid-start-7"},
+            {"name": "Column 8", "value": "grid-start-8"},
+            {"name": "Column 9", "value": "grid-start-9"},
+            {"name": "Column 10", "value": "grid-start-10"},
+            {"name": "Column 11", "value": "grid-start-11"},
+            {"name": "Column 12", "value": "grid-start-12"}
           ]
         },
         {
@@ -124,6 +125,20 @@
             {"name": "Left", "value": "grid-float-left"},
             {"name": "Center", "value": "grid-float-center"},
             {"name": "Right", "value": "grid-float-right"}
+          ]
+        },
+        {
+          "component": "select",
+          "name": "classes_panel",
+          "label": "Panel appearance",
+          "value": "",
+          "valueType": "string",
+          "options": [
+            {"name": "None", "value": ""},
+            {"name": "Panel", "value": "panel"},
+            {"name": "Panel border", "value": "panel-border"},
+            {"name": "Panel shadow", "value": "panel-shadow"},
+            {"name": "Panel gray", "value": "panel-gray"}
           ]
         }
       ]

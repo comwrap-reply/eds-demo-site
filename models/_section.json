@@ -33,7 +33,69 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Light gray",
+              "value": "light"
+            },
+            {
+              "name": "Dark gray",
+              "value": "dark-gray"
+            },
+            {
+              "name": "FNG blue",
+              "value": "blue"
+            },
+            {
+              "name": "FNG light blue",
+              "value": "light-blue"
+            },
+            {
+              "name": "FNG cyan",
+              "value": "cyan"
+            },
+            {
+              "name": "FNG orange",
+              "value": "orange"
+            },
+            {
+              "name": "White",
+              "value": "white"
+            },
+            {
+              "name": "Grid",
+              "value": "grid-section"
+            },
+            {
+              "name": "Paneled Grid",
+              "value": "grid-section,paneled-grid"
             }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "gap",
+          "label": "Gap",
+          "value": "medium",
+          "valueType": "string",
+          "options": [
+            {"name": "None", "value": "none"},
+            {"name": "Small", "value": "small"},
+            {"name": "Medium", "value": "medium"},
+            {"name": "Large", "value": "large"}
+          ]
+        },
+        {
+          "component": "select",
+          "name": "vertical-alignment",
+          "label": "Vertical Alignment",
+          "value": "top",
+          "valueType": "string",
+          "options": [
+            {"name": "Top", "value": "top"},
+            {"name": "Center", "value": "center"},
+            {"name": "Bottom", "value": "bottom"},
+            {"name": "Stretch", "value": "stretch"}
           ]
         }
       ]
@@ -47,6 +109,9 @@
         "image",
         "button",
         "title",
+        "global-title",
+        "global-text",
+        "global-image",
         "hero",
         "cards",
         "columns",
