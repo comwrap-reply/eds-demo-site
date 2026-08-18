@@ -1,3 +1,7 @@
+import { loadCSS } from '../../scripts/aem.js';
+import decorateGlobalText from '../global-text/global-text.js';
+import decorateGlobalTitle from '../global-title/global-title.js';
+
 function getGap(block) {
   const gap = block.dataset.gap || block.getAttribute('gap');
   if (!gap) return '';
@@ -8,6 +12,10 @@ function getGap(block) {
 
 const gridClassPrefixes = ['grid-span-', 'grid-offset-', 'grid-float-'];
 const gridFloatPositions = { left: 'start', center: 'center', right: 'end' };
+const nestedGlobalBlockDecorators = {
+  'global-text': decorateGlobalText,
+  'global-title': decorateGlobalTitle,
+};
 
 function hasGridPlacement(element) {
   return [...element.classList].some((className) => gridClassPrefixes
@@ -23,6 +31,43 @@ function removeGridOffsets(element) {
   [...element.classList]
     .filter((className) => className.startsWith('grid-offset-'))
     .forEach((className) => element.classList.remove(className));
+}
+
+function unwrapNestedGlobalBlocks(block) {
+  const wrappers = [...block.children]
+    .flatMap((row) => [...row.children])
+    .flatMap((column) => [...column.children])
+    .filter((item) => item.tagName === 'P');
+
+  const isNestedGlobalBlock = (item) => Object.keys(nestedGlobalBlockDecorators)
+    .some((name) => item.classList.contains(name));
+
+  return wrappers.flatMap((wrapper) => {
+    const movableItems = [...wrapper.children]
+      .filter((item) => isNestedGlobalBlock(item) || hasGridPlacement(item));
+    if (!movableItems.length) return [];
+
+    movableItems.forEach((item) => wrapper.before(item));
+    if (!wrapper.textContent.trim() && !wrapper.children.length) wrapper.remove();
+    return movableItems.filter(isNestedGlobalBlock);
+  });
+}
+
+async function decorateNestedGlobalBlocks(block) {
+  const nestedBlocks = unwrapNestedGlobalBlocks(block);
+  const blockNames = [...new Set(nestedBlocks.flatMap((nestedBlock) => (
+    Object.keys(nestedGlobalBlockDecorators).filter((name) => nestedBlock.classList.contains(name))
+  )))];
+
+  await Promise.all(blockNames.map((name) => (
+    loadCSS(`${window.hlx.codeBasePath}/blocks/${name}/${name}.css`)
+  )));
+
+  nestedBlocks.forEach((nestedBlock) => {
+    const name = Object.keys(nestedGlobalBlockDecorators)
+      .find((blockName) => nestedBlock.classList.contains(blockName));
+    nestedGlobalBlockDecorators[name](nestedBlock);
+  });
 }
 
 function setupGrid(block) {
@@ -66,7 +111,7 @@ function hasUtilityAreaList(block) {
   return utilityAreaNames.every((name) => items.includes(name));
 }
 
-export default function decorate(block) {
+export default async function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
 
@@ -77,6 +122,7 @@ export default function decorate(block) {
   const gap = getGap(block);
   if (gap) block.style.setProperty('--columns-gap', gap);
 
+  await decorateNestedGlobalBlocks(block);
   setupGrid(block);
 
   // setup image columns

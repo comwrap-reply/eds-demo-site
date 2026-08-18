@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Global Content Blocks Test</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script type="module" src="/scripts/scripts.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <div class="global-title text-color-blue">
+          <div><h1>Global Title styles are delivered by the block</h1></div>
+        </div>
+        <div class="global-text text-align-center text-color-dark-gray">
+          <div>
+            <p>Global Text keeps alignment and colour classes on a reusable, styled block.</p>
+            <p><a href="/">A regular link remains readable.</a></p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="columns panelled">
+          <div>
+            <div>
+              <div class="global-title grid-span-6">
+                <div><h2>Half-width Global Title</h2></div>
+              </div>
+              <p class="grid-span-6">
+                <picture>
+                  <img src="https://placehold.co/720x480/png?text=Existing+Image" alt="Existing image component">
+                </picture>
+              </p>
+              <div class="global-text grid-span-12">
+                <div><p>Global Text can sit beneath the Title and Image in the same Columns cell.</p></div>
+              </div>
+            </div>
+            <div>
+              <p>This remains the second outer Columns cell.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

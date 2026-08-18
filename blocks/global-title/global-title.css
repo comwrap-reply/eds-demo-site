@@ -1,0 +1,11 @@
+main .global-title {
+  min-width: 0;
+}
+
+main .global-title > :first-child {
+  margin-top: 0;
+}
+
+main .global-title > :last-child {
+  margin-bottom: 0;
+}
