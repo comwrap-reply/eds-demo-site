@@ -1,5 +1,54 @@
 /* add global styles that can be loaded post LCP here */
 
+main > .section[data-gap="none"] { --grid-section-gap: 0px; }
+main > .section[data-gap="small"] { --grid-section-gap: 12px; }
+main > .section[data-gap="large"] { --grid-section-gap: 48px; }
+
+main > .section:is(.two-column, .three-column, .four-column) {
+  --multi-column-gap: 24px;
+}
+
+main > .section:is(.two-column, .three-column, .four-column)[data-gap="none"] {
+  --multi-column-gap: 0px;
+}
+
+main > .section:is(.two-column, .three-column, .four-column)[data-gap="small"] {
+  --multi-column-gap: 12px;
+}
+
+main > .section:is(.two-column, .three-column, .four-column)[data-gap="large"] {
+  --multi-column-gap: 48px;
+}
+
+main > .section:is(.two-column, .three-column, .four-column).panelled {
+  margin: 0;
+  padding: 40px 0;
+  background-color: var(--light-color);
+}
+
+main > .section:is(.two-column, .three-column, .four-column) > .multi-column-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--multi-column-gap);
+  max-width: 1200px;
+  min-width: 0;
+  margin: auto;
+  padding: 0 24px;
+}
+
+main > .section:is(.two-column, .three-column, .four-column) .layout-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--multi-column-gap);
+}
+
+main > .section:is(.two-column, .three-column, .four-column).panelled .layout-column {
+  box-sizing: border-box;
+  padding: 24px 32px;
+  background-color: var(--background-color);
+}
+
 main > .section:is(.grid-section, .paneled-grid) {
   --grid-section-gap: 24px;
 
@@ -15,10 +64,6 @@ main > .section:is(.grid-section, .paneled-grid) > div {
   margin: 0;
   padding: 0 24px;
 }
-
-main > .section[data-gap="none"] { --grid-section-gap: 0px; }
-main > .section[data-gap="small"] { --grid-section-gap: 12px; }
-main > .section[data-gap="large"] { --grid-section-gap: 48px; }
 
 main > .section[data-vertical-alignment="center"] { align-items: center; }
 main > .section[data-vertical-alignment="bottom"] { align-items: end; }
@@ -113,4 +158,32 @@ main > .section.white { background-color: var(--background-color); }
   main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-11) { --grid-start: 11; }
   main > .section:is(.grid-section, .paneled-grid) > div:has(> .grid-start-12) { --grid-start: 12; }
 
+}
+
+@media (width >= 600px) {
+  main > .section:is(.two-column, .three-column, .four-column) > .multi-column-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  main > .section:is(.two-column, .three-column) > .multi-column-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  main > .section.three-column > .multi-column-layout {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  main > .section.four-column > .multi-column-layout {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  main > .section:is(.two-column, .three-column, .four-column) > .multi-column-layout {
+    padding: 0 32px;
+  }
+
+  main > .section:is(.two-column, .three-column, .four-column).panelled .layout-column {
+    padding: 32px 48px;
+  }
 }

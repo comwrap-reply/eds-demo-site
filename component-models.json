@@ -864,6 +864,22 @@
             "value": "white"
           },
           {
+            "name": "Two Column",
+            "value": "two-column"
+          },
+          {
+            "name": "Three Column",
+            "value": "three-column"
+          },
+          {
+            "name": "Four Column",
+            "value": "four-column"
+          },
+          {
+            "name": "Panelled",
+            "value": "panelled"
+          },
+          {
             "name": "Grid",
             "value": "grid-section"
           },
