@@ -181,6 +181,8 @@
         "image",
         "button",
         "title",
+        "global-title",
+        "global-text",
         "columns",
         "teaser"
       ]
