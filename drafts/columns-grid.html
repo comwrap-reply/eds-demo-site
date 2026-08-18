@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Columns Grid Test</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script type="module" src="/scripts/scripts.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <h1>Columns grid placement</h1>
+        <div class="columns">
+          <div>
+            <div>
+              <div class="title grid-span-5">
+                <div><h2>Title spans five spaces</h2></div>
+              </div>
+              <div class="text grid-span-7">
+                <div><p>Text fills the remaining seven spaces on the same row.</p></div>
+              </div>
+              <div class="image grid-span-6 grid-offset-3 grid-float-center">
+                <div><picture><img src="https://placehold.co/720x240/png?text=Centered+image" alt="Centered image example"></picture></div>
+              </div>
+              <div class="text grid-span-4 grid-offset-8 grid-float-right">
+                <div><p>Offset eight spaces and float right.</p></div>
+              </div>
+            </div>
+            <div>
+              <div class="title grid-span-4">
+                <div><h2>Four-space title</h2></div>
+              </div>
+              <div class="text grid-span-4">
+                <div><p>Four-space text.</p></div>
+              </div>
+              <div class="text grid-span-4">
+                <div><p>Another four-space text block.</p></div>
+              </div>
+            </div>
+            <div>
+              <div class="image grid-span-4 grid-offset-10">
+                <div><picture><img src="https://placehold.co/480x240/png?text=Invalid+placement" alt="Invalid placement example"></picture></div>
+              </div>
+              <div class="text grid-span-12">
+                <div><p>The invalid offset falls back to normal grid flow.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

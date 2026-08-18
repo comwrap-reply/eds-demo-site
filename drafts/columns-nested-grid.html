@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Columns Nested Grid Test</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script type="module" src="/scripts/scripts.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <h1>Columns nested grid placement</h1>
+        <div class="columns panelled">
+          <div>
+            <div>
+              <h2 class="grid-span-6">Title spans half of this column</h2>
+              <p class="grid-span-6">
+                <picture>
+                  <img src="https://placehold.co/720x480/png?text=Image+spans+the+other+half" alt="Image spanning half of the first column">
+                </picture>
+              </p>
+              <p class="grid-span-12">This text occupies the full width of the first column beneath the title and image.</p>
+            </div>
+            <div>
+              <h2>Second outer column</h2>
+              <p>This cell remains an independent half of the Columns block.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="columns">
+          <div>
+            <div>
+              <p class="grid-span-4 grid-offset-4 grid-float-center">Centered text item.</p>
+              <p class="grid-span-6 grid-offset-8">Invalid offset falls back to normal placement.</p>
+            </div>
+            <div><p>Second cell for offset validation.</p></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

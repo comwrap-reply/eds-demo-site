@@ -1,0 +1,19 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]
+  - main [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - heading "Columns grid placement" [level=1] [ref=f3e6]
+      - generic [ref=f3e9]:
+        - paragraph [ref=f3e11]:
+          - heading "Title spans five spaces" [level=2] [ref=f3e14]
+          - paragraph [ref=f3e17]: Text fills the remaining seven spaces on the same row.
+          - img "Centered image example" [ref=f3e21]
+          - paragraph [ref=f3e24]: Offset eight spaces and float right.
+        - paragraph [ref=f3e26]:
+          - heading "Four-space title" [level=2] [ref=f3e29]
+          - paragraph [ref=f3e32]: Four-space text.
+          - paragraph [ref=f3e35]: Another four-space text block.
+        - paragraph [ref=f3e37]:
+          - img "Invalid placement example" [ref=f3e41]
+          - paragraph [ref=f3e44]: The invalid offset falls back to normal grid flow.
+  - contentinfo
