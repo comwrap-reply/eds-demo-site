@@ -1,0 +1,13 @@
+.column-break {
+  min-height: 24px;
+  border-top: 2px dashed var(--fng-gray-blue);
+}
+
+.column-break::after {
+  display: block;
+  padding-top: 4px;
+  color: var(--fng-gray-blue);
+  content: 'Column Break';
+  font-size: 12px;
+  text-align: center;
+}

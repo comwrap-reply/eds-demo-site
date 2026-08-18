@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Multi-Column Section Test</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script type="module" src="/scripts/scripts.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <div class="section-metadata">
+          <div><div>style</div><div>two-column,panelled</div></div>
+          <div><div>gap</div><div>medium</div></div>
+        </div>
+        <div class="global-title">
+          <div><h2>Two-column panel</h2></div>
+        </div>
+        <div class="global-text">
+          <div><p>This text stays in the first independent column.</p></div>
+        </div>
+        <div class="teaser">
+          <div><p><strong>First column CTA</strong></p><p>Button and teaser content remain normal blocks.</p></div>
+        </div>
+        <div class="column-break"></div>
+        <div class="global-image">
+          <div>
+            <picture>
+              <img src="https://placehold.co/720x420/png?text=Column+Two+Image" alt="Example image in the second column">
+            </picture>
+          </div>
+        </div>
+        <div class="global-title">
+          <div><h3>Second column title</h3></div>
+        </div>
+        <div class="global-text">
+          <div><p>The image and text stack independently from the first column.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-metadata">
+          <div><div>style</div><div>three-column</div></div>
+          <div><div>gap</div><div>small</div></div>
+        </div>
+        <div class="global-title">
+          <div><h2>Three-column flow</h2></div>
+        </div>
+        <div class="global-text">
+          <div><p>Column one content.</p></div>
+        </div>
+        <div class="column-break"></div>
+        <div class="global-image">
+          <div>
+            <picture>
+              <img src="https://placehold.co/600x300/png?text=Column+Two" alt="Example image in the second three-column section">
+            </picture>
+          </div>
+        </div>
+        <div class="global-text">
+          <div><p>Column two content.</p></div>
+        </div>
+        <div class="column-break"></div>
+        <div class="teaser">
+          <div><p><strong>Column three</strong></p><p>Teaser content.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-metadata">
+          <div><div>style</div><div>four-column,panelled</div></div>
+          <div><div>gap</div><div>large</div></div>
+        </div>
+        <div class="global-title"><div><h2>Four-column panel</h2></div></div>
+        <div class="column-break"></div>
+        <div class="global-text"><div><p>Second column.</p></div></div>
+        <div class="column-break"></div>
+        <div class="global-text"><div><p>Third column.</p></div></div>
+        <div class="column-break"></div>
+        <div class="global-text"><div><p>Fourth column.</p></div></div>
+      </div>
+
+      <div>
+        <div class="section-metadata">
+          <div><div>style</div><div>two-column</div></div>
+        </div>
+        <div class="global-title"><div><h2>Incomplete layout fallback</h2></div></div>
+        <div class="global-text"><div><p>This section has no break, so it remains in normal document flow.</p></div></div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
