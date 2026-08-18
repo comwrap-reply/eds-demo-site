@@ -25,39 +25,31 @@ function removeGridOffsets(element) {
     .forEach((className) => element.classList.remove(className));
 }
 
-function getColumnItems(column) {
-  return [...column.children].flatMap((child) => (
-    child.tagName === 'P' && !hasGridPlacement(child) ? [...child.children] : [child]
-  ));
-}
-
 function setupGrid(block) {
-  const rows = [...block.children];
-  if (!rows.length) return;
+  [...block.children].flatMap((row) => [...row.children]).forEach((column) => {
+    const gridItems = [...column.children].filter(hasGridPlacement);
+    if (!gridItems.length) return;
 
-  const items = rows.flatMap((row) => [...row.children].flatMap(getColumnItems));
-  const gridItems = items.filter(hasGridPlacement);
-  if (!gridItems.length) return;
+    column.classList.add('grid-layout');
 
-  gridItems.forEach((item) => {
-    const span = getGridValue(item, 'grid-span-', 12);
-    const offset = getGridValue(item, 'grid-offset-', 0);
-    const floatClass = [...item.classList].find((className) => className.startsWith('grid-float-'));
-    const floatPosition = floatClass?.replace('grid-float-', '');
+    gridItems.forEach((item) => {
+      const span = getGridValue(item, 'grid-span-', 12);
+      const offset = getGridValue(item, 'grid-offset-', 0);
+      const floatClass = [...item.classList].find((className) => className.startsWith('grid-float-'));
+      const floatPosition = floatClass?.replace('grid-float-', '');
 
-    item.style.setProperty('--grid-span', span);
-    if (offset && offset + span <= 12) item.style.setProperty('--grid-start', offset + 1);
-    else {
-      item.style.removeProperty('--grid-start');
-      if (offset) removeGridOffsets(item);
-    }
+      item.style.setProperty('--grid-span', span);
+      if (offset && offset + span <= 12) item.style.setProperty('--grid-start', offset + 1);
+      else {
+        item.style.removeProperty('--grid-start');
+        if (offset) removeGridOffsets(item);
+      }
 
-    if (floatPosition && gridFloatPositions[floatPosition]) {
-      item.style.setProperty('--grid-justify', gridFloatPositions[floatPosition]);
-    }
+      if (floatPosition && gridFloatPositions[floatPosition]) {
+        item.style.setProperty('--grid-justify', gridFloatPositions[floatPosition]);
+      }
+    });
   });
-
-  block.classList.add('grid-layout');
 }
 
 const utilityAreaNames = [

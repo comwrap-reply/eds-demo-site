@@ -163,7 +163,7 @@
     align-items: flex-start;
   }
 
-  .columns.grid-layout > div {
+  .columns > div > .grid-layout {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     align-items: start;
@@ -181,16 +181,7 @@
     flex: unset;
   }
 
-  .columns.grid-layout > div > div {
-    display: contents;
-  }
-
-  .columns.grid-layout > div > div > p {
-    display: contents;
-  }
-
-  .columns.grid-layout > div > div > div,
-  .columns.grid-layout > div > div > p > * {
+  .columns > div > .grid-layout > * {
     min-width: 0;
     grid-column: var(--grid-start, auto) / span var(--grid-span, 12);
     justify-self: var(--grid-justify, stretch);
