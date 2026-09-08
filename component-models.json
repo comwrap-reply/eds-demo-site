@@ -1379,6 +1379,19 @@
     ]
   },
   {
+    "id": "freeform",
+    "fields": [
+      {
+        "component": "textarea",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text Entry",
+        "description": "Paste an HTML snippet. Include CSS inside <style> tags and JavaScript inside <script> tags. Code runs on the page, including in the editor.",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "global-image",
     "fields": [
       {
