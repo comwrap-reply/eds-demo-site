@@ -10,9 +10,24 @@ import { decorateRichtext } from './editor-support-rte.js';
 import { decorateButtons, decorateMain } from './scripts.js';
 import decorateSectionV2 from '../layout-v2/section-v2.js';
 import { initLayoutV2Editor, refreshLayoutV2Editor } from '../layout-v2/editor-v2.js';
+import decorateSectionV3 from '../layout-v3/section-v3.js';
+import decorateNativeV3 from '../layout-v3/native-v3.js';
+import { initLayoutV3Editor, refreshLayoutV3Editor } from '../layout-v3/editor-v3.js';
 
 let promiseChanges$ = Promise.resolve();
 const listening = new WeakSet();
+
+function reflowLayouts(section) {
+  if (!section) return;
+  decorateSectionV2(section);
+  decorateSectionV3(section);
+  section.querySelectorAll('.columns.layout-v3-native').forEach(decorateNativeV3);
+}
+
+function refreshLayoutEditors() {
+  refreshLayoutV2Editor();
+  refreshLayoutV3Editor();
+}
 
 function resourceElements(root, resource) {
   return [...root.querySelectorAll('[data-aue-resource], [data-richtext-resource]')]
@@ -48,8 +63,20 @@ async function replaceContent(element, parsedUpdate, resource) {
   }
 
   const block = element.closest('.block[data-aue-resource]');
-  if (block) {
-    const newBlock = contentElement(parsedUpdate, block.getAttribute('data-aue-resource'));
+  const newBlock = block && contentElement(parsedUpdate, block.getAttribute('data-aue-resource'));
+  // Native Columns can return only an affected real cell, rather than the whole block.
+  if (block?.matches('.columns.layout-v3-native') && !newBlock
+      && element.matches('.layout-v3-native-cell[data-aue-type="container"]')) {
+    const cell = contentElement(parsedUpdate, resource);
+    if (!cell) return false;
+    element.replaceWith(cell);
+    decorateButtons(cell);
+    decorateIcons(cell);
+    decorateRichtext(cell);
+    decorateNativeV3(block);
+    return true;
+  }
+  if (block && (newBlock || !block.matches('.columns.layout-v3-native'))) {
     if (!newBlock) return false;
     newBlock.style.display = 'none';
     const section = block.closest('.section');
@@ -60,7 +87,7 @@ async function replaceContent(element, parsedUpdate, resource) {
     decorateRichtext(newBlock);
     await loadBlock(newBlock);
     newBlock.style.display = '';
-    if (section) decorateSectionV2(section);
+    reflowLayouts(section);
     return true;
   }
 
@@ -75,6 +102,7 @@ async function replaceContent(element, parsedUpdate, resource) {
   decorateButtons(parentElement);
   decorateIcons(parentElement);
   decorateRichtext(parentElement);
+  reflowLayouts(parentElement.closest('.section'));
   return true;
 }
 
@@ -95,9 +123,9 @@ async function applyChanges(event) {
     const section = element.closest('.section');
     const wrapper = element.parentElement;
     element.remove();
-    if (wrapper.classList.contains('layout-v2-item') && !wrapper.children.length) wrapper.remove();
-    if (section?.isConnected) decorateSectionV2(section);
-    refreshLayoutV2Editor();
+    if (wrapper.matches('.layout-v2-item, .layout-v3-item') && !wrapper.children.length) wrapper.remove();
+    if (section?.isConnected) reflowLayouts(section);
+    refreshLayoutEditors();
     return true;
   }
 
@@ -133,7 +161,7 @@ async function applyChanges(event) {
     // eslint-disable-next-line no-await-in-loop
     results.push(await replaceContent(patch.element, patch.parsed, patch.resource));
   }
-  refreshLayoutV2Editor();
+  refreshLayoutEditors();
   return results.length > 0 && results.every(Boolean);
 }
 
@@ -157,6 +185,7 @@ function attachEventListeners(main) {
 
 attachEventListeners(document.querySelector('main'));
 initLayoutV2Editor();
+initLayoutV3Editor();
 
 // Preserve the existing rich-text observer; layout updates use the explicit event lifecycle.
 decorateRichtext();

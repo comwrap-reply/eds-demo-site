@@ -1,0 +1,89 @@
+/* Layouts - V3: public layout, isolated from V1 classes and default sections. */
+main .section.layout-v3 > .layout-v3-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--layout-v3-gap);
+}
+
+main .layout-v3 .layout-v3-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-v3-gap);
+  min-width: 0;
+}
+
+main .layout-v3 .layout-v3-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: var(--layout-v3-gap);
+  min-width: 0;
+}
+
+main .layout-v3 .layout-v3-item {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+main .layout-v3 .layout-v3-item > .block {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+main .layout-v3 .layout-v3-item a.button {
+  min-width: 0;
+  white-space: normal;
+}
+
+main .layout-v3 .layout-v3-item > :is(.panel, .panel-border, .panel-shadow, .panel-gray) {
+  padding: 24px;
+}
+
+main .layout-v3 .layout-v3-item > :is(.panel, .panel-shadow) {
+  background-color: var(--background-color);
+}
+
+main .layout-v3 .layout-v3-item > .panel-border {
+  border: 1px solid var(--fng-gray-blue);
+}
+
+main .layout-v3 .layout-v3-item > .panel-shadow {
+  box-shadow: 0 4px 16px rgb(19 19 19 / 12%);
+}
+
+main .layout-v3 .layout-v3-item > .panel-gray {
+  background-color: var(--light-color);
+}
+
+@media (width >= 600px) {
+  main .section.layout-v3 > .layout-v3-grid {
+    grid-template-columns: repeat(var(--layout-v3-tablet-count), minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  main .section.layout-v3 > .layout-v3-grid {
+    grid-template-columns: repeat(var(--layout-v3-count), minmax(0, 1fr));
+  }
+
+  main .layout-v3 .layout-v3-row[data-layout-v3-align="center"] {
+    justify-content: center;
+  }
+
+  main .layout-v3 .layout-v3-row[data-layout-v3-align="end"] {
+    justify-content: end;
+  }
+
+  main .layout-v3 .layout-v3-item {
+    flex-basis: calc(100% * var(--layout-v3-fraction));
+  }
+
+  main .layout-v3 .layout-v3-row-share > .layout-v3-item {
+    /* f * (available width + gap) - gap: halves/quarters fit including their gaps. */
+    flex-basis: max(0px, calc((100% + var(--layout-v3-gap)) * var(--layout-v3-fraction) - var(--layout-v3-gap)));
+  }
+}

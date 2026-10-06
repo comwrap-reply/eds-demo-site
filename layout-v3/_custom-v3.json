@@ -1,0 +1,155 @@
+{
+  "definitions": [
+    {
+      "title": "Custom Section - V3",
+      "id": "section-custom-v3",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "name": "Custom Section - V3",
+              "model": "section-custom-v3",
+              "filter": "section-custom-v3",
+              "layout": "columns-v3",
+              "column-count": "2",
+              "column-gap": "medium"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "section-custom-v3",
+      "fields": [
+        {
+          "component": "text",
+          "name": "name",
+          "label": "Section Name",
+          "description": "The label shown in the Content Tree"
+        },
+        {
+          "component": "multiselect",
+          "name": "style",
+          "label": "Appearance",
+          "options": [
+            {
+              "name": "Highlight",
+              "value": "highlight"
+            },
+            {
+              "name": "Light gray",
+              "value": "light"
+            },
+            {
+              "name": "Dark gray",
+              "value": "dark-gray"
+            },
+            {
+              "name": "FNG blue",
+              "value": "blue"
+            },
+            {
+              "name": "FNG light blue",
+              "value": "light-blue"
+            },
+            {
+              "name": "FNG cyan",
+              "value": "cyan"
+            },
+            {
+              "name": "FNG orange",
+              "value": "orange"
+            },
+            {
+              "name": "White",
+              "value": "white"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "layout",
+          "label": "Layout",
+          "valueType": "string",
+          "value": "columns-v3",
+          "options": [
+            {
+              "name": "Default",
+              "value": "default"
+            },
+            {
+              "name": "Columns",
+              "value": "columns-v3"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "column-count",
+          "label": "Number of columns",
+          "valueType": "string",
+          "value": "2",
+          "description": "Used by Columns layout. Reassign blocks before reducing the count; content from removed columns stays visible in the last column.",
+          "options": [
+            {
+              "name": "1",
+              "value": "1"
+            },
+            {
+              "name": "2",
+              "value": "2"
+            },
+            {
+              "name": "3",
+              "value": "3"
+            },
+            {
+              "name": "4",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "column-gap",
+          "label": "Column gap",
+          "valueType": "string",
+          "value": "medium",
+          "description": "Space between columns and between blocks in Columns layout.",
+          "options": [
+            {
+              "name": "None",
+              "value": "none"
+            },
+            {
+              "name": "Small",
+              "value": "small"
+            },
+            {
+              "name": "Medium",
+              "value": "medium"
+            },
+            {
+              "name": "Large",
+              "value": "large"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "section-custom-v3",
+      "components": [
+        "global-title",
+        "global-text",
+        "global-image",
+        "teaser"
+      ]
+    }
+  ]
+}

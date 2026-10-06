@@ -37,7 +37,21 @@
       "title": "Layouts - V2",
       "id": "layouts-v2",
       "components": [
-        {"...": "../layout-v2/_section-v2.json#/definitions"}
+        {
+          "...": "../layout-v2/_section-v2.json#/definitions"
+        }
+      ]
+    },
+    {
+      "title": "Layouts - V3",
+      "id": "layouts-v3",
+      "components": [
+        {
+          "...": "../layout-v3/_native-v3.json#/definitions"
+        },
+        {
+          "...": "../layout-v3/_custom-v3.json#/definitions"
+        }
       ]
     },
     {

@@ -3,7 +3,9 @@
     "id": "main",
     "components": [
       "section",
-      "section-v2"
+      "section-v2",
+      "section-native-v3",
+      "section-custom-v3"
     ]
   },
   {
@@ -11,6 +13,12 @@
   },
   {
     "...": "../layout-v1/_columns-v1.json#/filters"
+  },
+  {
+    "...": "../layout-v3/_native-v3.json#/filters"
+  },
+  {
+    "...": "../layout-v3/_custom-v3.json#/filters"
   },
   {
     "...": "../blocks/*/_*.json#/filters"

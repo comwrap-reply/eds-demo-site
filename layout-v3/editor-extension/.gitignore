@@ -1,0 +1,6 @@
+node_modules/
+web-src/dist/
+.aio
+.env
+.env.*
+dist/

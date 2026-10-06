@@ -5,7 +5,7 @@
   "description": "Starter project for Adobe Helix",
   "scripts": {
     "lint:js": "eslint . --ext .json,.js,.mjs",
-    "lint:css": "stylelint \"blocks/**/*.css\" \"layout-v1/*.css\" \"layout-v2/*.css\" \"styles/*.css\"",
+    "lint:css": "stylelint \"blocks/**/*.css\" \"layout-v1/*.css\" \"layout-v2/*.css\" \"layout-v3/**/*.css\" \"styles/*.css\"",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
     "build:json": "npm-run-all -p build:json:models build:json:definitions build:json:filters",
@@ -13,7 +13,7 @@
     "build:json:definitions": "merge-json-cli -i \"models/_component-definition.json\" -o \"component-definition.json\"",
     "build:json:filters": "merge-json-cli -i \"models/_component-filters.json\" -o \"component-filters.json\"",
     "test": "npm run test:importer && npm run test:layout",
-    "test:layout": "node --test test/layout-v2/*.test.mjs",
+    "test:layout": "node --test test/layout-v2/*.test.mjs test/layout-v3/*.test.mjs",
     "test:importer": "node tools/importer/test-routes.mjs",
     "prepare": "husky"
   },

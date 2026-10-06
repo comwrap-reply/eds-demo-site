@@ -1,0 +1,166 @@
+{
+  "definitions": [
+    {
+      "title": "Native Section - V3",
+      "id": "section-native-v3",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "name": "Native Section - V3",
+              "model": "section-native-v3",
+              "filter": "section-native-v3"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Native Columns - V3",
+      "id": "columns-native-v3",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/columns/v1/columns",
+            "template": {
+              "columns": "2",
+              "rows": "1",
+              "classes": "layout-v3-native",
+              "classes_gap": "layout-v3-gap-medium"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "section-native-v3",
+      "fields": [
+        {
+          "component": "text",
+          "name": "name",
+          "label": "Section name",
+          "valueType": "string"
+        }
+      ]
+    },
+    {
+      "id": "columns-native-v3",
+      "fields": [
+        {
+          "component": "select",
+          "name": "columns",
+          "label": "Number of columns",
+          "valueType": "string",
+          "value": "2",
+          "options": [
+            {
+              "name": "1",
+              "value": "1"
+            },
+            {
+              "name": "2",
+              "value": "2"
+            },
+            {
+              "name": "3",
+              "value": "3"
+            },
+            {
+              "name": "4",
+              "value": "4"
+            }
+          ],
+          "description": "Move content before reducing columns. AEM manages the persisted native cells."
+        },
+        {
+          "component": "select",
+          "name": "rows",
+          "label": "Number of rows",
+          "valueType": "string",
+          "value": "1",
+          "options": [
+            {
+              "name": "1",
+              "value": "1"
+            },
+            {
+              "name": "2",
+              "value": "2"
+            },
+            {
+              "name": "3",
+              "value": "3"
+            },
+            {
+              "name": "4",
+              "value": "4"
+            }
+          ],
+          "description": "Move content before reducing rows."
+        },
+        {
+          "component": "select",
+          "name": "classes_gap",
+          "label": "Gap",
+          "valueType": "string",
+          "value": "layout-v3-gap-medium",
+          "options": [
+            {
+              "name": "None",
+              "value": "layout-v3-gap-none"
+            },
+            {
+              "name": "Small",
+              "value": "layout-v3-gap-small"
+            },
+            {
+              "name": "Medium",
+              "value": "layout-v3-gap-medium"
+            },
+            {
+              "name": "Large",
+              "value": "layout-v3-gap-large"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "classes_appearance",
+          "label": "Cell appearance",
+          "valueType": "string",
+          "value": "",
+          "options": [
+            {
+              "name": "Plain",
+              "value": ""
+            },
+            {
+              "name": "Panels",
+              "value": "layout-v3-panels"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "section-native-v3",
+      "components": [
+        "columns-native-v3"
+      ]
+    },
+    {
+      "id": "column-native-v3",
+      "components": [
+        "title",
+        "text",
+        "image",
+        "button"
+      ]
+    }
+  ]
+}

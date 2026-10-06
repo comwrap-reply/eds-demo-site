@@ -1,0 +1,45 @@
+/* Layouts - V3: native content cells, isolated from legacy Columns variants. */
+main .columns.layout-v3-native {
+  display: grid;
+  gap: var(--layout-v3-gap, 24px);
+}
+
+main .columns.layout-v3-native > .layout-v3-native-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: var(--layout-v3-gap, 24px);
+}
+
+main .columns.layout-v3-native .layout-v3-native-cell {
+  box-sizing: border-box;
+  min-width: 0;
+  order: initial;
+  overflow-wrap: anywhere;
+}
+
+main .columns.layout-v3-native .layout-v3-native-cell > :first-child {
+  margin-top: 0;
+}
+
+main .columns.layout-v3-native .layout-v3-native-cell a.button {
+  min-width: 0;
+  white-space: normal;
+}
+
+main .columns.layout-v3-native.layout-v3-panels .layout-v3-native-cell {
+  padding: 24px;
+  background: var(--light-color);
+}
+
+@media (width >= 600px) {
+  main .columns.layout-v3-native > .layout-v3-native-row {
+    grid-template-columns: repeat(var(--layout-v3-tablet-count), minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  main .columns.layout-v3-native > .layout-v3-native-row {
+    grid-template-columns: repeat(var(--layout-v3-count), minmax(0, 1fr));
+  }
+}

@@ -5,4 +5,5 @@ LICENSE
 package.json
 package-lock.json
 test/*
+layout-v3/editor-extension/**
 _*

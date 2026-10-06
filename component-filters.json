@@ -3,7 +3,9 @@
     "id": "main",
     "components": [
       "section",
-      "section-v2"
+      "section-v2",
+      "section-native-v3",
+      "section-custom-v3"
     ]
   },
   {
@@ -43,6 +45,30 @@
       "global-text",
       "global-image",
       "columns",
+      "teaser"
+    ]
+  },
+  {
+    "id": "section-native-v3",
+    "components": [
+      "columns-native-v3"
+    ]
+  },
+  {
+    "id": "column-native-v3",
+    "components": [
+      "title",
+      "text",
+      "image",
+      "button"
+    ]
+  },
+  {
+    "id": "section-custom-v3",
+    "components": [
+      "global-title",
+      "global-text",
+      "global-image",
       "teaser"
     ]
   },

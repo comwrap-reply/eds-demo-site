@@ -1,0 +1,46 @@
+/* Layouts - V3 extension UI, not a public page stylesheet. */
+.layouts-v3-panel {
+  padding: 12px;
+  color: #222;
+  background: #fff;
+  font: 14px/1.5 system-ui, sans-serif;
+}
+
+.layouts-v3-panel h1 { font-size: 20px; }
+.layouts-v3-panel h2 { font-size: 16px; }
+
+.layouts-v3-panel details {
+  margin-block: 12px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.layouts-v3-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.layouts-v3-panel :is(button, select) {
+  max-width: 100%;
+  margin: 6px 4px 6px 0;
+  padding: 8px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  color: inherit;
+  background: #fff;
+  font: inherit;
+}
+
+.layouts-v3-panel :is(button, select, summary):focus-visible {
+  outline: 2px solid #0057bd;
+  outline-offset: 2px;
+}
+
+.layouts-v3-panel button { cursor: pointer; }
+
+.layouts-v3-panel button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+.layouts-v3-panel .layout-v3-panel-item { border-bottom: 1px solid #ddd; }

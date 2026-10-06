@@ -134,6 +134,64 @@
       ]
     },
     {
+      "title": "Layouts - V3",
+      "id": "layouts-v3",
+      "components": [
+        {
+          "title": "Native Section - V3",
+          "id": "section-native-v3",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Native Section - V3",
+                  "model": "section-native-v3",
+                  "filter": "section-native-v3"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Native Columns - V3",
+          "id": "columns-native-v3",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "columns": "2",
+                  "rows": "1",
+                  "classes": "layout-v3-native",
+                  "classes_gap": "layout-v3-gap-medium"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Custom Section - V3",
+          "id": "section-custom-v3",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Custom Section - V3",
+                  "model": "section-custom-v3",
+                  "filter": "section-custom-v3",
+                  "layout": "columns-v3",
+                  "column-count": "2",
+                  "column-gap": "medium"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "title": "Blocks",
       "id": "blocks",
       "components": [

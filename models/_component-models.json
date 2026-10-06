@@ -24,6 +24,12 @@
     "...": "../layout-v1/_columns-v1.json#/models"
   },
   {
+    "...": "../layout-v3/_native-v3.json#/models"
+  },
+  {
+    "...": "../layout-v3/_custom-v3.json#/models"
+  },
+  {
     "...": "../blocks/*/_*.json#/models"
   }
 ]

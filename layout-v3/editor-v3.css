@@ -1,0 +1,45 @@
+/* Layouts - V3: loaded only by editor-support.js, never by the public page renderer. */
+main .layout-v3-is-editing .layout-v3-native-cell,
+main .layout-v3-is-editing .layout-v3-column {
+  min-height: 100px;
+  outline: 1px dashed var(--fng-gray-blue);
+  outline-offset: 3px;
+}
+
+main .layout-v3-is-editing .layout-v3-native-cell::before {
+  content: attr(data-layout-v3-cell);
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  font: 12px/1.5 var(--body-font-family);
+  pointer-events: none;
+}
+
+main .layout-v3-is-editing .layout-v3-column::before {
+  content: "Column " attr(data-layout-v3-column);
+  color: var(--text-color);
+  font: 12px/1.5 var(--body-font-family);
+  pointer-events: none;
+}
+
+main .layout-v3-is-editing .layout-v3-empty,
+main .layout-v3-is-editing .layout-v3-warning {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px;
+  border: 1px dashed var(--fng-gray-blue);
+  background: var(--light-color);
+  color: var(--text-color);
+  font: 14px/1.5 var(--body-font-family);
+  overflow-wrap: anywhere;
+}
+
+main .layout-v3-is-editing .layout-v3-empty {
+  min-height: 100px;
+}
+
+main .layout-v3-is-editing > .layout-v3-warning {
+  max-width: 1200px;
+  margin: 16px auto;
+  border-color: var(--fng-orange);
+}
