@@ -1,0 +1,22 @@
+/* Layouts - V2: loaded only by editor-support.js, never by the public page renderer. */
+main .layout-v2-is-editing .layout-v2-empty,
+main .layout-v2-is-editing .layout-v2-warning {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px;
+  border: 1px dashed var(--fng-gray-blue);
+  background: var(--light-color);
+  color: var(--text-color);
+  font: 14px/1.5 var(--body-font-family);
+  overflow-wrap: anywhere;
+}
+
+main .layout-v2-is-editing .layout-v2-empty {
+  min-height: 100px;
+}
+
+main .layout-v2-is-editing > .layout-v2-warning {
+  max-width: 1200px;
+  margin: 16px auto;
+  border-color: var(--fng-orange);
+}

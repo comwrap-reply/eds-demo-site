@@ -2,7 +2,8 @@
   {
     "id": "main",
     "components": [
-      "section"
+      "section",
+      "section-v2"
     ]
   },
   {
@@ -26,12 +27,6 @@
     ]
   },
   {
-    "id": "cards",
-    "components": [
-      "card"
-    ]
-  },
-  {
     "id": "columns",
     "components": [
       "column"
@@ -49,6 +44,12 @@
       "global-image",
       "columns",
       "teaser"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
     ]
   },
   {

@@ -1,0 +1,8 @@
+main .freeform {
+  min-width: 0;
+}
+
+main .freeform[data-aue-resource]:empty {
+  min-height: 48px;
+  border: 1px dashed currentcolor;
+}

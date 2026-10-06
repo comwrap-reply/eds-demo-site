@@ -1,3 +1,6 @@
+/**
+ * Layouts - V1: existing multi-column Section behavior.
+ */
 const layoutColumns = {
   'two-column': 2,
   'three-column': 3,
@@ -40,7 +43,7 @@ function buildLayout(groups) {
  * Groups direct section children into independently flowing columns.
  * @param {Element} main the main element
  */
-export default function decorateMultiColumnSections(main) {
+export default function decorateSectionV1(main) {
   main.querySelectorAll(':scope > div.section').forEach((section) => {
     const layoutClass = getLayoutClass(section);
     if (!layoutClass || section.dataset.multiColumnStatus) return;

@@ -1,7 +1,3 @@
-/**
- * Keeps the authorable marker available until the section decorator groups it.
- * @param {Element} block the Column Break block
- */
-export default function decorate(block) {
-  block.setAttribute('aria-label', 'Column Break');
-}
+import decorateColumnBreakV1 from '../../layout-v1/column-break-v1.js';
+
+export default decorateColumnBreakV1;

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Freeform Test</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script type="module" src="/scripts/scripts.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <h1>Freeform component</h1>
+        <p>HTML, CSS, and JavaScript pasted into one Text Entry field.</p>
+        <div class="freeform">
+          <div><div><p>&lt;style&gt;
+.freeform .freeform-demo { padding: 24px; background: #eef7fb; border: 1px solid #0078a8; border-radius: 8px; }
+.freeform .freeform-demo button { white-space: normal; }
+&lt;/style&gt;
+&lt;div class="freeform-demo"&gt;
+  &lt;h2&gt;A pasted interactive component&lt;/h2&gt;
+  &lt;p&gt;HTML &amp;amp; CSS are working. Use the button to test JavaScript.&lt;/p&gt;
+  &lt;button type="button"&gt;Test JavaScript&lt;/button&gt;
+  &lt;p role="status"&gt;Ready&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+(() =&gt; {
+  // This comment tests preservation of source line breaks.
+  const block = document.currentScript.closest('.freeform');
+  block.querySelector('button').addEventListener('click', () =&gt; {
+    block.querySelector('[role="status"]').textContent = 'JavaScript is working!';
+  });
+})();
+&lt;/script&gt;</p></div></div>
+        </div>
+        <div class="freeform">
+          <div><div><p>&lt;p class="freeform-second"&gt;A second independent Freeform block.&lt;/p&gt;&lt;script&gt;<br>// Source may also arrive with HTML line breaks.<br>document.currentScript.closest('.freeform').dataset.scriptRan = 'true';<br>&lt;/script&gt;</p></div></div>
+        </div>
+        <div class="freeform"><div><div></div></div></div>
+        <div class="freeform"></div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

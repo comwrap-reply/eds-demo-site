@@ -140,6 +140,9 @@
             {"name": "Panel shadow", "value": "panel-shadow"},
             {"name": "Panel gray", "value": "panel-gray"}
           ]
+        },
+        {
+          "...": "../../layout-v2/_block-layout-v2.json#/fields"
         }
       ]
     }

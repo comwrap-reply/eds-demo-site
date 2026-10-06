@@ -1,7 +1,7 @@
 {
   "definitions": [
     {
-      "title": "Column Break",
+      "title": "Column Break - V1",
       "id": "column-break",
       "plugins": {
         "xwalk": {

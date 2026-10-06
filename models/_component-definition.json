@@ -19,12 +19,25 @@
       ]
     },
     {
-      "title": "Sections",
-      "id": "sections",
+      "title": "Layouts - V1",
+      "id": "layouts-v1",
       "components": [
         {
-          "...": "./_section.json#/definitions"
+          "...": "../layout-v1/_section-v1.json#/definitions"
+        },
+        {
+          "...": "../layout-v1/_columns-v1.json#/definitions"
+        },
+        {
+          "...": "../layout-v1/_column-break-v1.json#/definitions"
         }
+      ]
+    },
+    {
+      "title": "Layouts - V2",
+      "id": "layouts-v2",
+      "components": [
+        {"...": "../layout-v2/_section-v2.json#/definitions"}
       ]
     },
     {

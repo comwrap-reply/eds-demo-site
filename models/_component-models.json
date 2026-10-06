@@ -15,7 +15,13 @@
     "...": "./_button.json#/models"
   },
   {
-    "...": "./_section.json#/models"
+    "...": "../layout-v1/_section-v1.json#/models"
+  },
+  {
+    "...": "../layout-v2/_section-v2.json#/models"
+  },
+  {
+    "...": "../layout-v1/_columns-v1.json#/models"
   },
   {
     "...": "../blocks/*/_*.json#/models"

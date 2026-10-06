@@ -10,7 +10,8 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
-import decorateMultiColumnSections from './multi-column.js';
+import decorateSectionV1 from '../layout-v1/section-v1.js';
+import decorateSectionV2 from '../layout-v2/section-v2.js';
 
 /**
  * Moves all the attributes from a given elmenet to another given element.
@@ -120,7 +121,8 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  decorateMultiColumnSections(main);
+  decorateSectionV1(main);
+  decorateSectionV2(main);
   decorateButtons(main);
 }
 

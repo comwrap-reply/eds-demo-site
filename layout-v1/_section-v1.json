@@ -1,7 +1,7 @@
 {
   "definitions": [
     {
-      "title": "Section",
+      "title": "Section - V1",
       "id": "section",
       "plugins": {
         "xwalk": {
