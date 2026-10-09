@@ -5,7 +5,7 @@
       "component": "select",
       "name": "classes_layoutv3column",
       "label": "Assigned column",
-      "description": "Only used inside Custom Section - V3 with Columns layout. Native Columns - V3 uses standard content instead.",
+      "description": "Only used inside Global section with Columns layout. Native Columns - V3 uses standard content instead.",
       "valueType": "string",
       "value": "layout-v3-column-1",
       "options": [

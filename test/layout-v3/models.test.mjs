@@ -4,6 +4,36 @@ import { test } from 'node:test';
 
 const json = async (path) => JSON.parse(await readFile(new URL(`../../${path}`, import.meta.url), 'utf8'));
 
+test('Global section renames author-facing labels without changing V3 identity or defaults', async () => {
+  const source = await json('layout-v3/_custom-v3.json');
+  const defs = await json('component-definition.json');
+  const models = await json('component-models.json');
+  const filters = await json('component-filters.json');
+  const definition = defs.groups.flatMap((group) => group.components)
+    .find((component) => component.id === 'section-custom-v3');
+  assert.deepEqual(definition, source.definitions[0]);
+  assert.equal(definition.title, 'Global section');
+  assert.deepEqual(definition.plugins.xwalk.page, {
+    resourceType: 'core/franklin/components/section/v1/section',
+    template: {
+      name: 'Global section',
+      model: 'section-custom-v3',
+      filter: 'section-custom-v3',
+      layout: 'columns-v3',
+      'column-count': '2',
+      'column-gap': 'medium',
+    },
+  });
+  assert.deepEqual(models.find((model) => model.id === 'section-custom-v3'), source.models[0]);
+  assert.deepEqual(filters.find((filter) => filter.id === 'section-custom-v3'), source.filters[0]);
+  assert(filters.find((filter) => filter.id === 'main').components.includes('section-custom-v3'));
+  ['global-title', 'global-text', 'global-image', 'teaser'].forEach((id) => {
+    const field = models.find((model) => model.id === id).fields
+      .find((item) => item.name === 'classes_layoutv3column');
+    assert.equal(field.description, 'Only used inside Global section with Columns layout. Native Columns - V3 uses standard content instead.');
+  });
+});
+
 test('both V3 approaches are registered once and use isolated allowed-content filters', async () => {
   const defs = await json('component-definition.json');
   const models = await json('component-models.json');

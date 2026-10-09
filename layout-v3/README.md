@@ -8,11 +8,22 @@ Add **Native Section - V3**, then **Native Columns - V3** inside it. Select a re
 
 The underlying component is AEM's native Columns resource type. Rows and columns are persisted by AEM; JavaScript never invents column resource identifiers. The V3 model offers 1–4 columns, 1–4 rows and 0/12/24/48px gaps. Move content before reducing the native row/column count; V3 does not override AEM's persistence behavior. Empty cells have editor-only instructions and boundaries. These are selectable container areas, not custom Add buttons.
 
-## Custom Section - V3
+## Global section
 
-Add **Custom Section - V3**. Add Global Title, Global Text, Global Image or Teaser using native section Add. Each retains all its appearance settings and gains a **Layout - V3** tab: assigned column, width, alignment and own/shared row. These settings are inactive outside a V3 custom Columns section. V2 settings are independent.
+Add **Global section**. Add Global Title, Global Text, Global Image or Teaser using native section Add. Each retains all its appearance settings and gains a **Layout - V3** tab: assigned column, width, alignment and own/shared row. These settings are inactive outside a V3 custom Columns section. V2 settings are independent.
 
-Authored blocks remain direct children of the section. Presentation columns have no fabricated editor resources. Consequently the native content tree stays flat. The companion extension in `editor-extension/` supplies a separate, expandable **Layouts - V3** panel with column groups, Add and reassignment controls. It does not replace Adobe's native tree. Registering/deploying that extension is a separate environment step; the section works with native section Add and Assigned column without it. Canvas placeholders explain this fallback and do not pretend to create saved content.
+This is an author-facing rename of the existing `section-custom-v3` component,
+not a new layout or a reusable-content feature. IDs, filters and saved layout
+settings are unchanged. New sections default to the name **Global section**;
+existing sections retain their saved **Section Name** until an author edits it.
+The extension continues to use the short **Section** heading in its Layouts panel.
+
+Authored blocks remain direct children of the section. Presentation columns have no fabricated editor resources. Consequently the native content tree stays flat. The companion extension is now in the sibling [eds-layout-extension project](../../eds-layout-extension/README.md), outside this website. It supplies a separate, expandable **Layouts** panel with column groups, Add and reassignment controls. It does not replace Adobe's native tree. Registering/deploying that extension is a separate environment step; the section works with native section Add and Assigned column without it. Canvas placeholders explain this fallback and do not pretend to create saved content.
+
+The extension's tests and local SDK simulation moved with it. Run `npm test`,
+`npm run lint`, `npm run build` and `npm run dev` from `../eds-layout-extension`.
+Its simulation is now at <http://127.0.0.1:3001/drafts/layout-v3-panel>, not the
+website's port 3000. Website tests continue to run independently with `npm test`.
 
 The custom layout defaults to two columns and a medium gap. Own row preserves width/alignment inside a reserved row. Consecutive shared rows with the same alignment wrap with gap-adjusted fractional widths. Mobile below 600px stacks columns; tablet 600–899px uses up to two columns and full-width blocks; desktop applies all widths. Invalid settings use defaults. Count reduction clamps display to the last available column without modifying assignments; disabling Columns restores authored order.
 

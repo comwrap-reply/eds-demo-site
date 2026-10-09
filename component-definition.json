@@ -171,14 +171,14 @@
           }
         },
         {
-          "title": "Custom Section - V3",
+          "title": "Global section",
           "id": "section-custom-v3",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/section/v1/section",
                 "template": {
-                  "name": "Custom Section - V3",
+                  "name": "Global section",
                   "model": "section-custom-v3",
                   "filter": "section-custom-v3",
                   "layout": "columns-v3",
