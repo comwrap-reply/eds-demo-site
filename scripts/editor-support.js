@@ -10,7 +10,8 @@ import { decorateRichtext } from './editor-support-rte.js';
 import { decorateButtons, decorateMain } from './scripts.js';
 import decorateSectionV2 from '../layout-v2/section-v2.js';
 import { initLayoutV2Editor, refreshLayoutV2Editor } from '../layout-v2/editor-v2.js';
-import decorateSectionV3 from '../layout-v3/section-v3.js';
+import decorateGlobalSection from '../layout/global-section.js';
+import { initGlobalSectionEditor, refreshGlobalSectionEditor } from '../layout/editor.js';
 import decorateNativeV3 from '../layout-v3/native-v3.js';
 import { initLayoutV3Editor, refreshLayoutV3Editor } from '../layout-v3/editor-v3.js';
 
@@ -20,12 +21,13 @@ const listening = new WeakSet();
 function reflowLayouts(section) {
   if (!section) return;
   decorateSectionV2(section);
-  decorateSectionV3(section);
+  decorateGlobalSection(section);
   section.querySelectorAll('.columns.layout-v3-native').forEach(decorateNativeV3);
 }
 
 function refreshLayoutEditors() {
   refreshLayoutV2Editor();
+  refreshGlobalSectionEditor();
   refreshLayoutV3Editor();
 }
 
@@ -123,7 +125,7 @@ async function applyChanges(event) {
     const section = element.closest('.section');
     const wrapper = element.parentElement;
     element.remove();
-    if (wrapper.matches('.layout-v2-item, .layout-v3-item') && !wrapper.children.length) wrapper.remove();
+    if (wrapper.matches('.layout-v2-item, .global-section .layout-item') && !wrapper.children.length) wrapper.remove();
     if (section?.isConnected) reflowLayouts(section);
     refreshLayoutEditors();
     return true;
@@ -185,6 +187,7 @@ function attachEventListeners(main) {
 
 attachEventListeners(document.querySelector('main'));
 initLayoutV2Editor();
+initGlobalSectionEditor();
 initLayoutV3Editor();
 
 // Preserve the existing rich-text observer; layout updates use the explicit event lifecycle.

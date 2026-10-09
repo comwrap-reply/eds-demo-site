@@ -1,0 +1,35 @@
+/* Global section: editor-only boundaries and instructions. */
+main .global-section.layout-is-editing .layout-column {
+  min-height: 100px;
+  outline: 1px dashed var(--fng-gray-blue);
+  outline-offset: 3px;
+}
+
+main .global-section.layout-is-editing .layout-column::before {
+  content: "Column " attr(data-layout-column);
+  color: var(--text-color);
+  font: 12px/1.5 var(--body-font-family);
+  pointer-events: none;
+}
+
+main .global-section.layout-is-editing .layout-empty,
+main .global-section.layout-is-editing .layout-warning {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px;
+  border: 1px dashed var(--fng-gray-blue);
+  background: var(--light-color);
+  color: var(--text-color);
+  font: 14px/1.5 var(--body-font-family);
+  overflow-wrap: anywhere;
+}
+
+main .global-section.layout-is-editing .layout-empty {
+  min-height: 100px;
+}
+
+main .global-section.layout-is-editing > .layout-warning {
+  max-width: 1200px;
+  margin: 16px auto;
+  border-color: var(--fng-orange);
+}

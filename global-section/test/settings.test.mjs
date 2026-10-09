@@ -2,13 +2,13 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import {
   sectionSettings, blockPlacement, assignColumns, groupRows, WIDTH_VALUES, GAP_VALUES,
-} from '../../layout-v3/layout-v3.js';
+} from '../runtime/settings.js';
 
-test('only the explicit V3 metadata enables the layout', () => {
-  [undefined, {}, { layout: 'default' }, { layout: 'columns' }, { layout: 'columns-v2' }].forEach((data) => {
+test('only the explicit Global section metadata enables the layout', () => {
+  [undefined, {}, { layout: 'default' }, { layout: 'columns' }, { layout: 'columns-v2' }, { layout: 'columns-v3' }].forEach((data) => {
     assert.equal(sectionSettings(data).enabled, false);
   });
-  assert.deepEqual(sectionSettings({ layout: 'columns-v3' }), { enabled: true, count: 2, gap: 24 });
+  assert.deepEqual(sectionSettings({ layout: 'global-section-columns' }), { enabled: true, count: 2, gap: 24 });
 });
 
 test('counts 1–4 and existing gap tokens have deterministic safe defaults', () => {
@@ -29,17 +29,18 @@ test('placement defaults and all supported widths and alignments', () => {
     column: 1, width: 1, align: 'start', row: 'own',
   });
   Object.entries(WIDTH_VALUES).forEach(([token, width]) => {
-    assert.equal(blockPlacement([`layout-v3-width-${token}`]).width, width);
+    assert.equal(blockPlacement([`layout-width-${token}`]).width, width);
   });
   ['start', 'center', 'end'].forEach((align) => {
-    assert.equal(blockPlacement([`layout-v3-align-${align}`]).align, align);
+    assert.equal(blockPlacement([`layout-align-${align}`]).align, align);
   });
   assert.deepEqual(
-    blockPlacement(['layout-v3-column-0', 'layout-v3-width-wrong', 'grid-span-3']),
+    blockPlacement(['layout-column-0', 'layout-width-wrong', 'grid-span-3']),
     blockPlacement(),
   );
-  assert.equal(blockPlacement(['layout-v3-column-3', 'layout-v3-column-4']).column, 1);
+  assert.equal(blockPlacement(['layout-column-3', 'layout-column-4']).column, 1);
   assert.deepEqual(blockPlacement(['layout-v2-column-4', 'layout-v2-width-25']), blockPlacement());
+  assert.deepEqual(blockPlacement(['layout-v3-column-4', 'layout-v3-width-25', 'layout-v3-align-end', 'layout-v3-row-share']), blockPlacement());
 });
 
 test('assignment retains saved order and empty columns', () => {

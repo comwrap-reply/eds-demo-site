@@ -162,7 +162,7 @@
           ]
         },
         {
-          "...": "../../layout-v3/_block-layout-v3.json#/fields"
+          "...": "../../layout/_block-layout.json#/fields"
         },
         {
           "...": "../../layout-v2/_block-layout-v2.json#/fields"

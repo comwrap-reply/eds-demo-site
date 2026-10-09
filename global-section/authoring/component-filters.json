@@ -1,0 +1,11 @@
+[
+  {
+    "id": "global-section",
+    "components": [
+      "global-title",
+      "global-text",
+      "global-image",
+      "teaser"
+    ]
+  }
+]

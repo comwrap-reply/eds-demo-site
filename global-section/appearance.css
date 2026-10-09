@@ -1,0 +1,110 @@
+.global-section {
+  --background-color: var(--global-section-background, #fff);
+  --light-color: var(--global-section-light, #e8eef1);
+  --text-color: var(--global-section-text, #131313);
+  --fng-dark-gray: var(--global-section-dark, #525252);
+  --fng-blue: var(--global-section-blue, #002c80);
+  --fng-strong-blue: var(--global-section-light-blue, #0878bf);
+  --fng-cyan: var(--global-section-cyan, #00addc);
+  --fng-orange: var(--global-section-orange, #ff6008);
+  --fng-gray-blue: var(--global-section-border, #9bb2c1);
+  --body-font-family: var(--global-section-font, sans-serif);
+}
+
+.global-section .text-align-left,
+.global-section .text-align-left :where(p, h1, h2, h3, h4, h5, h6, li, blockquote) {
+  text-align: left;
+}
+
+.global-section .text-align-center,
+.global-section .text-align-center :where(p, h1, h2, h3, h4, h5, h6, li, blockquote) {
+  text-align: center;
+}
+
+.global-section .text-align-right,
+.global-section .text-align-right :where(p, h1, h2, h3, h4, h5, h6, li, blockquote) {
+  text-align: right;
+}
+
+.global-section .text-align-justify,
+.global-section .text-align-justify :where(p, h1, h2, h3, h4, h5, h6, li, blockquote) {
+  text-align: justify;
+}
+
+.global-section .text-color-black,
+.global-section .text-color-black :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: #000;
+}
+
+.global-section .text-color-dark-gray,
+.global-section .text-color-dark-gray :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: var(--fng-dark-gray);
+}
+
+.global-section .text-color-blue,
+.global-section .text-color-blue :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: var(--fng-blue);
+}
+
+.global-section .text-color-light-blue,
+.global-section .text-color-light-blue :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: var(--fng-strong-blue);
+}
+
+.global-section .text-color-cyan,
+.global-section .text-color-cyan :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: var(--fng-cyan);
+}
+
+.global-section .text-color-orange,
+.global-section .text-color-orange :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: var(--fng-orange);
+}
+
+.global-section .text-color-green,
+.global-section .text-color-green :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: #039a67;
+}
+
+.global-section .text-color-red,
+.global-section .text-color-red :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: #cc2027;
+}
+
+.global-section .text-color-grey-blue,
+.global-section .text-color-grey-blue :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: #445487;
+}
+
+.global-section .text-color-muted-orange,
+.global-section .text-color-muted-orange :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: #e78d24;
+}
+
+.global-section .text-color-white,
+.global-section .text-color-white :where(p, h1, h2, h3, h4, h5, h6, li, a, span, strong, em) {
+  color: var(--background-color);
+}
+
+main > .global-section.dark-gray {
+  background-color: var(--fng-dark-gray);
+  color: var(--background-color);
+}
+
+main > .global-section.blue {
+  background-color: var(--fng-blue);
+  color: var(--background-color);
+}
+
+main > .global-section.light-blue {
+  background-color: var(--fng-strong-blue);
+  color: var(--background-color);
+}
+
+main > .global-section.cyan { background-color: var(--fng-cyan); }
+main > .global-section.orange { background-color: var(--fng-orange); }
+main > .global-section.white { background-color: var(--background-color); }
+
+
+.global-section.light,
+.global-section.highlight { background: var(--light-color); }

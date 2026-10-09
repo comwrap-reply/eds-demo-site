@@ -27,7 +27,7 @@
     "...": "../layout-v3/_native-v3.json#/models"
   },
   {
-    "...": "../layout-v3/_custom-v3.json#/models"
+    "...": "../layout/_global-section.json#/models"
   },
   {
     "...": "../blocks/*/_*.json#/models"

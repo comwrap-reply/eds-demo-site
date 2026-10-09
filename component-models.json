@@ -1320,7 +1320,7 @@
     ]
   },
   {
-    "id": "section-custom-v3",
+    "id": "global-section",
     "fields": [
       {
         "component": "text",
@@ -1372,7 +1372,7 @@
         "name": "layout",
         "label": "Layout",
         "valueType": "string",
-        "value": "columns-v3",
+        "value": "global-section-columns",
         "options": [
           {
             "name": "Default",
@@ -1380,7 +1380,7 @@
           },
           {
             "name": "Columns",
-            "value": "columns-v3"
+            "value": "global-section-columns"
           }
         ]
       },
@@ -1934,104 +1934,104 @@
       },
       {
         "component": "tab",
-        "name": "layout-v3",
-        "label": "Layout - V3"
+        "name": "layout",
+        "label": "Layout"
       },
       {
         "component": "select",
-        "name": "classes_layoutv3column",
+        "name": "classes_layoutcolumn",
         "label": "Assigned column",
-        "description": "Only used inside Global section with Columns layout. Native Columns - V3 uses standard content instead.",
+        "description": "Used inside Global section with Columns layout.",
         "valueType": "string",
-        "value": "layout-v3-column-1",
+        "value": "layout-column-1",
         "options": [
           {
             "name": "Column 1",
-            "value": "layout-v3-column-1"
+            "value": "layout-column-1"
           },
           {
             "name": "Column 2",
-            "value": "layout-v3-column-2"
+            "value": "layout-column-2"
           },
           {
             "name": "Column 3",
-            "value": "layout-v3-column-3"
+            "value": "layout-column-3"
           },
           {
             "name": "Column 4",
-            "value": "layout-v3-column-4"
+            "value": "layout-column-4"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3width",
+        "name": "classes_layoutwidth",
         "label": "Width within column",
         "valueType": "string",
-        "value": "layout-v3-width-100",
+        "value": "layout-width-100",
         "options": [
           {
             "name": "25% (one quarter)",
-            "value": "layout-v3-width-25"
+            "value": "layout-width-25"
           },
           {
             "name": "One third",
-            "value": "layout-v3-width-third"
+            "value": "layout-width-third"
           },
           {
             "name": "50% (one half)",
-            "value": "layout-v3-width-50"
+            "value": "layout-width-50"
           },
           {
             "name": "Two thirds",
-            "value": "layout-v3-width-two-thirds"
+            "value": "layout-width-two-thirds"
           },
           {
             "name": "75% (three quarters)",
-            "value": "layout-v3-width-75"
+            "value": "layout-width-75"
           },
           {
             "name": "100% (full width)",
-            "value": "layout-v3-width-100"
+            "value": "layout-width-100"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3align",
+        "name": "classes_layoutalign",
         "label": "Horizontal alignment",
         "description": "Positions the block on its own row, or the whole shared line. Shared blocks must have matching alignment to stay in the same group.",
         "valueType": "string",
-        "value": "layout-v3-align-start",
+        "value": "layout-align-start",
         "options": [
           {
             "name": "Start",
-            "value": "layout-v3-align-start"
+            "value": "layout-align-start"
           },
           {
             "name": "Center",
-            "value": "layout-v3-align-center"
+            "value": "layout-align-center"
           },
           {
             "name": "End",
-            "value": "layout-v3-align-end"
+            "value": "layout-align-end"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3row",
+        "name": "classes_layoutrow",
         "label": "Row behavior",
         "valueType": "string",
-        "value": "layout-v3-row-own",
+        "value": "layout-row-own",
         "options": [
           {
             "name": "Own row",
-            "value": "layout-v3-row-own"
+            "value": "layout-row-own"
           },
           {
             "name": "Share row",
-            "value": "layout-v3-row-share"
+            "value": "layout-row-share"
           }
         ]
       },
@@ -2414,104 +2414,104 @@
       },
       {
         "component": "tab",
-        "name": "layout-v3",
-        "label": "Layout - V3"
+        "name": "layout",
+        "label": "Layout"
       },
       {
         "component": "select",
-        "name": "classes_layoutv3column",
+        "name": "classes_layoutcolumn",
         "label": "Assigned column",
-        "description": "Only used inside Global section with Columns layout. Native Columns - V3 uses standard content instead.",
+        "description": "Used inside Global section with Columns layout.",
         "valueType": "string",
-        "value": "layout-v3-column-1",
+        "value": "layout-column-1",
         "options": [
           {
             "name": "Column 1",
-            "value": "layout-v3-column-1"
+            "value": "layout-column-1"
           },
           {
             "name": "Column 2",
-            "value": "layout-v3-column-2"
+            "value": "layout-column-2"
           },
           {
             "name": "Column 3",
-            "value": "layout-v3-column-3"
+            "value": "layout-column-3"
           },
           {
             "name": "Column 4",
-            "value": "layout-v3-column-4"
+            "value": "layout-column-4"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3width",
+        "name": "classes_layoutwidth",
         "label": "Width within column",
         "valueType": "string",
-        "value": "layout-v3-width-100",
+        "value": "layout-width-100",
         "options": [
           {
             "name": "25% (one quarter)",
-            "value": "layout-v3-width-25"
+            "value": "layout-width-25"
           },
           {
             "name": "One third",
-            "value": "layout-v3-width-third"
+            "value": "layout-width-third"
           },
           {
             "name": "50% (one half)",
-            "value": "layout-v3-width-50"
+            "value": "layout-width-50"
           },
           {
             "name": "Two thirds",
-            "value": "layout-v3-width-two-thirds"
+            "value": "layout-width-two-thirds"
           },
           {
             "name": "75% (three quarters)",
-            "value": "layout-v3-width-75"
+            "value": "layout-width-75"
           },
           {
             "name": "100% (full width)",
-            "value": "layout-v3-width-100"
+            "value": "layout-width-100"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3align",
+        "name": "classes_layoutalign",
         "label": "Horizontal alignment",
         "description": "Positions the block on its own row, or the whole shared line. Shared blocks must have matching alignment to stay in the same group.",
         "valueType": "string",
-        "value": "layout-v3-align-start",
+        "value": "layout-align-start",
         "options": [
           {
             "name": "Start",
-            "value": "layout-v3-align-start"
+            "value": "layout-align-start"
           },
           {
             "name": "Center",
-            "value": "layout-v3-align-center"
+            "value": "layout-align-center"
           },
           {
             "name": "End",
-            "value": "layout-v3-align-end"
+            "value": "layout-align-end"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3row",
+        "name": "classes_layoutrow",
         "label": "Row behavior",
         "valueType": "string",
-        "value": "layout-v3-row-own",
+        "value": "layout-row-own",
         "options": [
           {
             "name": "Own row",
-            "value": "layout-v3-row-own"
+            "value": "layout-row-own"
           },
           {
             "name": "Share row",
-            "value": "layout-v3-row-share"
+            "value": "layout-row-share"
           }
         ]
       },
@@ -2923,104 +2923,104 @@
       },
       {
         "component": "tab",
-        "name": "layout-v3",
-        "label": "Layout - V3"
+        "name": "layout",
+        "label": "Layout"
       },
       {
         "component": "select",
-        "name": "classes_layoutv3column",
+        "name": "classes_layoutcolumn",
         "label": "Assigned column",
-        "description": "Only used inside Global section with Columns layout. Native Columns - V3 uses standard content instead.",
+        "description": "Used inside Global section with Columns layout.",
         "valueType": "string",
-        "value": "layout-v3-column-1",
+        "value": "layout-column-1",
         "options": [
           {
             "name": "Column 1",
-            "value": "layout-v3-column-1"
+            "value": "layout-column-1"
           },
           {
             "name": "Column 2",
-            "value": "layout-v3-column-2"
+            "value": "layout-column-2"
           },
           {
             "name": "Column 3",
-            "value": "layout-v3-column-3"
+            "value": "layout-column-3"
           },
           {
             "name": "Column 4",
-            "value": "layout-v3-column-4"
+            "value": "layout-column-4"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3width",
+        "name": "classes_layoutwidth",
         "label": "Width within column",
         "valueType": "string",
-        "value": "layout-v3-width-100",
+        "value": "layout-width-100",
         "options": [
           {
             "name": "25% (one quarter)",
-            "value": "layout-v3-width-25"
+            "value": "layout-width-25"
           },
           {
             "name": "One third",
-            "value": "layout-v3-width-third"
+            "value": "layout-width-third"
           },
           {
             "name": "50% (one half)",
-            "value": "layout-v3-width-50"
+            "value": "layout-width-50"
           },
           {
             "name": "Two thirds",
-            "value": "layout-v3-width-two-thirds"
+            "value": "layout-width-two-thirds"
           },
           {
             "name": "75% (three quarters)",
-            "value": "layout-v3-width-75"
+            "value": "layout-width-75"
           },
           {
             "name": "100% (full width)",
-            "value": "layout-v3-width-100"
+            "value": "layout-width-100"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3align",
+        "name": "classes_layoutalign",
         "label": "Horizontal alignment",
         "description": "Positions the block on its own row, or the whole shared line. Shared blocks must have matching alignment to stay in the same group.",
         "valueType": "string",
-        "value": "layout-v3-align-start",
+        "value": "layout-align-start",
         "options": [
           {
             "name": "Start",
-            "value": "layout-v3-align-start"
+            "value": "layout-align-start"
           },
           {
             "name": "Center",
-            "value": "layout-v3-align-center"
+            "value": "layout-align-center"
           },
           {
             "name": "End",
-            "value": "layout-v3-align-end"
+            "value": "layout-align-end"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3row",
+        "name": "classes_layoutrow",
         "label": "Row behavior",
         "valueType": "string",
-        "value": "layout-v3-row-own",
+        "value": "layout-row-own",
         "options": [
           {
             "name": "Own row",
-            "value": "layout-v3-row-own"
+            "value": "layout-row-own"
           },
           {
             "name": "Share row",
-            "value": "layout-v3-row-share"
+            "value": "layout-row-share"
           }
         ]
       },
@@ -3490,104 +3490,104 @@
       },
       {
         "component": "tab",
-        "name": "layout-v3",
-        "label": "Layout - V3"
+        "name": "layout",
+        "label": "Layout"
       },
       {
         "component": "select",
-        "name": "classes_layoutv3column",
+        "name": "classes_layoutcolumn",
         "label": "Assigned column",
-        "description": "Only used inside Global section with Columns layout. Native Columns - V3 uses standard content instead.",
+        "description": "Used inside Global section with Columns layout.",
         "valueType": "string",
-        "value": "layout-v3-column-1",
+        "value": "layout-column-1",
         "options": [
           {
             "name": "Column 1",
-            "value": "layout-v3-column-1"
+            "value": "layout-column-1"
           },
           {
             "name": "Column 2",
-            "value": "layout-v3-column-2"
+            "value": "layout-column-2"
           },
           {
             "name": "Column 3",
-            "value": "layout-v3-column-3"
+            "value": "layout-column-3"
           },
           {
             "name": "Column 4",
-            "value": "layout-v3-column-4"
+            "value": "layout-column-4"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3width",
+        "name": "classes_layoutwidth",
         "label": "Width within column",
         "valueType": "string",
-        "value": "layout-v3-width-100",
+        "value": "layout-width-100",
         "options": [
           {
             "name": "25% (one quarter)",
-            "value": "layout-v3-width-25"
+            "value": "layout-width-25"
           },
           {
             "name": "One third",
-            "value": "layout-v3-width-third"
+            "value": "layout-width-third"
           },
           {
             "name": "50% (one half)",
-            "value": "layout-v3-width-50"
+            "value": "layout-width-50"
           },
           {
             "name": "Two thirds",
-            "value": "layout-v3-width-two-thirds"
+            "value": "layout-width-two-thirds"
           },
           {
             "name": "75% (three quarters)",
-            "value": "layout-v3-width-75"
+            "value": "layout-width-75"
           },
           {
             "name": "100% (full width)",
-            "value": "layout-v3-width-100"
+            "value": "layout-width-100"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3align",
+        "name": "classes_layoutalign",
         "label": "Horizontal alignment",
         "description": "Positions the block on its own row, or the whole shared line. Shared blocks must have matching alignment to stay in the same group.",
         "valueType": "string",
-        "value": "layout-v3-align-start",
+        "value": "layout-align-start",
         "options": [
           {
             "name": "Start",
-            "value": "layout-v3-align-start"
+            "value": "layout-align-start"
           },
           {
             "name": "Center",
-            "value": "layout-v3-align-center"
+            "value": "layout-align-center"
           },
           {
             "name": "End",
-            "value": "layout-v3-align-end"
+            "value": "layout-align-end"
           }
         ]
       },
       {
         "component": "select",
-        "name": "classes_layoutv3row",
+        "name": "classes_layoutrow",
         "label": "Row behavior",
         "valueType": "string",
-        "value": "layout-v3-row-own",
+        "value": "layout-row-own",
         "options": [
           {
             "name": "Own row",
-            "value": "layout-v3-row-own"
+            "value": "layout-row-own"
           },
           {
             "name": "Share row",
-            "value": "layout-v3-row-share"
+            "value": "layout-row-share"
           }
         ]
       },

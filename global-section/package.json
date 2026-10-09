@@ -1,0 +1,12 @@
+{
+  "name": "eds-global-section",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "dev": "node tools/preview.mjs",
+    "build:json": "node tools/build-json.mjs"
+  }
+}

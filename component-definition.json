@@ -169,19 +169,25 @@
               }
             }
           }
-        },
+        }
+      ]
+    },
+    {
+      "title": "Layouts",
+      "id": "layouts",
+      "components": [
         {
           "title": "Global section",
-          "id": "section-custom-v3",
+          "id": "global-section",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/section/v1/section",
                 "template": {
                   "name": "Global section",
-                  "model": "section-custom-v3",
-                  "filter": "section-custom-v3",
-                  "layout": "columns-v3",
+                  "model": "global-section",
+                  "filter": "global-section",
+                  "layout": "global-section-columns",
                   "column-count": "2",
                   "column-gap": "medium"
                 }

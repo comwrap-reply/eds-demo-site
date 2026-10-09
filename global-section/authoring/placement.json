@@ -1,0 +1,107 @@
+{
+  "fields": [
+    {
+      "component": "tab",
+      "name": "layout",
+      "label": "Layout"
+    },
+    {
+      "component": "select",
+      "name": "classes_layoutcolumn",
+      "label": "Assigned column",
+      "description": "Used inside Global section with Columns layout.",
+      "valueType": "string",
+      "value": "layout-column-1",
+      "options": [
+        {
+          "name": "Column 1",
+          "value": "layout-column-1"
+        },
+        {
+          "name": "Column 2",
+          "value": "layout-column-2"
+        },
+        {
+          "name": "Column 3",
+          "value": "layout-column-3"
+        },
+        {
+          "name": "Column 4",
+          "value": "layout-column-4"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "classes_layoutwidth",
+      "label": "Width within column",
+      "valueType": "string",
+      "value": "layout-width-100",
+      "options": [
+        {
+          "name": "25% (one quarter)",
+          "value": "layout-width-25"
+        },
+        {
+          "name": "One third",
+          "value": "layout-width-third"
+        },
+        {
+          "name": "50% (one half)",
+          "value": "layout-width-50"
+        },
+        {
+          "name": "Two thirds",
+          "value": "layout-width-two-thirds"
+        },
+        {
+          "name": "75% (three quarters)",
+          "value": "layout-width-75"
+        },
+        {
+          "name": "100% (full width)",
+          "value": "layout-width-100"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "classes_layoutalign",
+      "label": "Horizontal alignment",
+      "description": "Positions the block on its own row, or the whole shared line. Shared blocks must have matching alignment to stay in the same group.",
+      "valueType": "string",
+      "value": "layout-align-start",
+      "options": [
+        {
+          "name": "Start",
+          "value": "layout-align-start"
+        },
+        {
+          "name": "Center",
+          "value": "layout-align-center"
+        },
+        {
+          "name": "End",
+          "value": "layout-align-end"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "classes_layoutrow",
+      "label": "Row behavior",
+      "valueType": "string",
+      "value": "layout-row-own",
+      "options": [
+        {
+          "name": "Own row",
+          "value": "layout-row-own"
+        },
+        {
+          "name": "Share row",
+          "value": "layout-row-share"
+        }
+      ]
+    }
+  ]
+}

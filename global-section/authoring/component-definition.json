@@ -1,0 +1,95 @@
+{
+  "groups": [
+    {
+      "title": "Layouts",
+      "id": "global-section-layouts",
+      "components": [
+        {
+          "title": "Global section",
+          "id": "global-section",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Global section",
+                  "model": "global-section",
+                  "filter": "global-section",
+                  "layout": "global-section-columns",
+                  "column-count": "2",
+                  "column-gap": "medium"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Blocks",
+      "id": "global-section-blocks",
+      "components": [
+        {
+          "title": "Global Title",
+          "id": "global-title",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Global Title",
+                  "model": "global-title"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Global Text",
+          "id": "global-text",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Global Text",
+                  "model": "global-text"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Global Image",
+          "id": "global-image",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Global Image",
+                  "model": "global-image"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Teaser",
+          "id": "teaser",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Teaser",
+                  "model": "teaser"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

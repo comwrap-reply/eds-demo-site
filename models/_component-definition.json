@@ -48,9 +48,15 @@
       "components": [
         {
           "...": "../layout-v3/_native-v3.json#/definitions"
-        },
+        }
+      ]
+    },
+    {
+      "title": "Layouts",
+      "id": "layouts",
+      "components": [
         {
-          "...": "../layout-v3/_custom-v3.json#/definitions"
+          "...": "../layout/_global-section.json#/definitions"
         }
       ]
     },

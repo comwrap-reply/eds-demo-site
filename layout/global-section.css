@@ -1,0 +1,89 @@
+/* Layouts: public layout, isolated from V1 classes and default sections. */
+main .section.global-section.layout-columns > .layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--layout-gap);
+}
+
+main .global-section.layout-columns .layout-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap);
+  min-width: 0;
+}
+
+main .global-section.layout-columns .layout-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: var(--layout-gap);
+  min-width: 0;
+}
+
+main .global-section.layout-columns .layout-item {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+main .global-section.layout-columns .layout-item > .block {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+main .global-section.layout-columns .layout-item a.button {
+  min-width: 0;
+  white-space: normal;
+}
+
+main .global-section.layout-columns .layout-item > :is(.panel, .panel-border, .panel-shadow, .panel-gray) {
+  padding: 24px;
+}
+
+main .global-section.layout-columns .layout-item > :is(.panel, .panel-shadow) {
+  background-color: var(--background-color);
+}
+
+main .global-section.layout-columns .layout-item > .panel-border {
+  border: 1px solid var(--fng-gray-blue);
+}
+
+main .global-section.layout-columns .layout-item > .panel-shadow {
+  box-shadow: 0 4px 16px rgb(19 19 19 / 12%);
+}
+
+main .global-section.layout-columns .layout-item > .panel-gray {
+  background-color: var(--light-color);
+}
+
+@media (width >= 600px) {
+  main .section.global-section.layout-columns > .layout-grid {
+    grid-template-columns: repeat(var(--layout-tablet-count), minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  main .section.global-section.layout-columns > .layout-grid {
+    grid-template-columns: repeat(var(--layout-count), minmax(0, 1fr));
+  }
+
+  main .global-section.layout-columns .layout-row[data-layout-align="center"] {
+    justify-content: center;
+  }
+
+  main .global-section.layout-columns .layout-row[data-layout-align="end"] {
+    justify-content: end;
+  }
+
+  main .global-section.layout-columns .layout-item {
+    flex-basis: calc(100% * var(--layout-fraction));
+  }
+
+  main .global-section.layout-columns .layout-row-share > .layout-item {
+    /* f * (available width + gap) - gap: halves/quarters fit including their gaps. */
+    flex-basis: max(0px, calc((100% + var(--layout-gap)) * var(--layout-fraction) - var(--layout-gap)));
+  }
+}

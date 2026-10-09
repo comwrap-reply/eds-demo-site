@@ -1,0 +1,987 @@
+[
+  {
+    "id": "global-section",
+    "fields": [
+      {
+        "component": "text",
+        "name": "name",
+        "label": "Section Name",
+        "description": "The label shown in the Content Tree"
+      },
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Appearance",
+        "options": [
+          {
+            "name": "Highlight",
+            "value": "highlight"
+          },
+          {
+            "name": "Light gray",
+            "value": "light"
+          },
+          {
+            "name": "Dark gray",
+            "value": "dark-gray"
+          },
+          {
+            "name": "FNG blue",
+            "value": "blue"
+          },
+          {
+            "name": "FNG light blue",
+            "value": "light-blue"
+          },
+          {
+            "name": "FNG cyan",
+            "value": "cyan"
+          },
+          {
+            "name": "FNG orange",
+            "value": "orange"
+          },
+          {
+            "name": "White",
+            "value": "white"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "layout",
+        "label": "Layout",
+        "valueType": "string",
+        "value": "global-section-columns",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          },
+          {
+            "name": "Columns",
+            "value": "global-section-columns"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "column-count",
+        "label": "Number of columns",
+        "valueType": "string",
+        "value": "2",
+        "description": "Used by Columns layout. Reassign blocks before reducing the count; content from removed columns stays visible in the last column.",
+        "options": [
+          {
+            "name": "1",
+            "value": "1"
+          },
+          {
+            "name": "2",
+            "value": "2"
+          },
+          {
+            "name": "3",
+            "value": "3"
+          },
+          {
+            "name": "4",
+            "value": "4"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "column-gap",
+        "label": "Column gap",
+        "valueType": "string",
+        "value": "medium",
+        "description": "Space between columns and between blocks in Columns layout.",
+        "options": [
+          {
+            "name": "None",
+            "value": "none"
+          },
+          {
+            "name": "Small",
+            "value": "small"
+          },
+          {
+            "name": "Medium",
+            "value": "medium"
+          },
+          {
+            "name": "Large",
+            "value": "large"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "global-title",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "titleType",
+        "label": "Heading level",
+        "value": "h2",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_alignment",
+        "label": "Alignment",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Left",
+            "value": "text-align-left"
+          },
+          {
+            "name": "Center",
+            "value": "text-align-center"
+          },
+          {
+            "name": "Right",
+            "value": "text-align-right"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_color",
+        "label": "Color",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Black",
+            "value": "text-color-black"
+          },
+          {
+            "name": "Dark Gray",
+            "value": "text-color-dark-gray"
+          },
+          {
+            "name": "FNG Blue",
+            "value": "text-color-blue"
+          },
+          {
+            "name": "FNG Light Blue",
+            "value": "text-color-light-blue"
+          },
+          {
+            "name": "FNG Cyan",
+            "value": "text-color-cyan"
+          },
+          {
+            "name": "FNG Orange",
+            "value": "text-color-orange"
+          },
+          {
+            "name": "Green",
+            "value": "text-color-green"
+          },
+          {
+            "name": "Red",
+            "value": "text-color-red"
+          },
+          {
+            "name": "Grey Blue",
+            "value": "text-color-grey-blue"
+          },
+          {
+            "name": "Muted Orange",
+            "value": "text-color-muted-orange"
+          },
+          {
+            "name": "White",
+            "value": "text-color-white"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_panel",
+        "label": "Panel appearance",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Panel",
+            "value": "panel"
+          },
+          {
+            "name": "Panel border",
+            "value": "panel-border"
+          },
+          {
+            "name": "Panel shadow",
+            "value": "panel-shadow"
+          },
+          {
+            "name": "Panel gray",
+            "value": "panel-gray"
+          }
+        ]
+      },
+      {
+        "component": "tab",
+        "name": "layout",
+        "label": "Layout"
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutcolumn",
+        "label": "Assigned column",
+        "description": "Used inside Global section with Columns layout.",
+        "valueType": "string",
+        "value": "layout-column-1",
+        "options": [
+          {
+            "name": "Column 1",
+            "value": "layout-column-1"
+          },
+          {
+            "name": "Column 2",
+            "value": "layout-column-2"
+          },
+          {
+            "name": "Column 3",
+            "value": "layout-column-3"
+          },
+          {
+            "name": "Column 4",
+            "value": "layout-column-4"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutwidth",
+        "label": "Width within column",
+        "valueType": "string",
+        "value": "layout-width-100",
+        "options": [
+          {
+            "name": "25% (one quarter)",
+            "value": "layout-width-25"
+          },
+          {
+            "name": "One third",
+            "value": "layout-width-third"
+          },
+          {
+            "name": "50% (one half)",
+            "value": "layout-width-50"
+          },
+          {
+            "name": "Two thirds",
+            "value": "layout-width-two-thirds"
+          },
+          {
+            "name": "75% (three quarters)",
+            "value": "layout-width-75"
+          },
+          {
+            "name": "100% (full width)",
+            "value": "layout-width-100"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutalign",
+        "label": "Horizontal alignment",
+        "description": "Positions the block on its own row, or the whole shared line. Shared blocks must have matching alignment to stay in the same group.",
+        "valueType": "string",
+        "value": "layout-align-start",
+        "options": [
+          {
+            "name": "Start",
+            "value": "layout-align-start"
+          },
+          {
+            "name": "Center",
+            "value": "layout-align-center"
+          },
+          {
+            "name": "End",
+            "value": "layout-align-end"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutrow",
+        "label": "Row behavior",
+        "valueType": "string",
+        "value": "layout-row-own",
+        "options": [
+          {
+            "name": "Own row",
+            "value": "layout-row-own"
+          },
+          {
+            "name": "Share row",
+            "value": "layout-row-share"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "global-text",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "name": "classes_alignment",
+        "label": "Alignment",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Left",
+            "value": "text-align-left"
+          },
+          {
+            "name": "Center",
+            "value": "text-align-center"
+          },
+          {
+            "name": "Right",
+            "value": "text-align-right"
+          },
+          {
+            "name": "Justify",
+            "value": "text-align-justify"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_color",
+        "label": "Color",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Black",
+            "value": "text-color-black"
+          },
+          {
+            "name": "Dark Gray",
+            "value": "text-color-dark-gray"
+          },
+          {
+            "name": "FNG Blue",
+            "value": "text-color-blue"
+          },
+          {
+            "name": "FNG Light Blue",
+            "value": "text-color-light-blue"
+          },
+          {
+            "name": "FNG Cyan",
+            "value": "text-color-cyan"
+          },
+          {
+            "name": "FNG Orange",
+            "value": "text-color-orange"
+          },
+          {
+            "name": "Green",
+            "value": "text-color-green"
+          },
+          {
+            "name": "Red",
+            "value": "text-color-red"
+          },
+          {
+            "name": "Grey Blue",
+            "value": "text-color-grey-blue"
+          },
+          {
+            "name": "Muted Orange",
+            "value": "text-color-muted-orange"
+          },
+          {
+            "name": "White",
+            "value": "text-color-white"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_panel",
+        "label": "Panel appearance",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Panel",
+            "value": "panel"
+          },
+          {
+            "name": "Panel border",
+            "value": "panel-border"
+          },
+          {
+            "name": "Panel shadow",
+            "value": "panel-shadow"
+          },
+          {
+            "name": "Panel gray",
+            "value": "panel-gray"
+          }
+        ]
+      },
+      {
+        "component": "tab",
+        "name": "layout",
+        "label": "Layout"
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutcolumn",
+        "label": "Assigned column",
+        "description": "Used inside Global section with Columns layout.",
+        "valueType": "string",
+        "value": "layout-column-1",
+        "options": [
+          {
+            "name": "Column 1",
+            "value": "layout-column-1"
+          },
+          {
+            "name": "Column 2",
+            "value": "layout-column-2"
+          },
+          {
+            "name": "Column 3",
+            "value": "layout-column-3"
+          },
+          {
+            "name": "Column 4",
+            "value": "layout-column-4"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutwidth",
+        "label": "Width within column",
+        "valueType": "string",
+        "value": "layout-width-100",
+        "options": [
+          {
+            "name": "25% (one quarter)",
+            "value": "layout-width-25"
+          },
+          {
+            "name": "One third",
+            "value": "layout-width-third"
+          },
+          {
+            "name": "50% (one half)",
+            "value": "layout-width-50"
+          },
+          {
+            "name": "Two thirds",
+            "value": "layout-width-two-thirds"
+          },
+          {
+            "name": "75% (three quarters)",
+            "value": "layout-width-75"
+          },
+          {
+            "name": "100% (full width)",
+            "value": "layout-width-100"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutalign",
+        "label": "Horizontal alignment",
+        "description": "Positions the block on its own row, or the whole shared line. Shared blocks must have matching alignment to stay in the same group.",
+        "valueType": "string",
+        "value": "layout-align-start",
+        "options": [
+          {
+            "name": "Start",
+            "value": "layout-align-start"
+          },
+          {
+            "name": "Center",
+            "value": "layout-align-center"
+          },
+          {
+            "name": "End",
+            "value": "layout-align-end"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutrow",
+        "label": "Row behavior",
+        "valueType": "string",
+        "value": "layout-row-own",
+        "options": [
+          {
+            "name": "Own row",
+            "value": "layout-row-own"
+          },
+          {
+            "name": "Share row",
+            "value": "layout-row-share"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "global-image",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "valueType": "string",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt text",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes_panel",
+        "label": "Panel appearance",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Panel",
+            "value": "panel"
+          },
+          {
+            "name": "Panel border",
+            "value": "panel-border"
+          },
+          {
+            "name": "Panel shadow",
+            "value": "panel-shadow"
+          },
+          {
+            "name": "Panel gray",
+            "value": "panel-gray"
+          }
+        ]
+      },
+      {
+        "component": "tab",
+        "name": "layout",
+        "label": "Layout"
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutcolumn",
+        "label": "Assigned column",
+        "description": "Used inside Global section with Columns layout.",
+        "valueType": "string",
+        "value": "layout-column-1",
+        "options": [
+          {
+            "name": "Column 1",
+            "value": "layout-column-1"
+          },
+          {
+            "name": "Column 2",
+            "value": "layout-column-2"
+          },
+          {
+            "name": "Column 3",
+            "value": "layout-column-3"
+          },
+          {
+            "name": "Column 4",
+            "value": "layout-column-4"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutwidth",
+        "label": "Width within column",
+        "valueType": "string",
+        "value": "layout-width-100",
+        "options": [
+          {
+            "name": "25% (one quarter)",
+            "value": "layout-width-25"
+          },
+          {
+            "name": "One third",
+            "value": "layout-width-third"
+          },
+          {
+            "name": "50% (one half)",
+            "value": "layout-width-50"
+          },
+          {
+            "name": "Two thirds",
+            "value": "layout-width-two-thirds"
+          },
+          {
+            "name": "75% (three quarters)",
+            "value": "layout-width-75"
+          },
+          {
+            "name": "100% (full width)",
+            "value": "layout-width-100"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutalign",
+        "label": "Horizontal alignment",
+        "description": "Positions the block on its own row, or the whole shared line. Shared blocks must have matching alignment to stay in the same group.",
+        "valueType": "string",
+        "value": "layout-align-start",
+        "options": [
+          {
+            "name": "Start",
+            "value": "layout-align-start"
+          },
+          {
+            "name": "Center",
+            "value": "layout-align-center"
+          },
+          {
+            "name": "End",
+            "value": "layout-align-end"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutrow",
+        "label": "Row behavior",
+        "valueType": "string",
+        "value": "layout-row-own",
+        "options": [
+          {
+            "name": "Own row",
+            "value": "layout-row-own"
+          },
+          {
+            "name": "Share row",
+            "value": "layout-row-share"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "teaser",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "cta",
+        "label": "CTA",
+        "value": ""
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Teaser options",
+        "value": [],
+        "valueType": "array",
+        "options": [
+          {
+            "name": "Left",
+            "value": "text-align-left"
+          },
+          {
+            "name": "Center",
+            "value": "text-align-center"
+          },
+          {
+            "name": "Right",
+            "value": "text-align-right"
+          },
+          {
+            "name": "Justify",
+            "value": "text-align-justify"
+          },
+          {
+            "name": "Black",
+            "value": "text-color-black"
+          },
+          {
+            "name": "Dark Gray",
+            "value": "text-color-dark-gray"
+          },
+          {
+            "name": "FNG Blue",
+            "value": "text-color-blue"
+          },
+          {
+            "name": "FNG Light Blue",
+            "value": "text-color-light-blue"
+          },
+          {
+            "name": "FNG Cyan",
+            "value": "text-color-cyan"
+          },
+          {
+            "name": "FNG Orange",
+            "value": "text-color-orange"
+          },
+          {
+            "name": "Green",
+            "value": "text-color-green"
+          },
+          {
+            "name": "Red",
+            "value": "text-color-red"
+          },
+          {
+            "name": "Grey Blue",
+            "value": "text-color-grey-blue"
+          },
+          {
+            "name": "Muted Orange",
+            "value": "text-color-muted-orange"
+          },
+          {
+            "name": "White",
+            "value": "text-color-white"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_panel",
+        "label": "Panel appearance",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Panel",
+            "value": "panel"
+          },
+          {
+            "name": "Panel border",
+            "value": "panel-border"
+          },
+          {
+            "name": "Panel shadow",
+            "value": "panel-shadow"
+          },
+          {
+            "name": "Panel gray",
+            "value": "panel-gray"
+          }
+        ]
+      },
+      {
+        "component": "tab",
+        "name": "layout",
+        "label": "Layout"
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutcolumn",
+        "label": "Assigned column",
+        "description": "Used inside Global section with Columns layout.",
+        "valueType": "string",
+        "value": "layout-column-1",
+        "options": [
+          {
+            "name": "Column 1",
+            "value": "layout-column-1"
+          },
+          {
+            "name": "Column 2",
+            "value": "layout-column-2"
+          },
+          {
+            "name": "Column 3",
+            "value": "layout-column-3"
+          },
+          {
+            "name": "Column 4",
+            "value": "layout-column-4"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutwidth",
+        "label": "Width within column",
+        "valueType": "string",
+        "value": "layout-width-100",
+        "options": [
+          {
+            "name": "25% (one quarter)",
+            "value": "layout-width-25"
+          },
+          {
+            "name": "One third",
+            "value": "layout-width-third"
+          },
+          {
+            "name": "50% (one half)",
+            "value": "layout-width-50"
+          },
+          {
+            "name": "Two thirds",
+            "value": "layout-width-two-thirds"
+          },
+          {
+            "name": "75% (three quarters)",
+            "value": "layout-width-75"
+          },
+          {
+            "name": "100% (full width)",
+            "value": "layout-width-100"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutalign",
+        "label": "Horizontal alignment",
+        "description": "Positions the block on its own row, or the whole shared line. Shared blocks must have matching alignment to stay in the same group.",
+        "valueType": "string",
+        "value": "layout-align-start",
+        "options": [
+          {
+            "name": "Start",
+            "value": "layout-align-start"
+          },
+          {
+            "name": "Center",
+            "value": "layout-align-center"
+          },
+          {
+            "name": "End",
+            "value": "layout-align-end"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_layoutrow",
+        "label": "Row behavior",
+        "valueType": "string",
+        "value": "layout-row-own",
+        "options": [
+          {
+            "name": "Own row",
+            "value": "layout-row-own"
+          },
+          {
+            "name": "Share row",
+            "value": "layout-row-share"
+          }
+        ]
+      }
+    ]
+  }
+]

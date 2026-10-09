@@ -1,0 +1,23 @@
+@import url('../blocks/global-title/global-title.css');
+@import url('../blocks/global-text/global-text.css');
+@import url('../blocks/global-image/global-image.css');
+@import url('../blocks/teaser/teaser.css');
+
+body {
+  margin: 0;
+  font: 16px/1.5 sans-serif;
+  color: #131313;
+}
+
+aside, nav {
+  padding: 12px 24px;
+  background: #f3f5f7;
+}
+
+button {
+  min-height: 44px;
+  margin-right: 8px;
+}
+main > .section { margin: 32px 0; }
+main > .section:not(.global-section) > div { padding: 0 24px; }
+h1, h2, h3 { line-height: 1.2; }

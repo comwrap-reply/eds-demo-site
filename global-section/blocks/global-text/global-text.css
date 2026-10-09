@@ -1,0 +1,11 @@
+main .global-text {
+  min-width: 0;
+}
+
+main .global-text > :first-child {
+  margin-top: 0;
+}
+
+main .global-text > :last-child {
+  margin-bottom: 0;
+}
