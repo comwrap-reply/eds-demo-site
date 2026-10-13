@@ -12,10 +12,12 @@
     "build:json:models": "merge-json-cli -i \"models/_component-models.json\" -o \"component-models.json\"",
     "build:json:definitions": "merge-json-cli -i \"models/_component-definition.json\" -o \"component-definition.json\"",
     "build:json:filters": "merge-json-cli -i \"models/_component-filters.json\" -o \"component-filters.json\"",
-    "test": "npm run test:importer && npm run test:layout",
+    "test": "npm run test:importer && npm run test:layout && npm run test:freeform",
     "test:layout": "node --test test/layout-v2/*.test.mjs test/layout/*.test.mjs",
     "test:importer": "node tools/importer/test-routes.mjs",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:freeform": "node --test test/freeform/*.test.mjs",
+    "test:freeform:browser": "node test/freeform/server.mjs"
   },
   "repository": {
     "type": "git",

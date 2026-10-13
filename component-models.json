@@ -1733,8 +1733,10 @@
         "component": "textarea",
         "valueType": "string",
         "name": "text",
-        "label": "Text Entry",
-        "description": "Paste an HTML snippet. Include CSS inside <style> tags and JavaScript inside <script> tags. Code runs on the page, including in the editor.",
+        "label": "HTML storage",
+        "description": "Use Edit HTML on the Freeform block to edit its source.",
+        "hidden": true,
+        "readOnly": true,
         "value": ""
       }
     ]

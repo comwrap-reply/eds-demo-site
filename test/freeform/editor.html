@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="urn:adobe:aue:system:aemconnection" content="aem:http://localhost:3002">
+    <title>Freeform HTML editor test</title>
+    <link rel="stylesheet" href="/blocks/freeform/freeform.css">
+    <style>
+      body { margin: 24px; font: 16px/1.5 Arial, sans-serif; }
+      main { max-width: 1000px; margin: auto; }
+    </style>
+    <script type="module" src="/test/freeform/editor-fixture.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Freeform HTML editor</h1>
+      <p>Local test with an HTTP server simulating AEM storage.</p>
+      <div class="freeform block" data-aue-resource="urn:aemconnection:/content/demo/freeform/jcr:content/root/section/freeform" data-aue-type="component"><div><div></div></div></div>
+      <p><button type="button" id="deny-next-save">Simulate failed save</button></p>
+      <p role="status" id="test-status"></p>
+    </main>
+  </body>
+</html>

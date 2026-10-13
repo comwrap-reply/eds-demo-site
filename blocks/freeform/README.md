@@ -1,9 +1,21 @@
 # Freeform
 
-Freeform mirrors the Southern Global component's single **Text Entry** field.
-In Universal Editor, add **Freeform** to a section and paste an HTML fragment
-into the properties panel. Include CSS in `<style>` tags and JavaScript in
-`<script>` tags. Leave the field empty to render no content.
+Freeform has an **Edit HTML** button on the AEM author page. No separately
+installed Adobe extension is required.
+
+1. Add **Freeform** to a section in Universal Editor.
+2. Switch Universal Editor to **Preview** to interact with the page controls.
+3. Click **Edit HTML**, paste your HTML, and click **Save**.
+4. Reopen **Edit HTML** whenever you want to change the source.
+
+The editor preserves wrappers, `class`, `id`, `style`, ARIA and data attributes,
+CSS, JavaScript, entities, and Unicode. Clearing the editor and saving renders
+an empty block. Cancel discards the current edits. Controls also work when
+opening the instrumented page directly on the AEM author host.
+
+Use this editor instead of pasting into the standard Universal Editor textarea,
+which normalizes HTML before saving. The underlying `text` model field is hidden
+and read-only so encoded storage is not shown as an editable form field.
 
 ```html
 <style>
@@ -24,9 +36,7 @@ into the properties panel. Include CSS in `<style>` tags and JavaScript in
 ```
 
 Use a fragment, rather than a full document with `<html>`, `<head>`, or `<body>`.
-Start mixed snippets with `<style>` or a wrapping `<div>` so AEM does not infer
-rich text from a leading paragraph or heading. CSS and JavaScript execute in the
-page, including the editor. Scope selectors to the snippet and use an IIFE for
+CSS and JavaScript execute in the page, including the editor. Scope selectors to the snippet and use an IIFE for
 classic scripts to avoid variable collisions between instances. JavaScript
 should initialize immediately: page loading events may have already fired when
 a block loads. Editor updates rerun the snippet; clean up any document/window
@@ -40,20 +50,52 @@ Authored code remains subject to the site's Content Security Policy.
 
 ## Content contract
 
-One row with one cell containing escaped plain-text source (`text`). The decorator
-decodes it once, preserves literal newlines and rendered `<br>`/paragraph breaks,
-inserts the fragment, then activates its scripts. The block element retains its
-Universal Editor instrumentation. Empty instrumented blocks have a small outline
-so authors can select them.
+One row with one cell containing `text`. New saves use `freeform:v1:` followed by
+Base64-encoded UTF-8 source. Encoding prevents AEM's rich-text processing from
+interpreting the HTML. The renderer decodes exactly once and retains support for
+legacy plain-text snippets, including `<br>`/paragraph source line breaks.
+Previously stripped markup cannot be recovered: paste the original once through
+**Edit HTML**. Corrupt encoded content is not executed.
+
+The block retains its Universal Editor instrumentation. Its transient toolbar is
+a sibling of the block, so authored scripts only find their own content. Public
+pages without author instrumentation do not load the editor module or controls.
+
+## Saving on AEM
+
+The editor requires an AEM system connection whose origin matches the current
+page, an existing Freeform resource, and the signed-in author's write permissions.
+It reads the resource's JSON, requests a fresh Granite CSRF token, and uses Sling
+POST to save the encoded `text` property and modification metadata. It reads the
+property back before reporting success. No credentials or service tokens are
+stored in the repository. The editor does not save through a cross-origin EDS
+preview URL or a local AEM CLI proxy.
+
+Changes detected since opening the editor are rejected with the current input
+retained. This preflight check is not an atomic repository lock; simultaneous
+saves can still race. Failed requests leave the editor open with the HTML intact.
+
+These saves are outside Universal Editor's undo history. Use **Edit HTML** again
+to revise the source, and use the normal AEM preview/publish process to deliver
+the page. Do not roll back the decoder while pages contain encoded source.
 
 ## Local validation
 
 Start the AEM CLI with `--html-folder drafts` and open `/drafts/freeform`.
-The fixture covers mixed HTML/CSS/JS, entities, line comments, `<br>` line breaks,
+The fixture covers the services card with encoded HTML, mixed legacy HTML/CSS/JS,
+entities, line comments, `<br>` line breaks,
 multiple instances, an empty cell, and a missing cell. Check the demo button and
 confirm there is no horizontal overflow at mobile, tablet, and desktop widths.
 Also verify ordered external scripts, modules, non-executable script data, and
 replacement of an existing block during editor updates.
 
-The CMS rendering and Universal Editor save/preview round trip must also be
-checked against an authored page when deploying the component.
+Run `npm run test:freeform` for codec and save-flow regression tests. Run
+`npm run test:freeform:browser` and open
+`http://localhost:3002/test/freeform/editor.html` to exercise the actual dialog
+against a local HTTP fixture. This fixture simulates AEM storage and CSRF; it
+does not establish compatibility with a particular AEM deployment.
+
+Before rollout, verify the signed-in author's JSON and Sling POST permissions,
+the button in Universal Editor Preview, a save/reopen/reload cycle with the
+original services card, page modification status, and EDS preview/publish output
+on the authored `/content/eds-demo-site/freeform` page.

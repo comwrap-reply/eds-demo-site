@@ -1,3 +1,5 @@
+import { decodeSource } from './source.js';
+
 /**
  * Read escaped source without losing line breaks used by JavaScript comments.
  * @param {Element} cell The authored text cell.
@@ -42,8 +44,7 @@ function activateScript(original) {
  * Render author-provided HTML, styles, and scripts, matching the legacy Freeform component.
  * @param {Element} block The Freeform block.
  */
-export default function decorate(block) {
-  const source = readSource(block.querySelector(':scope > div > div'));
+function render(block, source) {
   const template = document.createElement('template');
   // Intentional HTML execution: Freeform is an author-controlled code component.
   template.innerHTML = source;
@@ -55,4 +56,20 @@ export default function decorate(block) {
     (previous, script) => previous.then(() => activateScript(script)),
     Promise.resolve(),
   );
+}
+
+export default function decorate(block) {
+  try {
+    render(block, decodeSource(readSource(block.querySelector(':scope > div > div'))));
+  } catch {
+    block.replaceChildren();
+    if (block.hasAttribute('data-aue-resource')) {
+      block.textContent = 'The saved Freeform HTML could not be decoded.';
+    }
+  }
+  if (block.hasAttribute('data-aue-resource')) {
+    import('./editor.js').then(({ default: attachEditor }) => {
+      attachEditor(block, (source) => render(block, source));
+    });
+  }
 }
