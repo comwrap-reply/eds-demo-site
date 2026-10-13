@@ -82,7 +82,7 @@ test('retry after a lost save response succeeds without another write', async (t
 test('empty source persists the marker instead of deleting a property', async (t) => {
   const api = backend(t, { text: 'old' });
   await saveSource(target, '', 'old');
-  assert.equal(api.stored(), 'freeform:v1:');
+  assert.equal(api.stored(), 'freeform-html-v2=');
 });
 
 test('deleted blocks, missing sessions and network failures stop before writing', async (t) => {

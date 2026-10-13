@@ -1,17 +1,4 @@
-import { decodeSource } from './source.js';
-
-/**
- * Read escaped source without losing line breaks used by JavaScript comments.
- * @param {Element} cell The authored text cell.
- * @returns {string} The original snippet.
- */
-function readSource(cell) {
-  if (!cell) return '';
-  const source = cell.cloneNode(true);
-  source.querySelectorAll('br').forEach((br) => br.replaceWith('\n'));
-  source.querySelectorAll('p').forEach((p) => p.append('\n'));
-  return source.textContent;
-}
+import { decodeSource, readSource } from './source.js';
 
 /**
  * Recreate an inert script so the browser executes it, retaining authored attributes.

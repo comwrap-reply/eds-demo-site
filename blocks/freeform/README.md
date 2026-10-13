@@ -50,9 +50,12 @@ Authored code remains subject to the site's Content Security Policy.
 
 ## Content contract
 
-One row with one cell containing `text`. New saves use `freeform:v1:` followed by
+One row with one cell containing `text`. New saves use `freeform-html-v2=` followed by
 Base64-encoded UTF-8 source. Encoding prevents AEM's rich-text processing from
-interpreting the HTML. The renderer decodes exactly once and retains support for
+interpreting the HTML. The marker has no colons because AEM expands `:v1:` into an
+icon. Existing `freeform:v1:` saves are still supported, including delivered markup
+with an `icon-v1` span in place of `:v1:`. They migrate when next saved.
+The renderer decodes exactly once and retains support for
 legacy plain-text snippets, including `<br>`/paragraph source line breaks.
 Previously stripped markup cannot be recovered: paste the original once through
 **Edit HTML**. Corrupt encoded content is not executed.
@@ -94,6 +97,9 @@ Run `npm run test:freeform` for codec and save-flow regression tests. Run
 `http://localhost:3002/test/freeform/editor.html` to exercise the actual dialog
 against a local HTTP fixture. This fixture simulates AEM storage and CSRF; it
 does not establish compatibility with a particular AEM deployment.
+The fixture also simulates AEM's icon expansion on reload. Open
+`http://localhost:3002/test/freeform/reload.html` to run browser regressions against
+the captured AEM-delivered v1 markup, including icon decoration and empty content.
 
 Before rollout, verify the signed-in author's JSON and Sling POST permissions,
 the button in Universal Editor Preview, a save/reopen/reload cycle with the
