@@ -6,16 +6,16 @@
       "components": [
         {
           "title": "Global section",
-          "id": "global-section",
+          "id": "section-custom-v3",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/section/v1/section",
                 "template": {
                   "name": "Global section",
-                  "model": "global-section",
-                  "filter": "global-section",
-                  "layout": "global-section-columns",
+                  "model": "section-custom-v3",
+                  "filter": "section-custom-v3",
+                  "layout": "columns-v3",
                   "column-count": "2",
                   "column-gap": "medium"
                 }

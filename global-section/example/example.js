@@ -19,7 +19,7 @@ export function decorateMain(main) {
   [...main.children].forEach((section, i) => {
     section.classList.add('section');
     section.dataset.aueResource ||= `urn:global-section:${section.id || i}`;
-    section.dataset.aueModel ||= 'global-section';
+    section.dataset.aueModel ||= 'section-custom-v3';
     const metadata = section.querySelector(':scope > .section-metadata');
     [...metadata?.children || []].forEach((row) => {
       const key = row.children[0].textContent.trim().toLowerCase().replaceAll(' ', '-');

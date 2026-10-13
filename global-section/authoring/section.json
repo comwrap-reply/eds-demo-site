@@ -2,16 +2,16 @@
   "definitions": [
     {
       "title": "Global section",
-      "id": "global-section",
+      "id": "section-custom-v3",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/section/v1/section",
             "template": {
               "name": "Global section",
-              "model": "global-section",
-              "filter": "global-section",
-              "layout": "global-section-columns",
+              "model": "section-custom-v3",
+              "filter": "section-custom-v3",
+              "layout": "columns-v3",
               "column-count": "2",
               "column-gap": "medium"
             }
@@ -22,7 +22,7 @@
   ],
   "models": [
     {
-      "id": "global-section",
+      "id": "section-custom-v3",
       "fields": [
         {
           "component": "text",
@@ -74,7 +74,7 @@
           "name": "layout",
           "label": "Layout",
           "valueType": "string",
-          "value": "global-section-columns",
+          "value": "columns-v3",
           "options": [
             {
               "name": "Default",
@@ -82,7 +82,7 @@
             },
             {
               "name": "Columns",
-              "value": "global-section-columns"
+              "value": "columns-v3"
             }
           ]
         },
@@ -143,7 +143,7 @@
   ],
   "filters": [
     {
-      "id": "global-section",
+      "id": "section-custom-v3",
       "components": [
         "global-title",
         "global-text",

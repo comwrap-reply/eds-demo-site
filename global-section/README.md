@@ -10,10 +10,9 @@ Neither implementation imports the other. Changes to one copy do not automatical
 update the other; the site's contract parity test checks their saved mappings.
 Do not register or load both copies in the same site.
 
-This is a **breaking rename** of the former custom V3 system. Old custom models,
-layout values and placement properties are not supported. Existing AEM content
-has not been changed: recreate or separately migrate it before rollout. Native V3,
-V1, V2 and Freeform are unaffected.
+The October 13 compatibility repair restores the original custom V3 saved names,
+while keeping the Global section label and version-free source folders. Existing
+custom V3 content needs no migration. Native V3, V1, V2 and Freeform are unaffected.
 
 ## What is included
 
@@ -80,14 +79,14 @@ For the distributed `merge-json-cli` pattern used by the AEM boilerplate:
    `models/_component-models.json` array.
 3. Add `{"...":"../global-section/authoring/component-filters.json"}` to the
    `models/_component-filters.json` array.
-4. Add `"global-section"` to the existing **main** filter's `components` array.
+4. Add `"section-custom-v3"` to the existing **main** filter's `components` array.
 5. Run the target site's `npm run build:json`, lint and tests.
 
 If the target uses `eslint-plugin-xwalk`, preserve its existing rule options and
 allow the five key/value metadata fields on this section model:
 
 ```js
-'xwalk/max-cells': ['error', { 'global-section': 5 }]
+'xwalk/max-cells': ['error', { 'section-custom-v3': 5 }]
 ```
 
 This exception is for section metadata only, not for content-block table cells.
@@ -160,13 +159,20 @@ a disposable target page; local simulation cannot verify those.
 ## Saved contract and behavior
 
 The visible title is **Global section**, in **Layouts**, with block placement in
-the **Layout** tab. The section definition/model/filter is `global-section` and
-`layout = global-section-columns`, with `column-count` and `column-gap`. Block placement uses
-`classes_layoutcolumn`, `classes_layoutwidth`, `classes_layoutalign` and
-`classes_layoutrow`; class values use the `layout-` prefix. These are new saved
-names, not aliases for the old custom V3 names. Public layout CSS is scoped under
+the **Layout** tab. The section definition/model/filter is `section-custom-v3` and
+`layout = columns-v3`, with `column-count` and `column-gap`. Block placement uses
+`classes_layoutv3column`, `classes_layoutv3width`, `classes_layoutv3align` and
+`classes_layoutv3row`; saved class values use the `layout-v3-` prefix.
+These original names match the existing Stage extension. Public CSS is scoped under
 `.global-section.layout-columns`; transient presentation uses `layout-*`,
 `data-layout-*` and `--layout-*`.
+
+Rendering also accepts the renamed `global-section-columns` value and falls back
+to renamed `layout-*` placement tokens when the original setting is absent.
+Original settings win per-field conflicts; invalid original values use defaults.
+No saved values are rewritten. All new authoring uses the original contract.
+There is no duplicate renamed section model in these contributions; any sections
+already saved with model `global-section` need a separate review before editing.
 
 Counts 1–4, gaps 0/12/24/48px, own/shared rows and alignment behave as before.
 Below 600px columns stack; 600–899px uses up to two columns with full-width
@@ -176,8 +182,8 @@ changing saved values. Disabling Columns restores authored order. Default layout
 uses the host project's regular section presentation.
 
 The App Builder **Layouts** panel is a separate, optional project. This folder
-does not include or deploy it. Use an extension built with the new contract and
-registration ID `comwrap.eds.layouts`. Each
+does not include or deploy it. Use an extension built with the restored contract and
+registration ID `comwrap.eds.layouts-v3`. Each
 target organization must enable/register the extension separately. Without it,
 use native section **Add**, then **Assigned column**. Native content-tree column
 containers and on-canvas Add interactions are not created by this package.

@@ -5,7 +5,7 @@
       "section",
       "section-v2",
       "section-native-v3",
-      "global-section"
+      "section-custom-v3"
     ]
   },
   {
@@ -64,7 +64,7 @@
     ]
   },
   {
-    "id": "global-section",
+    "id": "section-custom-v3",
     "components": [
       "global-title",
       "global-text",

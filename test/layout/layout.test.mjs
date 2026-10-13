@@ -4,10 +4,11 @@ import {
   sectionSettings, blockPlacement, assignColumns, groupRows, WIDTH_VALUES, GAP_VALUES,
 } from '../../layout/layout.js';
 
-test('only the explicit Global section metadata enables the layout', () => {
-  [undefined, {}, { layout: 'default' }, { layout: 'columns' }, { layout: 'columns-v2' }, { layout: 'columns-v3' }].forEach((data) => {
+test('original and renamed custom metadata enable layout; V1 and V2 stay excluded', () => {
+  [undefined, {}, { layout: 'default' }, { layout: 'columns' }, { layout: 'columns-v2' }, { layout: 'unknown' }].forEach((data) => {
     assert.equal(sectionSettings(data).enabled, false);
   });
+  assert.deepEqual(sectionSettings({ layout: 'columns-v3' }), { enabled: true, count: 2, gap: 24 });
   assert.deepEqual(sectionSettings({ layout: 'global-section-columns' }), { enabled: true, count: 2, gap: 24 });
 });
 
@@ -40,7 +41,21 @@ test('placement defaults and all supported widths and alignments', () => {
   );
   assert.equal(blockPlacement(['layout-column-3', 'layout-column-4']).column, 1);
   assert.deepEqual(blockPlacement(['layout-v2-column-4', 'layout-v2-width-25']), blockPlacement());
-  assert.deepEqual(blockPlacement(['layout-v3-column-4', 'layout-v3-width-25', 'layout-v3-align-end', 'layout-v3-row-share']), blockPlacement());
+  assert.deepEqual(blockPlacement(['layout-v3-column-4', 'layout-v3-width-25', 'layout-v3-align-end', 'layout-v3-row-share']), {
+    column: 4, width: 0.25, align: 'end', row: 'share',
+  });
+});
+
+test('original placement wins per field; renamed values are read-only fallback', () => {
+  const tokens = ['layout-v3-column-2', 'layout-column-4', 'layout-width-50', 'layout-align-end', 'layout-row-share'];
+  const before = [...tokens];
+  assert.deepEqual(blockPlacement(tokens), {
+    column: 2, width: 0.5, align: 'end', row: 'share',
+  });
+  assert.deepEqual(tokens, before, 'saved tokens are never changed');
+  assert.equal(blockPlacement(['layout-v3-column-0', 'layout-column-4']).column, 1);
+  assert.equal(blockPlacement(['layout-v3-column-2', 'layout-v3-column-3', 'layout-column-4']).column, 1);
+  assert.equal(blockPlacement(['layout-v3-width-bad', 'layout-width-50']).width, 1);
 });
 
 test('assignment retains saved order and empty columns', () => {

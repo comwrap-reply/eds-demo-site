@@ -10,14 +10,14 @@ test('authoring contributions are resolved and retain the persisted contract', a
   const definitions = await json('authoring/component-definition.json');
   const models = await json('authoring/component-models.json');
   const filters = await json('authoring/component-filters.json');
-  const ids = ['global-section', 'global-title', 'global-text', 'global-image', 'teaser'];
+  const ids = ['section-custom-v3', 'global-title', 'global-text', 'global-image', 'teaser'];
   const definitionIds = definitions.groups.flatMap((group) => (
     group.components.map((item) => item.id)
   ));
   assert.deepEqual(definitionIds, ids);
   assert.deepEqual(models.map((item) => item.id), ids);
-  assert.equal(definitions.groups[0].components[0].plugins.xwalk.page.template.layout, 'global-section-columns');
-  assert.deepEqual(filters, [{ id: 'global-section', components: ids.slice(1) }]);
+  assert.equal(definitions.groups[0].components[0].plugins.xwalk.page.template.layout, 'columns-v3');
+  assert.deepEqual(filters, [{ id: 'section-custom-v3', components: ids.slice(1) }]);
   assert(!JSON.stringify(models).includes('"..."'), 'no external aggregation references');
   const { fields } = await json('authoring/placement.json');
   models.slice(1).forEach((model) => {

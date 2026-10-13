@@ -1,30 +1,39 @@
 # Global section and Layout
 
-The site's custom section implementation uses version-free names. Its authoring
+The site's custom section implementation uses version-free source names. Its authoring
 group is **Layouts**, its component title is **Global section**, and supported
 blocks gain a **Layout** tab. Native V3 stays in `layout-v3/` and **Layouts - V3**.
 
-## Breaking change
+## Saved-content compatibility
 
-There are no custom V3 aliases or fallback mappings. Existing AEM content is not
-modified by this change. Recreate or separately migrate old custom sections and
-placement properties before deploying. The ordinary section, V1, V2, Native V3,
-Freeform, AEM resource types and supported block IDs are unchanged.
+The October 13 repair restores the original saved V3 contract used by existing
+AEM content and the deployed Stage extension. The October 9 breaking contract
+rename is superseded; source folders and visible labels remain version-free.
+No AEM content is migrated or deleted. Ordinary sections, V1, V2, Native V3,
+Freeform, resource types and supported block IDs are unchanged.
 
 | Saved interface | Value |
 | --- | --- |
-| Section definition, model and filter | `global-section` |
-| Enabled section `layout` | `global-section-columns` |
+| Section definition, model and filter | `section-custom-v3` |
+| Enabled section `layout` | `columns-v3` |
 | Section count / gap | `column-count` / `column-gap` |
-| Assigned column | `classes_layoutcolumn`: `layout-column-1` … `layout-column-4` |
-| Width | `classes_layoutwidth`: `layout-width-{100,75,two-thirds,50,third,25}` |
-| Alignment | `classes_layoutalign`: `layout-align-{start,center,end}` |
-| Row | `classes_layoutrow`: `layout-row-{own,share}` |
+| Assigned column | `classes_layoutv3column`: `layout-v3-column-1` … `layout-v3-column-4` |
+| Width | `classes_layoutv3width`: `layout-v3-width-{100,75,two-thirds,50,third,25}` |
+| Alignment | `classes_layoutv3align`: `layout-v3-align-{start,center,end}` |
+| Row | `classes_layoutv3row`: `layout-v3-row-{own,share}` |
 
 Placement fields remain class properties, not content rows. Defaults are column 1,
 full width, Start and Own row. Newly added sections default to Columns, two columns
-and Medium gap. Missing or invalid layout metadata stays inactive; only
-`global-section-columns` activates the custom renderer.
+and Medium gap. Missing or invalid layout metadata stays inactive. The renderer
+accepts `columns-v3` and the renamed `global-section-columns` value. For each
+placement setting, original `layout-v3-*` values take precedence; renamed
+`layout-*` values are read only when the original setting is absent. Invalid or
+conflicting original tokens use defaults, not stale renamed values.
+
+New authoring writes the original properties. There is no duplicate
+`global-section` authoring definition: any content saved under that renamed
+model elsewhere needs a separate review before editing. Existing labels stored
+in AEM may still say Custom Section - V3 until an author changes the section name.
 
 ## Author usage
 
@@ -36,7 +45,7 @@ in the block's **Layout** tab. Existing appearance controls remain available.
 The optional sibling `eds-layout-extension` supplies the **Layouts** panel with
 collapsible sections/columns, bottom Add controls, selection for Properties,
 reassignment, deletion and within-column drag reordering. Its registration ID is
-`comwrap.eds.layouts`. It does not replace the native content tree or make the
+`comwrap.eds.layouts-v3`. It does not replace the native content tree or make the
 canvas's empty-column instructions clickable.
 
 Own row reserves a row with the selected width/alignment. Consecutive shared blocks
@@ -87,5 +96,6 @@ modules from disk because `test/` is excluded from EDS delivery. The portable
 copy and extension provide independent preview servers and browser suites.
 
 Local tests cover rendering and simulated editor events, not live registration,
-SDK persistence or permissions. No content migration, commit, push or Stage
-deployment is included in this rename.
+SDK persistence or permissions. See [the recovery record](RECOVERY.md) for
+verification and the authorized preview-branch rollout. No Stage deployment or
+AEM content migration is part of the repair.

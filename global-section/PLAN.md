@@ -42,6 +42,9 @@ No commit, push, migration, or deployment is part of this task.
 
 ## Version-free contract rename — October 9, 2026
 
+Historical record: the saved-name rename below is superseded by the October 13
+repair in `../layout/RECOVERY.md`. Current integration instructions are in README.
+
 The subsequent approved breaking rename uses `global-section`,
 `global-section-columns`, `classes_layout*` and `layout-*`. It has no custom V3
 compatibility mappings. The separate site implementation now lives in `layout/`;

@@ -1,5 +1,8 @@
 # Global section naming refactor
 
+Historical October 9 plan. The saved-name portion is superseded by the
+[October 13 compatibility repair](RECOVERY.md); retain this record for context.
+
 Implement the approved breaking rename locally in the site, the separate portable
 package and the sibling extension. No CMS writes, migration, aliases, deployment,
 commit or push. Native V3, V1, V2 and Freeform retain their contracts and behavior.

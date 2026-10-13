@@ -9,14 +9,18 @@ export const WIDTH_VALUES = {
 
 export function sectionSettings(data = {}) {
   return {
-    enabled: data.layout === 'global-section-columns',
+    enabled: ['columns-v3', 'global-section-columns'].includes(data.layout),
     count: /^[1-4]$/.test(data.columnCount) ? Number(data.columnCount) : 2,
     gap: Object.hasOwn(GAP_VALUES, data.columnGap) ? GAP_VALUES[data.columnGap] : 24,
   };
 }
 
 function option(classes, name, choices, fallback) {
-  const prefix = `layout-${name}-`;
+  // Existing CMS properties and the deployed extension still use V3. Preserve
+  // renamed-only content, but let an original saved property win each conflict.
+  const original = `layout-v3-${name}-`;
+  const prefix = [...classes].some((value) => value.startsWith(original))
+    ? original : `layout-${name}-`;
   const values = [...classes].filter((value) => value.startsWith(prefix))
     .map((value) => value.slice(prefix.length));
   return values.length === 1 && choices.includes(values[0]) ? values[0] : fallback;

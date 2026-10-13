@@ -5,7 +5,7 @@ import { WIDTH_VALUES, GAP_VALUES } from '../runtime/settings.js';
 
 const resource = (id) => `urn:layout-test:${id}`;
 const blockHTML = (id, classes = '', text = id) => `<div class="global-text ${classes}" data-aue-resource="${resource(id)}" data-aue-type="component" data-aue-model="global-text"><div><div><p><a href="#layout-example">${text}</a></p></div></div></div>`;
-const sectionHTML = (id, count, blocks = '', gap = 'medium', layout = 'global-section-columns') => `<div id="${id}" data-aue-resource="${resource(id)}" data-aue-type="container" data-aue-model="global-section" data-aue-filter="global-section">${blocks}<div class="section-metadata"><div><div>Layout</div><div>${layout}</div></div><div><div>Column count</div><div>${count}</div></div><div><div>Column gap</div><div>${gap}</div></div></div></div>`;
+const sectionHTML = (id, count, blocks = '', gap = 'medium', layout = 'columns-v3') => `<div id="${id}" data-aue-resource="${resource(id)}" data-aue-type="container" data-aue-model="section-custom-v3" data-aue-filter="section-custom-v3">${blocks}<div class="section-metadata"><div><div>Layout</div><div>${layout}</div></div><div><div>Column count</div><div>${count}</div></div><div><div>Column gap</div><div>${gap}</div></div></div></div>`;
 
 async function waitFor(check, message) {
   const deadline = Date.now() + 5000;
@@ -64,11 +64,22 @@ export default async function runGlobalSectionBrowserChecks() {
     decorateGlobalSection(defaultSection);
     assert(defaultSection.outerHTML === defaultMarkup, 'default section unchanged');
 
-    const obsolete = await mount('check-obsolete', 2, blockHTML('obsolete', 'layout-v3-column-2'), 'medium', 'columns-v3');
-    assert(!obsolete.querySelector('.layout-grid'), 'obsolete custom layout is not activated');
-    assert(obsolete.textContent.includes('obsolete'), 'obsolete content remains visible without layout');
+    const inactive = await mount('check-inactive', 2, blockHTML('inactive', 'layout-v3-column-2'), 'medium', 'unknown');
+    assert(!inactive.querySelector('.layout-grid'), 'unknown layout is not activated');
+    assert(inactive.textContent.includes('inactive'), 'content remains visible without layout');
     const oldPlacement = await mount('check-old-placement', 2, blockHTML('old-placement', 'layout-v3-column-2 layout-v3-width-25'));
-    assert(items(oldPlacement)[0].closest('.layout-column') === columns(oldPlacement)[0], 'obsolete placement tokens use new defaults');
+    assert(items(oldPlacement)[0].closest('.layout-column') === columns(oldPlacement)[1], 'saved V3 assignment remains in column 2');
+    assert(items(oldPlacement)[0].style.getPropertyValue('--layout-fraction') === '0.25', 'saved V3 width retained');
+    const mixed = await mount('check-mixed', 4, [
+      blockHTML('mixed-original', 'layout-v3-column-2 layout-column-1 layout-v3-width-50 layout-v3-row-share'),
+      blockHTML('mixed-renamed', 'layout-column-2 layout-width-50 layout-row-share'),
+      blockHTML('mixed-fourth', 'layout-v3-column-4'),
+    ].join(''));
+    assert(columns(mixed).map((column) => column.querySelectorAll('.layout-item').length).join() === '0,2,0,1', 'mixed saved contracts retain placement and empty columns');
+    assert(columns(mixed)[1].querySelector('.layout-row-share').children.length === 2, 'mixed half-width blocks share a row');
+    if (desktop) near(box(items(mixed)[0]).width + box(items(mixed)[1]).width + 24, box(columns(mixed)[1]).width, 'mixed half widths fit with gap');
+    const renamed = await mount('check-renamed', 2, blockHTML('renamed', 'layout-column-2 layout-width-25'), 'medium', 'global-section-columns');
+    assert(items(renamed)[0].closest('.layout-column') === columns(renamed)[1], 'renamed layout remains renderable');
 
     const example = document.getElementById('layout-example');
     const [firstColumn] = columns(example);
@@ -98,8 +109,8 @@ export default async function runGlobalSectionBrowserChecks() {
 
     // Authored order is stable within columns and is recoverable when the layout is disabled.
     const ordered = await mount('check-order', 4, [
-      blockHTML('order-a', 'layout-column-3'), blockHTML('order-b'),
-      blockHTML('order-c', 'layout-column-3'), blockHTML('order-d', 'layout-column-4'),
+      blockHTML('order-a', 'layout-v3-column-3'), blockHTML('order-b'),
+      blockHTML('order-c', 'layout-v3-column-3'), blockHTML('order-d', 'layout-v3-column-4'),
     ].join(''));
     const originalItems = items(ordered);
     assert(originalItems.map((item) => item.textContent).join(',') === 'order-b,order-a,order-c,order-d', 'column-major reading order');
@@ -133,7 +144,7 @@ export default async function runGlobalSectionBrowserChecks() {
           const fresh = await mount(
             'check-widths',
             1,
-            blockHTML('width-own', `layout-width-${widthName} layout-align-${align}`),
+            blockHTML('width-own', `layout-v3-width-${widthName} layout-v3-align-${align}`),
             gapName,
           );
           const col = box(columns(fresh)[0]);
@@ -150,7 +161,7 @@ export default async function runGlobalSectionBrowserChecks() {
       for (const tokens of [['50', '50'], ['25', '25', '25', '25'], ['third', 'third', 'third'], ['two-thirds', 'third'], ['75', '25']]) {
         const id = `check-shared-${gapName}-${tokens.join('-')}`;
         // eslint-disable-next-line no-await-in-loop
-        const shared = await mount(id, 1, [...tokens, '100'].map((token, i) => blockHTML(`${id}-${i}`, `layout-width-${token} layout-row-share`)).join(''), gapName);
+        const shared = await mount(id, 1, [...tokens, '100'].map((token, i) => blockHTML(`${id}-${i}`, `layout-v3-width-${token} layout-v3-row-share`)).join(''), gapName);
         const blocks = items(shared).map(box);
         if (desktop) {
           blocks.slice(0, -1).forEach((rect) => near(rect.y, blocks[0].y, 'complementary widths share row'));
@@ -161,7 +172,7 @@ export default async function runGlobalSectionBrowserChecks() {
       }
     }
 
-    const aligned = await mount('check-aligned', 1, ['center', 'center', 'end', 'end'].map((align, i) => blockHTML(`aligned-${i}`, `layout-width-25 layout-row-share layout-align-${align}`)).join(''));
+    const aligned = await mount('check-aligned', 1, ['center', 'center', 'end', 'end'].map((align, i) => blockHTML(`aligned-${i}`, `layout-v3-width-25 layout-v3-row-share layout-v3-align-${align}`)).join(''));
     assert(aligned.querySelectorAll('.layout-row').length === 2, 'alignment changes interrupt shared groups');
     if (desktop) {
       const [a, b, c, d] = items(aligned).map(box);
@@ -183,9 +194,9 @@ export default async function runGlobalSectionBrowserChecks() {
     assert(document.querySelectorAll('#layout-empty .layout-empty').length === 2, 'only empty columns show instructions');
     assert(document.querySelector('#layout-reduction .layout-warning'), 'editor count-reduction warning');
 
-    let a = blockHTML('live-a', 'layout-column-2');
-    const b = blockHTML('live-b', 'layout-column-4');
-    const c = blockHTML('live-c', 'layout-column-4');
+    let a = blockHTML('live-a', 'layout-v3-column-2');
+    const b = blockHTML('live-b', 'layout-v3-column-4');
+    const c = blockHTML('live-c', 'layout-v3-column-4');
     await mount('check-live', 2, a);
     refreshGlobalSectionEditor();
     // A service may send a main snapshot for a section-only property change.
@@ -199,7 +210,7 @@ export default async function runGlobalSectionBrowserChecks() {
     assert(live.querySelectorAll('.layout-empty').length === 3, 'count increase creates new empty states');
     live = await updateSection('add', 'check-live', 4, a + b);
     assert(live.querySelectorAll('.layout-empty').length === 2, 'add removes its empty state');
-    a = blockHTML('live-a', 'layout-column-4', 'edited-a');
+    a = blockHTML('live-a', 'layout-v3-column-4', 'edited-a');
     dispatch('update', [{ resource: resource('live-a'), content: a }], resource('live-a'));
     await waitFor(() => document.querySelector(`[data-aue-resource="${resource('live-a')}"]`)?.closest('.layout-column')?.dataset.layoutColumn === '4', 'block reassignment');
     assert(live.querySelectorAll('.layout-empty').length === 3, 'moving last block restores previous empty state');
@@ -217,7 +228,7 @@ export default async function runGlobalSectionBrowserChecks() {
       && document.getElementById('check-destination')?.dataset.sectionStatus === 'loaded', 'cross-section move');
     live = document.getElementById('check-live');
     assert(items(live).length === 2 && items(document.getElementById('check-destination')).length === 1, 'both move snapshots applied');
-    assert(document.querySelector(`[data-aue-resource="${resource('live-a')}"]`).classList.contains('layout-column-4'), 'clamped destination does not rewrite assignment');
+    assert(document.querySelector(`[data-aue-resource="${resource('live-a')}"]`).classList.contains('layout-v3-column-4'), 'clamped destination does not rewrite assignment');
     live = await updateSection('remove', 'check-live', 4, c);
     dispatch('remove', [], resource('live-c'));
     await waitFor(() => !document.querySelector(`[data-aue-resource="${resource('live-c')}"]`), 'contentless remove');

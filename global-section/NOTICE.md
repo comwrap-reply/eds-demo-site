@@ -1,6 +1,6 @@
 # Provenance
 
-Portable copy of Global section (`global-section`, `global-section-columns`) and the four
+Portable copy of Global section (`section-custom-v3`, `columns-v3`) and the four
 supported blocks from `eds-demo-site`, October 9, 2026. Existing site files remain
 unchanged; this is a separately maintained copy, not an automatically synced export.
 
