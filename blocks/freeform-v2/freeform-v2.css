@@ -3,6 +3,10 @@
   overflow-wrap: anywhere;
 }
 
+.freeform-v2.render-html > .freeform-v2-source {
+  display: none;
+}
+
 .freeform-v2 .rte-unsupported-block {
   display: block;
   margin-block: 1rem;

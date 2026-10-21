@@ -53,9 +53,28 @@
             </div>
           </div>
         </div>
+        <h2>Render text as HTML: enabled</h2>
+        <div class="freeform-v2 render-html" id="html-source-enabled">
+          <div><div><p>&lt;div<br>class="contentcard section"&gt;<br>&lt;div class="wrap-content-card text-left"&gt;<br>&lt;div class="color-legends" style="margin: auto; border-left: 3px solid #002c80; padding: 1rem;"&gt;<br>&lt;ul style="list-style: none; padding-left: 0; margin-bottom: 0;"&gt;<br>&lt;li class="color-legend color-ce"&gt;&lt;span&gt;Central&lt;/span&gt; &lt;strong&gt;176,831&lt;/strong&gt;&lt;/li&gt;<br>&lt;li class="color-legend color-co"&gt;&lt;span&gt;Coastal&lt;/span&gt; &lt;strong&gt;347,951&lt;/strong&gt;&lt;/li&gt;<br>&lt;li class="color-legend color-ea"&gt;&lt;span&gt;East&lt;/span&gt; &lt;strong&gt;181,801&lt;/strong&gt;&lt;/li&gt;<br>&lt;li class="color-legend color-ma"&gt;&lt;span&gt;Metro Atlanta&lt;/span&gt; &lt;strong&gt;1,442,624&lt;/strong&gt;&lt;/li&gt;<br>&lt;li class="color-legend color-ne"&gt;&lt;span&gt;Northeast&lt;/span&gt; &lt;strong&gt;212,679&lt;/strong&gt;&lt;/li&gt;<br>&lt;li class="color-legend color-nw"&gt;&lt;span&gt;Northwest&lt;/span&gt; &lt;strong&gt;185,176&lt;/strong&gt;&lt;/li&gt;<br>&lt;li class="color-legend color-so"&gt;&lt;span&gt;South&lt;/span&gt; &lt;strong&gt;139,647&lt;/strong&gt;&lt;/li&gt;<br>&lt;li class="color-legend color-we"&gt;&lt;span&gt;West&lt;/span&gt; &lt;strong&gt;146,821&lt;/strong&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/div&gt;<br>&lt;/div&gt;<br>&lt;/div&gt;</p></div></div>
+        </div>
+        <h2>Render text as HTML: disabled</h2>
+        <div class="freeform-v2" id="html-source-disabled">
+          <div><div><p>&lt;p class="custom-copy" style="color: purple;"&gt;This stays visible as HTML source.&lt;/p&gt;</p></div></div>
+        </div>
+        <h2>Paragraph-separated source and literal entities</h2>
+        <div class="freeform-v2 render-html" id="html-source-paragraphs">
+          <div><div>
+            <p>&lt;div</p>
+            <p>class="authored-layout" style="color: purple;"&gt;</p>
+            <p>&lt;p&gt;Literal code: &amp;lt;sample-tag&amp;gt; &amp;amp; text.&lt;/p&gt;</p>
+            <p>&lt;/div&gt;</p>
+          </div></div>
+        </div>
         <h2>Empty content</h2>
         <div class="freeform-v2"><div><div></div></div></div>
         <div class="freeform-v2"></div>
+        <div class="freeform-v2 render-html"><div><div></div></div></div>
+        <div class="freeform-v2 render-html"></div>
       </div>
     </main>
     <!-- Keep the shared footer out of this block's responsive test. -->

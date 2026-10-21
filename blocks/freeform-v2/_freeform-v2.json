@@ -29,6 +29,14 @@
           "label": "Content",
           "description": "Rich text with unsupported HTML preservation. Unknown tags remain as unsupported nodes in the editor; AEM publishing rules still apply.",
           "value": ""
+        },
+        {
+          "component": "boolean",
+          "valueType": "boolean",
+          "name": "classes_render-html",
+          "label": "Render text as HTML",
+          "description": "Turn on to render HTML source pasted into Content as text. Turn off to edit rich text normally or display the source. When enabled, edit the source in the Content field in this panel.",
+          "value": false
         }
       ]
     }
