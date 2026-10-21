@@ -134,6 +134,7 @@
         "column-break",
         "fragment",
         "freeform",
+        "freeform-v2",
         "horizontal-rule",
         "teaser"
       ]

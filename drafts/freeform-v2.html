@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta name="five9-enabled" content="false">
+    <meta name="nav" content="/drafts/nav">
+    <meta name="footer" content="/drafts/footer">
+    <title>Freeform v2 test content</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script type="module" src="/scripts/scripts.js"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <h1>Freeform v2</h1>
+        <p>Rich text and HTML preservation examples.</p>
+        <div class="freeform-v2">
+          <div>
+            <div>
+              <h2>Standard rich text</h2>
+              <p>Keep <strong>bold</strong>, <em>italic</em>, <a href="#custom-html">links</a>, and <code>&lt;sample-tag&gt;</code> as authored.</p>
+              <p id="authored-link" class="authored-paragraph custom-spacing" style="padding: 8px; border-left: 3px solid #002c80;"><strong class="authored-emphasis" style="font-style: italic;"><a href="#custom-html" class="authored-link custom-link" style="color: rgb(128, 0, 128); text-decoration: underline;">Link with authored classes and styles</a></strong></p>
+              <p><span class="text-color-blue custom-inline" style="background-color: rgb(255, 240, 200); padding: 4px;">Class styling and inline CSS together</span></p>
+              <ul><li>First item</li><li>Second item</li></ul>
+              <table>
+                <caption>Sample table</caption>
+                <thead><tr><th scope="col">Element</th><th scope="col">Content</th></tr></thead>
+                <tbody><tr><td>Table cell</td><td>Preserved markup</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="freeform-v2">
+          <div>
+            <div>
+              <section id="custom-html" aria-labelledby="custom-title" data-example="nested">
+                <div class="authored-layout" style="border: 2px solid #002c80; padding: 1rem;">
+                  <article>
+                    <h2 id="custom-title">Custom HTML</h2>
+                    <p>Nested structural tags, classes, attributes, and inline styles remain in the content.</p>
+                    <details>
+                      <summary>Open native HTML disclosure</summary>
+                      <p>Native interactivity still works.</p>
+                    </details>
+                    <demo-callout data-variant="info"><p>A custom element with <mark>highlighted text</mark>.</p></demo-callout>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="40" viewBox="0 0 80 40" role="img" aria-label="Blue sample circle"><circle cx="40" cy="20" r="16" fill="#002c80"></circle></svg>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <h2>Empty content</h2>
+        <div class="freeform-v2"><div><div></div></div></div>
+        <div class="freeform-v2"></div>
+      </div>
+    </main>
+    <!-- Keep the shared footer out of this block's responsive test. -->
+    <footer hidden></footer>
+  </body>
+</html>

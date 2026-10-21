@@ -77,6 +77,9 @@ function buildAutoBlocks() {
  */
 export function decorateButtons(main) {
   main.querySelectorAll('p a[href]').forEach((a) => {
+    // Freeform content owns its markup, including classes and styled emphasis.
+    if (a.closest('.freeform-v2')) return;
+
     a.title = a.title || a.textContent;
     const p = a.closest('p');
     const text = a.textContent.trim();

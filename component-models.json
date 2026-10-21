@@ -1379,6 +1379,19 @@
     ]
   },
   {
+    "id": "freeform-v2",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Content",
+        "description": "Rich text with unsupported HTML preservation. Unknown tags remain as unsupported nodes in the editor; AEM publishing rules still apply.",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "freeform",
     "fields": [
       {

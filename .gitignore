@@ -3,6 +3,11 @@ coverage/*
 logs/*
 node_modules/*
 
+# Generated browser automation logs, snapshots, and screenshots
+/.playwright-cli/
+/.playwright-mcp/
+/output/playwright/
+
 helix-importer-ui
 .DS_Store
 *.bak

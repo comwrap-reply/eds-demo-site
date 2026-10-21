@@ -1,0 +1,23 @@
+.freeform-v2 {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.freeform-v2 .rte-unsupported-block {
+  display: block;
+  margin-block: 1rem;
+  padding: 0.75rem;
+  border: 1px dashed currentcolor;
+}
+
+.freeform-v2 .rte-unsupported-inline {
+  display: inline-block;
+  padding-inline: 0.25rem;
+  border: 1px dashed currentcolor;
+  vertical-align: baseline;
+}
+
+.freeform-v2 .rte-unsupported-label {
+  font-size: 0.75em;
+  font-weight: 700;
+}

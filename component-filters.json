@@ -21,6 +21,7 @@
       "column-break",
       "fragment",
       "freeform",
+      "freeform-v2",
       "horizontal-rule",
       "teaser"
     ]
@@ -56,6 +57,12 @@
     "components": [
       "content-grid-item"
     ]
+  },
+  {
+    "id": "freeform-v2",
+    "rte": {
+      "unsupportedHtml": true
+    }
   },
   {
     "id": "hero-carousel",
