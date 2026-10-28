@@ -60,3 +60,11 @@ Open `http://localhost:3001/drafts/tmp/content-fragment-test`. This browser harn
 - [Universal Editor content fragment field](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/field-types#content-fragment)
 - [Adobe Content Fragment Block example](https://github.com/adobe-rnd/aem-boilerplate-xwalk/pull/76)
 - [Content fragment overlay](https://www.aem.live/developer/content-fragment-overlay)
+
+## Current handoff status
+
+Three block instances are saved in the previously empty second section of the author test page, referencing master, residential and commercial. The API read-back confirms their fragment path and variation properties. Their native selector and rendered author preview still require the new component model/code to be deployed.
+
+The local branch is `codex/content-fragment-variations`. Push via the configured SSH remote failed authentication; HTTPS push was rejected with HTTP 403 because the saved account `sbadon122` lacks write access to `comwrap-reply/eds-demo-site`. After fixing Git authentication, push this branch and open the test page in Universal Editor with `?ref=codex-content-fragment-variations` appended to the page URL in its location bar. Do not merge into main until the native picker and author rendering have been verified.
+
+Automated browser assertions passed (18 checks), and the 375px and 768px layouts had no horizontal overflow. The desktop check was interrupted by a browser-control timeout and remains to be repeated. `npm run lint` and `npm test` pass. Publishing the query to Publish was rejected by automatic approval review as outside the authorized author-side test; no Publish deployment was performed.

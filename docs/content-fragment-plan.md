@@ -5,7 +5,8 @@
 - [x] Design the model: native fragment picker plus a hidden variation field; blank means master.
 - [x] Create a real Content Card fragment with master, residential and commercial variations.
 - [x] Implement a content-fragment block with a persisted GraphQL query, scoped responsive styling and graceful empty/error states.
-- [ ] Build model aggregates, run lint and tests, and validate in the browser.
+- [x] Build model aggregates, run lint and tests, and validate rendering in the browser at 375px and 768px.
+- [ ] Repeat desktop validation after the browser-control timeout.
 - [ ] Verify the picker changes rendered copy on the AEM test page.
 - [ ] Prepare the code and preview URL for review.
 
@@ -25,3 +26,5 @@ The AEM fragment model supplies `heading` (text), `body` (long text), `link` (te
 Test target: /content/eds-demo-site/test (AEM author); /test (EDS preview).
 
 Reference: https://github.com/adobe-rnd/aem-boilerplate-xwalk/pull/76
+
+Three test blocks are persisted on the author test page. The native UI test and PR are blocked on GitHub write access. Publish deployment requires approval after automatic review rejected the query publication.
