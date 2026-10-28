@@ -642,6 +642,297 @@
     ]
   },
   {
+    "id": "text-home",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes_alignment",
+        "label": "Alignment — Home",
+        "description": "The home page offers a focused set of text modifiers.",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Left",
+            "value": "text-align-left"
+          },
+          {
+            "name": "Center",
+            "value": "text-align-center"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_color",
+        "label": "Color — Home",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Black",
+            "value": "text-color-black"
+          },
+          {
+            "name": "FNG Blue",
+            "value": "text-color-blue"
+          },
+          {
+            "name": "FNG Orange",
+            "value": "text-color-orange"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "text-freeform",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes_alignment",
+        "label": "Alignment — Freeform",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Left",
+            "value": "text-align-left"
+          },
+          {
+            "name": "Center",
+            "value": "text-align-center"
+          },
+          {
+            "name": "Right",
+            "value": "text-align-right"
+          },
+          {
+            "name": "Justify",
+            "value": "text-align-justify"
+          }
+        ],
+        "description": "The freeform page offers the full text modifier palette and grid controls."
+      },
+      {
+        "component": "select",
+        "name": "classes_color",
+        "label": "Color — Freeform",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Black",
+            "value": "text-color-black"
+          },
+          {
+            "name": "Dark Gray",
+            "value": "text-color-dark-gray"
+          },
+          {
+            "name": "FNG Blue",
+            "value": "text-color-blue"
+          },
+          {
+            "name": "FNG Light Blue",
+            "value": "text-color-light-blue"
+          },
+          {
+            "name": "FNG Cyan",
+            "value": "text-color-cyan"
+          },
+          {
+            "name": "FNG Orange",
+            "value": "text-color-orange"
+          },
+          {
+            "name": "Green",
+            "value": "text-color-green"
+          },
+          {
+            "name": "Red",
+            "value": "text-color-red"
+          },
+          {
+            "name": "Grey Blue",
+            "value": "text-color-grey-blue"
+          },
+          {
+            "name": "Muted Orange",
+            "value": "text-color-muted-orange"
+          },
+          {
+            "name": "White",
+            "value": "text-color-white"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridspan",
+        "label": "Grid span",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "1 space",
+            "value": "grid-span-1"
+          },
+          {
+            "name": "2 spaces",
+            "value": "grid-span-2"
+          },
+          {
+            "name": "3 spaces",
+            "value": "grid-span-3"
+          },
+          {
+            "name": "4 spaces",
+            "value": "grid-span-4"
+          },
+          {
+            "name": "5 spaces",
+            "value": "grid-span-5"
+          },
+          {
+            "name": "6 spaces",
+            "value": "grid-span-6"
+          },
+          {
+            "name": "7 spaces",
+            "value": "grid-span-7"
+          },
+          {
+            "name": "8 spaces",
+            "value": "grid-span-8"
+          },
+          {
+            "name": "9 spaces",
+            "value": "grid-span-9"
+          },
+          {
+            "name": "10 spaces",
+            "value": "grid-span-10"
+          },
+          {
+            "name": "11 spaces",
+            "value": "grid-span-11"
+          },
+          {
+            "name": "12 spaces",
+            "value": "grid-span-12"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridstart",
+        "label": "Grid start",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Auto",
+            "value": ""
+          },
+          {
+            "name": "Column 1",
+            "value": "grid-start-1"
+          },
+          {
+            "name": "Column 2",
+            "value": "grid-start-2"
+          },
+          {
+            "name": "Column 3",
+            "value": "grid-start-3"
+          },
+          {
+            "name": "Column 4",
+            "value": "grid-start-4"
+          },
+          {
+            "name": "Column 5",
+            "value": "grid-start-5"
+          },
+          {
+            "name": "Column 6",
+            "value": "grid-start-6"
+          },
+          {
+            "name": "Column 7",
+            "value": "grid-start-7"
+          },
+          {
+            "name": "Column 8",
+            "value": "grid-start-8"
+          },
+          {
+            "name": "Column 9",
+            "value": "grid-start-9"
+          },
+          {
+            "name": "Column 10",
+            "value": "grid-start-10"
+          },
+          {
+            "name": "Column 11",
+            "value": "grid-start-11"
+          },
+          {
+            "name": "Column 12",
+            "value": "grid-start-12"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "classes_gridfloat",
+        "label": "Floating position",
+        "value": "",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Stretch",
+            "value": ""
+          },
+          {
+            "name": "Left",
+            "value": "grid-float-left"
+          },
+          {
+            "name": "Center",
+            "value": "grid-float-center"
+          },
+          {
+            "name": "Right",
+            "value": "grid-float-right"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "button",
     "fields": [
       {

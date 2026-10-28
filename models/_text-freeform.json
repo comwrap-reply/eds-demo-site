@@ -1,0 +1,21 @@
+{
+  "models": [
+    {
+      "id": "text-freeform",
+      "fields": [
+        {
+          "...": "./_text.json#/models/text/fields/classes_alignment",
+          "label": "Alignment — Freeform",
+          "description": "The freeform page offers the full text modifier palette and grid controls."
+        },
+        {
+          "...": "./_text.json#/models/text/fields/classes_color",
+          "label": "Color — Freeform"
+        },
+        { "...": "./_text.json#/models/text/fields/classes_gridspan" },
+        { "...": "./_text.json#/models/text/fields/classes_gridstart" },
+        { "...": "./_text.json#/models/text/fields/classes_gridfloat" }
+      ]
+    }
+  ]
+}

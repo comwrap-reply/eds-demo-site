@@ -12,6 +12,12 @@
     "...": "./_text.json#/models"
   },
   {
+    "...": "./_text-home.json#/models"
+  },
+  {
+    "...": "./_text-freeform.json#/models"
+  },
+  {
     "...": "./_button.json#/models"
   },
   {

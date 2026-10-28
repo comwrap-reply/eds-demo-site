@@ -2,6 +2,8 @@
 /* eslint-disable no-cond-assign */
 /* eslint-disable import/prefer-default-export */
 
+import decorateTextModifiers from './text-modifiers.js';
+
 // group editable texts in single wrappers if applicable.
 // this script should execute after script.js but before the the universal editor cors script
 // and any block being loaded
@@ -64,4 +66,6 @@ export function decorateRichtext(container = document) {
       group.append(element, ...siblings);
     }
   }
+
+  decorateTextModifiers(container);
 }

@@ -1,0 +1,35 @@
+{
+  "models": [
+    {
+      "id": "text-home",
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes_alignment",
+          "label": "Alignment — Home",
+          "description": "The home page offers a focused set of text modifiers.",
+          "value": "",
+          "valueType": "string",
+          "options": [
+            { "name": "Default", "value": "" },
+            { "name": "Left", "value": "text-align-left" },
+            { "name": "Center", "value": "text-align-center" }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "classes_color",
+          "label": "Color — Home",
+          "value": "",
+          "valueType": "string",
+          "options": [
+            { "name": "Default", "value": "" },
+            { "name": "Black", "value": "text-color-black" },
+            { "name": "FNG Blue", "value": "text-color-blue" },
+            { "name": "FNG Orange", "value": "text-color-orange" }
+          ]
+        }
+      ]
+    }
+  ]
+}
