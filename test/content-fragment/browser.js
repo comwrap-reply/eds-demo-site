@@ -15,11 +15,11 @@ const fixtures = {
 const originalFetch = window.fetch;
 let mode = 'success';
 window.fetch = async (url, options) => {
-  if (!String(url).includes('/graphql/execute.json/eds-demo-site/content-card-by-path;')) {
+  if (!String(url).includes('/graphql/execute.json/eds-demo-site/content-card-by-path%3B')) {
     return originalFetch(url, options);
   }
   if (mode === 'error') return new Response('', { status: 503 });
-  const variation = decodeURIComponent(String(url).split(';variation=')[1]);
+  const variation = decodeURIComponent(String(url)).split(';variation=')[1].replace(/;$/, '');
   const item = mode === 'empty' ? null : {
     ...(fixtures[variation] || fixtures.master),
     _variation: fixtures[variation] ? variation : 'master',
@@ -107,7 +107,14 @@ async function run() {
   const error = makeBlock();
   await decorate(error);
   assert(error.textContent === 'This content is currently unavailable.' && !error.hasAttribute('aria-busy'), 'request failures clear loading state');
-  assert(getQueryURL({ path: `${path};other=value`, variation: 'campaign & sale' }).includes('%3Bother%3Dvalue;variation=campaign%20%26%20sale'), 'query variables cannot inject additional parameters');
+  assert(getQueryURL({ path, variation: 'residential' }).endsWith('content-card-by-path%3Bpath%3D%2Fcontent%2Fdam%2Feds-demo-site%2Fcontent-fragments%2Fenergy-solutions%3Bvariation%3Dresidential;'), 'query URL matches the request verified against AEM author');
+  let rejectedDelimiter = false;
+  try {
+    getQueryURL({ path: `${path};other=value`, variation: 'master' });
+  } catch {
+    rejectedDelimiter = true;
+  }
+  assert(rejectedDelimiter, 'query variables cannot inject additional parameters');
   mode = 'success';
   cases.remove();
   await renderDemo();

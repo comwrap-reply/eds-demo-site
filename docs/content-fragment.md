@@ -26,18 +26,18 @@ The block keeps its `data-aue-*` attributes so the properties rail and variation
 - Query source: [content-card-by-path.graphql](content-fragment/content-card-by-path.graphql).
 - Author test page: `/content/eds-demo-site/test`.
 
-The query has been executed on author with the residential variation and returns the expected fields. It is saved on author. Publication to the Publish tier has not been approved.
+The query has been executed on author with the residential variation and returns the expected fields, both in GraphiQL and via its persisted GET URL. It is saved on author. Publication to the Publish tier has not been approved.
 
 ## Delivery
 
-`blocks/content-fragment/config.js` defines the author origin, publish origin and query path. The block uses same-origin author requests while editing in AEM and anonymous requests to the publish origin on EDS. Requests encode the fragment path and variation; there is no random cache-busting parameter and no credential stored in source code. The query is specific to the EDS Content Card model; selecting another model shows the unavailable state.
+`blocks/content-fragment/config.js` defines the author origin, publish origin and query path. The block uses same-origin author requests while editing in AEM and anonymous requests to the publish origin on EDS. Requests encode the complete variable suffix, including semicolon and equals separators, following Adobe's Headless SDK. Encoding only the values leaves the fragment path escaped on this AEM environment and produces a missing-resource error. Values containing query delimiters are rejected. There is no random cache-busting parameter and no credential stored in source code. The query is specific to the EDS Content Card model; selecting another model shows the unavailable state.
 
 Before public EDS delivery, publish the dedicated model, GraphQL endpoint, persisted query and demo fragment, then verify the query on Publish. Configure Publish CORS for the actual EDS origins (and localhost for development if required). `head.html` permits connections to the specific demo Publish origin. This repository does not contain the AEM dispatcher/OSGi configuration, so any required Publish CORS/dispatcher changes belong in the AEM project. Do not open arbitrary origins or expose the author service to anonymous visitors.
 
 Example persisted-query request:
 
 ```text
-/graphql/execute.json/eds-demo-site/content-card-by-path;path=%2Fcontent%2Fdam%2Feds-demo-site%2Fcontent-fragments%2Fenergy-solutions;variation=residential
+/graphql/execute.json/eds-demo-site/content-card-by-path%3Bpath%3D%2Fcontent%2Fdam%2Feds-demo-site%2Fcontent-fragments%2Fenergy-solutions%3Bvariation%3Dresidential;
 ```
 
 This implementation loads content client-side, following Adobe's reference CF block. For content that must appear in the initial HTML for SEO, use the Content Fragment overlay/json2html delivery approach separately.
@@ -59,12 +59,13 @@ Open `http://localhost:3001/drafts/tmp/content-fragment-test`. This browser harn
 
 - [Universal Editor content fragment field](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/field-types#content-fragment)
 - [Adobe Content Fragment Block example](https://github.com/adobe-rnd/aem-boilerplate-xwalk/pull/76)
+- [Persisted query URL encoding](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/headless/graphql-api/persisted-queries#encoding-query-url)
 - [Content fragment overlay](https://www.aem.live/developer/content-fragment-overlay)
 
 ## Current handoff status
 
-Three block instances are saved in the previously empty second section of the author test page, referencing master, residential and commercial. The API read-back confirms their fragment path and variation properties. Their native selector and rendered author preview still require the new component model/code to be deployed.
+Three block instances are saved in the previously empty second section of the author test page, referencing master, residential and commercial. The API read-back confirms their fragment path and variation properties. The user pushed the implementation; the new model and block are now available on main. Their native selector and rendered author preview still require browser verification.
 
-The local branch is `codex/content-fragment-variations`. Push via the configured SSH remote failed authentication; HTTPS push was rejected with HTTP 403 because the saved account `sbadon122` lacks write access to `comwrap-reply/eds-demo-site`. After fixing Git authentication, push this branch and open the test page in Universal Editor with `?ref=codex-content-fragment-variations` appended to the page URL in its location bar. Do not merge into main until the native picker and author rendering have been verified.
+The user pushed `codex/content-fragment-variations` and merged it into main. Code Sync serves the block and model, and AEM's content-definition includes the Content Fragment fields. The first author test exposed a URL-encoding defect; the corrected request was verified directly against the real persisted query. The encoding fix still needs deployment before the native picker and rendered preview can be verified together. Browser control timed out again after reconnection, and the Universal Editor shell returned a request timeout.
 
-Automated browser assertions passed (18 checks), and the 375px and 768px layouts had no horizontal overflow. The desktop check was interrupted by a browser-control timeout and remains to be repeated. `npm run lint` and `npm test` pass. Publishing the query to Publish was rejected by automatic approval review as outside the authorized author-side test; no Publish deployment was performed.
+The initial automated browser assertions passed (18 checks), and the 375px and 768px layouts had no horizontal overflow. The encoding regression adds a 19th assertion using the exact URL verified against AEM. Re-running that browser harness and the desktop check remains pending after the browser-control timeout. `npm run lint` and `npm test` pass with the fix. Publishing the query to Publish was rejected by automatic approval review as outside the authorized author-side test; no Publish deployment was performed.

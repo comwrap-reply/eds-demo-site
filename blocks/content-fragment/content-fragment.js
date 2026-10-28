@@ -18,8 +18,13 @@ export function readFragmentReference(block) {
 
 /** Build a cacheable persisted-query request with encoded GraphQL variables. */
 export function getQueryURL({ path, variation }, origin = window.location.origin) {
+  if (/[;=]/.test(path) || /[;=]/.test(variation)) {
+    throw new Error('Content Fragment paths and variations cannot contain query delimiters.');
+  }
   const base = origin === config.authorOrigin ? config.authorOrigin : config.publishOrigin;
-  return `${base}${config.queryPath};path=${encodeURIComponent(path)};variation=${encodeURIComponent(variation)}`;
+  // AEM requires encoding the complete suffix, including its parameter separators.
+  const variables = encodeURIComponent(`;path=${path};variation=${variation}`);
+  return `${base}${config.queryPath}${variables};`;
 }
 
 /** Permit authored web, mail and telephone links; never render executable URLs. */

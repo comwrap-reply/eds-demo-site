@@ -7,6 +7,8 @@
 - [x] Implement a content-fragment block with a persisted GraphQL query, scoped responsive styling and graceful empty/error states.
 - [x] Build model aggregates, run lint and tests, and validate rendering in the browser at 375px and 768px.
 - [ ] Repeat desktop validation after the browser-control timeout.
+- [x] Verify the persisted GET query against AEM and correct full parameter-suffix encoding.
+- [ ] Deploy the query encoding fix and rerun browser regression checks.
 - [ ] Verify the picker changes rendered copy on the AEM test page.
 - [ ] Prepare the code and preview URL for review.
 
@@ -27,4 +29,4 @@ Test target: /content/eds-demo-site/test (AEM author); /test (EDS preview).
 
 Reference: https://github.com/adobe-rnd/aem-boilerplate-xwalk/pull/76
 
-Three test blocks are persisted on the author test page. The native UI test and PR are blocked on GitHub write access. Publish deployment requires approval after automatic review rejected the query publication.
+Three test blocks are persisted on the author test page. The user has pushed and merged the initial implementation. Code Sync and the AEM model are verified. Live testing exposed a query encoding defect, now fixed locally and verified with a real persisted-query response. Browser control timed out again after reconnection. The native UI test requires deploying the fix and restoring browser access. Publish deployment requires approval after automatic review rejected the query publication.
