@@ -1123,6 +1123,29 @@
     ]
   },
   {
+    "id": "content-fragment",
+    "fields": [
+      {
+        "component": "aem-content-fragment",
+        "name": "fragmentPath",
+        "label": "Content Fragment",
+        "description": "Choose an EDS Content Card fragment, then select its variation. Main uses the master content.",
+        "valueType": "string",
+        "variationName": "contentFragmentVariation",
+        "validation": {
+          "rootPath": "/content/dam/eds-demo-site/content-fragments"
+        }
+      },
+      {
+        "component": "text",
+        "name": "contentFragmentVariation",
+        "label": "Content Fragment Variation",
+        "valueType": "string",
+        "hidden": true
+      }
+    ]
+  },
+  {
     "id": "content-grid-item",
     "fields": [
       {

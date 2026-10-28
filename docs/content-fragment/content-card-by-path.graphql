@@ -1,0 +1,12 @@
+query ContentCard($path: String!, $variation: String = "master") {
+  edsContentCardByPath(_path: $path, variation: $variation) {
+    item {
+      _path
+      _variation
+      heading
+      body { plaintext }
+      link
+      linkText
+    }
+  }
+}

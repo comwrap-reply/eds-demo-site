@@ -1,0 +1,35 @@
+main .content-fragment .content-fragment-card {
+  padding: 24px;
+  border-inline-start: 4px solid var(--link-color);
+  background: var(--light-color);
+  overflow-wrap: anywhere;
+}
+
+main .content-fragment h2 {
+  margin-top: 0;
+}
+
+main .content-fragment .content-fragment-body {
+  max-width: 70ch;
+  white-space: pre-line;
+}
+
+main .content-fragment .button-container {
+  margin-bottom: 0;
+}
+
+main .content-fragment .button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+main .content-fragment .content-fragment-message {
+  padding: 16px;
+  border: 1px solid currentcolor;
+}
+
+@media (width >= 600px) {
+  main .content-fragment .content-fragment-card {
+    padding: 32px;
+  }
+}
